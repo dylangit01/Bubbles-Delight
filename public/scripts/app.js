@@ -12,10 +12,11 @@
 // })
 
 $("document").ready(() => {
-  $(".trigger_cart").click(function () {
+  $(".trigger_cart").click(function() {
+    console.log('11111');
     setTimeout(() => {
       $(".cart").show();
-    }, 500);
+    }, 200);
     $(".cartCloseButton").click(function () {
       $(".cart").hide();
     });

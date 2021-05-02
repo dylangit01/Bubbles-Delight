@@ -46,14 +46,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="/" data-link
               >Home <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Menu</a>
+            <a class="nav-link" href="/menu" data-link>Menu</a>
           </li>
         </ul>
+
         <form class="form-inline my-2 my-lg-0">
           <input
             class="form-control mr-sm-2"
@@ -61,14 +62,16 @@
             placeholder="Email"
             aria-label="Email"
           />
-          <button class="btn btn-outline-primary my-sm-0 mr-2" type="text">
-            Login
+          <button type="button" class="btn btn-outline-primary mr-2">
+            <a class="nav-link p-0" href="/login" data-link>Login</a>
           </button>
-          <a href="#" class="trigger_cart">
+
+          <!-- To Cart -->
+          <a class="trigger_cart">
             <button
-              id="cart"
+              id="cartBtn"
               class="btn btn-outline-primary my-2 my-sm-0"
-              type="text"
+              type="button"
             >
               <i class="bi bi-bag"></i>
             </button>
@@ -77,9 +80,39 @@
       </div>
     </nav>
 
+    <!-- Login section -->
+    <form class="container mt-4">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+        />
+        <small id="emailHelp" class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Password"
+        />
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
     <!-- Header section FIX THIS LATER -->
     <header><div>HEADER HERE</div></header>
-
 
     <!-- Orders of Cart -->
     <div class="cart">
@@ -115,8 +148,11 @@
             </tr>
           </tbody>
         </table>
-        <button class="btn btn-outline-danger my-sm-0 cartCloseButton" type="submit">
-            Submit Order
+        <button
+          class="btn btn-outline-danger my-sm-0 cartCloseButton"
+          type="submit"
+        >
+          Submit Order
         </button>
       </div>
     </div>
