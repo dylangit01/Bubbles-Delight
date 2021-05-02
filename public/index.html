@@ -53,25 +53,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Menu</a>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li> -->
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input
@@ -99,13 +80,44 @@
     <!-- Header section FIX THIS LATER -->
     <header><div>HEADER HERE</div></header>
 
-    <a class="trigger_popup_fricc">Click here to show the popup</a>
 
-    <div class="hover_bkgr_fricc">
-      <span class="helper"></span>
+    <!-- Orders of Cart -->
+    <div class="cart">
+      <span class="cart_center"></span>
       <div>
-        <div class="popupCloseButton">&times;</div>
-        <p>Add any HTML content<br />inside the popup box!</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-outline-danger my-sm-0 cartCloseButton" type="submit">
+            Submit Order
+        </button>
       </div>
     </div>
 

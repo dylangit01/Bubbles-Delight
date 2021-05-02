@@ -12,17 +12,14 @@
 // })
 
 $("document").ready(() => {
-  $(".trigger_popup_fricc").click(function () {
+  $(".trigger_cart").click(function () {
     setTimeout(() => {
-      $(".hover_bkgr_fricc").show();
+      $(".cart").show();
     }, 500);
-
-    $(".hover_bkgr_fricc").click(function () {
-      $(".hover_bkgr_fricc").hide();
-    });
-    $(".popupCloseButton").click(function () {
-      $(".hover_bkgr_fricc").hide();
+    $(".cartCloseButton").click(function () {
+      $(".cart").hide();
     });
   });
+
 
 });
