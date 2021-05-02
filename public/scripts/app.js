@@ -11,4 +11,25 @@
 // });
 // })
 
+$("document").ready(() => {
+
+  $(".trigger_popup_fricc").click(function () {
+    setTimeout(() => {
+      $(".hover_bkgr_fricc").show();
+    }, 500);
+  });
+
+
+//   setTimeout(() => {
+// $(".trigger_popup_fricc").click(function () {
+//   $(".hover_bkgr_fricc").show();
+// });
+// $(".hover_bkgr_fricc").click(function () {
+//   $(".hover_bkgr_fricc").hide();
+// });
+$(".popupCloseButton").click(function () {
+  $(".hover_bkgr_fricc").hide();
+});
+
+});
 
