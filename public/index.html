@@ -30,100 +30,82 @@
   <body>
     <!-- Nav bar section -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Bubbles Delight</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Menu</a>
-            </li>
-            <li class="nav-item dropdown">
-              <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a> -->
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <form class="d-flex me-2">
-            <input
-              class="form-control me-2"
-              type="text"
-              placeholder="Email"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">Login</button>
-          </form>
-          <a href="#"></a>
-          <button class="btn btn-outline-primary" type="text">
-            <i class="bi bi-bag fa-3x"></i>
+      <a class="navbar-brand" href="#">Bubbles Delight</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Menu</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li> -->
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="Email"
+            aria-label="Email"
+          />
+          <button class="btn btn-outline-primary my-sm-0 mr-2" type="text">
+            Login
           </button>
-        </div>
+          <a href="#" class="trigger_cart">
+            <button
+              id="cart"
+              class="btn btn-outline-primary my-2 my-sm-0"
+              type="text"
+            >
+              <i class="bi bi-bag"></i>
+            </button>
+          </a>
+        </form>
       </div>
     </nav>
 
     <!-- Header section FIX THIS LATER -->
     <header><div>HEADER HERE</div></header>
 
-    <!-- Popup cart window -->
-
-    <!-- Button trigger modal -->
-    <a class="trigger_popup_fricc">Click here to show the popup Window</a>
+    <a class="trigger_popup_fricc">Click here to show the popup</a>
 
     <div class="hover_bkgr_fricc">
       <span class="helper"></span>
       <div>
-        <!-- <div class="popupCloseButton">&times;</div>
-        <p>Add any HTML content<br />inside the popup box!</p> -->
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="popupCloseButton">&times;</div>
+        <p>Add any HTML content<br />inside the popup box!</p>
       </div>
     </div>
 
