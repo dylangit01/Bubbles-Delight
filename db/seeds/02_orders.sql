@@ -1,0 +1,3 @@
+INSERT INTO orders (user_id, created_at, completed_at, status, eta)
+VALUES (1, '2021-05-01T08:00:00.000Z', '2021-05-01T07:00:00.000Z', 'COMPLETED', 15),
+(2, '2020-12-31T08:00:00.000Z', '2020-12-31T08:06:00.000Z', 'COMPLETED', 10);
