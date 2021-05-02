@@ -1,5 +1,20 @@
 body {
-  background-color: #EEE;
+  box-sizing: border-box;
+  background-color: #eee;
+}
+
+body .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+body header {
+  margin-top: 200 px;
+  height: 50vh;
+  background: lightskyblue;
 }
 
 body h1 {
