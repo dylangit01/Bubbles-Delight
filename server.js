@@ -1,6 +1,9 @@
 // load .env data into process.env
 require('dotenv').config();
 
+// Setup path
+const path = require('path');
+
 // Web server config
 const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
@@ -47,9 +50,11 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-// app.get("/", (req, res) => {
-//   res.render("index");
-// });
+// For now, set link accept all path:"*"
+app.get("/*", (req, res) => {
+  // res.render("index");
+  res.sendFile(path.resolve('public', 'index.html'))
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
