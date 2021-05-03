@@ -36,14 +36,33 @@
 <body>
   <!-- Navbar -->
   <%- include('partials/_navbar') %>
+
+  <!-- Cover photo and text -->
   <header>
     <h1>Bubbles Delight</h1>
     <h3>De<em>light</em>ful bubbleteas brewed by Lighthouse Labs!</h3>
   </header>
 
+  <!-- All the bubbletea menu items -->
   <main class="container mt-4">
     <h2 class="mb-4">Heaven in every sip...</h2>
     <div id="bubbleteaMenu" class="row row-cols-1 row-cols-md-4">
+      <!-- Render each bubbletea -->
+      <% for (let bubbletea of bubbleteas) { %>
+      <div class="col mb-4">
+        <div class="card h-100">
+          <div class="menu-item">
+            <img src=<%= bubbletea.image_url%> class="card-img-top" alt=<%= bubbletea.name %> />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= bubbletea.name %></h5>
+            <p class="card-text">Price: $<%= bubbletea.cost / 100 %></p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-- <div><%= bubbletea.name%></div> -->
+      <% } %>
   </main>
 
 

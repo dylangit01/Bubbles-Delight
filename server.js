@@ -57,7 +57,7 @@ app.post('/login', (req, res) => {
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("bubbleteas");
+  res.redirect("bubbleteas");
 });
 
 app.listen(PORT, () => {
