@@ -24,6 +24,9 @@ export default class extends AbstractView {
           </div>
           <div class="mb-3 form-check"></div>
           <div class="text-center">
+            <button type="button" class="btn btn-outline-info">
+            <a href="/" data-link>Go back</a>
+            </button>
             <button type="submit" class="btn btn-outline-primary">Login</button>
           </div>
         </form>

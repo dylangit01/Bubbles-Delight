@@ -33,6 +33,7 @@ body {
     padding-top: 10%;
     height: 70vh;
     background-image: url("../images/header-background.jpg");
+    background-size: cover;
 
     h1 {
       color: $primary-color;
@@ -59,9 +60,20 @@ body {
     z-index: 0;
   }
 
+  .text-center {
+    display: flex;
+    justify-content: space-between;
+  }
+
   // Footer section
   footer {
     margin-top: 5%;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     .fab {
       font-size: 1.5rem;
