@@ -1,13 +1,13 @@
-import AbstractView from './AbstractView.js'
-
-export default class extends AbstractView {
-  constructor() {
-    super();
-    this.setTitle('Login');
-  }
-  async getHtml() {
-    return `
-    <div class="card">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="card">
       <div class="card-header"></div>
       <div class="card-body">
         <h4 class="card-title text-center">User Login</h4>
@@ -32,6 +32,5 @@ export default class extends AbstractView {
         </form>
       </div>
     </div>
-    `;
-  }
-}
+</body>
+</html>

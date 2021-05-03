@@ -1,9 +1,6 @@
 // load .env data into process.env
 require('dotenv').config();
 
-// Setup path
-const path = require('path');
-
 // Web server config
 const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
@@ -60,9 +57,8 @@ app.post('/login', (req, res) => {
 
 // In order to setup front-end SPA,the server will need to sendFile to index.html
 // For now, set link accept all path:"*"
-app.get("/*", (req, res) => {
-  // res.render("index");
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
 app.listen(PORT, () => {
