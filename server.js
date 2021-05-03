@@ -60,11 +60,14 @@ app.post('/login', (req, res) => {
 
 // In order to setup front-end SPA,the server will need to sendFile to index.html
 // For now, set link accept all path:"*"
-app.get("/*", (req, res) => {
-  // res.render("index");
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+// app.get("/*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+// });
+
+app.get("/", (req, res) => {
+  res.render("bubbleteas");
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Bubbles Delight app listening on port ${PORT}`);
 });

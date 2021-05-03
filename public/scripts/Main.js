@@ -15,7 +15,7 @@ export default class extends AbstractView {
 
         <main class="container mt-4">
           <h2 class="mb-4">Heaven in every sip...</h2>
-          <div id="bubbleteaMenu" class="row row-cols-1 row-cols-md-4 g-4"></div>
+          <div id="bubbleteaMenu" class="row row-cols-1 row-cols-md-4">
         </main>;
       `;
     loadBubbleteas();

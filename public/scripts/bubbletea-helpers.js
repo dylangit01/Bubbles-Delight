@@ -36,7 +36,7 @@ const createBubbleteaElement = function(bubbletea) {
   // Create tweet markup
   const $bubbletea = `
     <div class="col mb-4">
-      <div class="card">
+      <div class="card h-100">
         <div class="menu-item">
           <img src=${imageURL} class="card-img-top" alt=${name} />
         </div>
