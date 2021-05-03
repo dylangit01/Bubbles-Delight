@@ -47,23 +47,15 @@ app.use("/users", usersRoutes(db));
 app.use("/bubbleteas", bubbleteasRoutes(db));
 app.use("/orders", ordersRoutes(db));
 
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-
 // Handle user login and set a cookie with the (not for production)
 app.post('/login', (req, res) => {
   // req.session.user_id = req.params.id;
   res.redirect('/');
 });
 
-// In order to setup front-end SPA,the server will need to sendFile to index.html
-// For now, set link accept all path:"*"
-// app.get("/*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-// });
-
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
   res.render("bubbleteas");
 });
