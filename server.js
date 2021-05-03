@@ -2,13 +2,14 @@
 require('dotenv').config();
 
 // Web server config
-const PORT       = process.env.PORT || 8080;
-const ENV        = process.env.ENV || "development";
-const express    = require("express");
-const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
-const app        = express();
-const morgan     = require('morgan');
+const PORT          = process.env.PORT || 8080;
+const ENV           = process.env.ENV || "development";
+const express       = require("express");
+const bodyParser    = require("body-parser");
+const cookieSession = require('cookie-session');
+const sass          = require("node-sass-middleware");
+const app           = express();
+const morgan        = require('morgan');
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -21,6 +22,10 @@ db.connect();
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2'],
+}));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
@@ -40,13 +45,19 @@ const ordersRoutes = require("./routes/orders");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: mount other resources here, using the same pattern above
-app.use("/users", usersRoutes(db));
+app.use("/api/users", usersRoutes(db));
 app.use("/bubbleteas", bubbleteasRoutes(db));
 app.use("/orders", ordersRoutes(db));
 
-// Handle user login and set a cookie with the (not for production)
-app.post('/login', (req, res) => {
-  // req.session.user_id = req.params.id;
+// FOR DEVELOPMENT: handle user login and set a cookie with the user id
+app.get('/login/:id', (req, res) => {
+  req.session['user_id'] = req.params.id;
+  res.redirect('/');
+});
+
+// FOR DEVELOPMENT: Handle user logout and clear cookies
+app.post("/logout", (req, res) => {
+  req.session = null;
   res.redirect('/');
 });
 
@@ -54,9 +65,10 @@ app.post('/login', (req, res) => {
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.redirect("bubbleteas");
+  res.redirect('bubbleteas');
 });
 
+// App is listening
 app.listen(PORT, () => {
   console.log(`Bubbles Delight app listening on port ${PORT}`);
 });

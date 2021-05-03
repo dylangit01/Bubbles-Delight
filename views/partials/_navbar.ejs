@@ -8,13 +8,22 @@
   <div class="collapse navbar-collapse" id="navbarToggler">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="/bubbleteas" data-link>Menu</a>
+        <a class="nav-link" href="/about">About Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/orders" data-link>Orders</a>
+        <a class="nav-link" href="/orders">Orders</a>
       </li>
     </ul>
 
+    <% if (userID) { %>
+      <form class="form-inline" method="POST" action="/logout">
+        <span class="navbar-text text-dark mr-sm-3">Hello, <strong>Ruby!</strong></span>
+        <button class="btn btn-outline-secondary my-2 mr-sm-3" type="submit">Logout <i class="fas fa-sign-out-alt"></i></button>
+      </form>
+    <% } else { %>
+      <a class="nav-item nav-link text-dark" href="/login" data-link>Login <i class="fas fa-sign-in-alt"></i></a>
+      <a class="nav-item nav-link text-dark" href="/register">Register <i class="fas fa-user-plus"></i></a>
+    <% } %>
     <!-- Button trigger modal -->
     <button type="button" class="cartBtn m-0 p-0" data-toggle="modal" data-target="#exampleModalCenter">
       <i class="bi bi-bag fa-2x" data-link></i>
@@ -45,8 +54,5 @@
         </div>
       </div>
     </div>
-
-    <a class="nav-item nav-link text-dark" href="/login" data-link>Login <i class="fas fa-sign-in-alt"></i></a>
-    <a class="nav-item nav-link text-dark" href="/register">Register <i class="fas fa-user-plus"></i></a>
   </div>
 </nav>

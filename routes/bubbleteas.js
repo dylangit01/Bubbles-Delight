@@ -13,8 +13,9 @@ module.exports = (db) => {
     db.query(queryString)
       .then(data => {
         const bubbleteas = data.rows;
-        const templateVars = { bubbleteas };
-        console.log(bubbleteas);
+        const userID = req.session['user_id'];
+        const templateVars = { bubbleteas, userID };
+        console.log("userID", userID);
         res.render("bubbleteas", templateVars);
       })
       .catch(err => {
