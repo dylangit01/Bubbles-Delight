@@ -35,8 +35,8 @@ const navigateTo = (url) => {
 
 const router = async () => {
   const routes = [
-    { path: "/", view: Main },
-    { path: "/bubbleteasmenu", view: Menu },
+    { path: "/bubbleteas", view: Main },
+    { path: "/bubbleteas", view: Menu },
     { path: "/login", view: Login },
     // { path: '/cart', view: () => console.log('Viewing cart page') },
   ];
@@ -74,4 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   router();
+});
+
+
+$(document).ready(function() {
+  // Loads and renders current database of bubbleteas (only happens once)
+  // loadBubbleteas();
 });
