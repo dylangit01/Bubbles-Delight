@@ -9,7 +9,16 @@ body .navbar {
   left: 0;
   right: 0;
   z-index: 1;
-  background-color: coral;
+}
+
+body .navbar .cartBtn {
+  border: none;
+  background-color: #fff;
+}
+
+body .navbar:active {
+  border: none;
+  outline: none;
 }
 
 body header {
@@ -19,24 +28,27 @@ body header {
   background-image: url("../images/header-background.jpg");
 }
 
-.card {
-  position: relative;
-  top:100px;
-  background-color: chartreuse;
-}
-
-.table {
-  position: relative;
-  top: 100px;
-  background-color: aqua;
-}
-
 body header h1 {
-  color: #6F451A;
+  color: #6f451a;
 }
 
 body header h3 {
-  color: #A58B70;
+  color: #a58b70;
+}
+
+body .card {
+  position: relative;
+  top: 80px;
+}
+
+body .table {
+  position: relative;
+  top: 80px;
+  /* background-color: aqua; */
+}
+
+body .modal-backdrop {
+  z-index: 0;
 }
 
 body footer {
