@@ -4,9 +4,14 @@ html {
 
 body {
   box-sizing: border-box;
-  background: linear-gradient(to bottom right, #ffe7c8, white);
+  background: #FAF9F6;
   min-height: 100%;
   padding-top: 50px;
+  position: relative;
+}
+
+body h2 {
+  color: #6f451a;
 }
 
 body footer {

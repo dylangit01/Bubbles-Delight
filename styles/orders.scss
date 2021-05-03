@@ -5,10 +5,14 @@ $primary-color: #6f451a;
 $secondary-color: #a58b70;
 
 body {
-  // Header cover section
+  .orders {
+    padding-top: 5%;
+  }
+
   .table {
-    padding: 5%;
+    padding: 10%;
     padding-top: 10%;
     margin-top: 50px;
+    text-align: center;
   }
 }

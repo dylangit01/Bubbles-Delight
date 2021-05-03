@@ -10,14 +10,20 @@ html {
 
 body {
   box-sizing: border-box;
-  background: linear-gradient(to bottom right, #ffe7c8, white);
+  background: #FAF9F6;
+  // background: linear-gradient(to bottom right, #ffe7c8, white);
   min-height: 100%; //Set min-height of body element to 100% of the viewport so that background gradient colours encompases the whole viewport
   padding-top: 50px;
+  position: relative;
   // .table {
   //   position: relative;
   //   top: 80px;
   //   /* background-color: aqua; */
   // }
+
+  h2 {
+    color: $primary-color;
+  }
 
   // Footer section
   footer {
