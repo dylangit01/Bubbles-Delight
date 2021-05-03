@@ -39,12 +39,12 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="module" src="/scripts/app.js"></script>
   </head>
 
   <body>
     <!-- Nav bar section -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#"
         ><i class="bi bi-cup-straw"></i> Bubbles Delight</a
       >
@@ -57,9 +57,9 @@
             <a class="nav-link" href="/orders" data-link>Orders</a>
           </li>
         </ul>
-        <a class="nav-item nav-link text-dark" href="/cart" data-link
-          ><i class="bi bi-bag fa-2x"></i
-        ></a>
+        <a class="nav-item nav-link text-dark" href="/cart" >
+          <i class="bi bi-bag fa-2x" data-link></i>
+        </a>
         <a class="nav-item nav-link text-dark" href="/login" data-link
           >Login <i class="fas fa-sign-in-alt"></i
         ></a>
@@ -68,6 +68,7 @@
         ></a>
       </div>
     </nav>
+    <div id="appComponent"></div>
 
     <!-- Header section -->
     <header>

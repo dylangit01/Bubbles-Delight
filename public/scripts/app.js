@@ -23,6 +23,10 @@ $("document").ready(() => {
   });
 });
 
+import Login from './Login.js';
+import Menu from './Menu.js';
+
+
 // Actual fn to avoid page refresh:
 const navigateTo = url => {
   history.pushState(null, null, url);
@@ -32,8 +36,9 @@ const navigateTo = url => {
 const router = async () => {
   const routes = [
     { path: '/', view: () => console.log('Viewing main page') },
-    { path: '/menu', view: () => console.log('Viewing menu page') },
-    { path: '/login', view: () => console.log('Viewing login page') },
+    { path: '/bubbleteas', view: Menu },
+    { path: '/login', view: Login},
+    // { path: '/cart', view: () => console.log('Viewing cart page') },
   ];
 
   // Test each route for potential match
@@ -50,8 +55,10 @@ const router = async () => {
       route: routes[0],
       isMatch: true,
     }
-  }
-  console.log(match.route.view());
+  };
+  const loginView = new match.route.view();
+  document.querySelector("#appComponent").innerHTML = await loginView.getHtml();
+  // console.log(new match.route.view());
 }
 // For url able to back and forth
 document.addEventListener('popstate', router);

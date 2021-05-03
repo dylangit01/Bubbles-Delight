@@ -9,6 +9,7 @@ body .navbar {
   left: 0;
   right: 0;
   z-index: 1;
+  background-color: coral;
 }
 
 body header {
@@ -16,6 +17,18 @@ body header {
   padding-top: 10%;
   height: 70vh;
   background-image: url("../images/header-background.jpg");
+}
+
+.card {
+  position: relative;
+  top:100px;
+  background-color: chartreuse;
+}
+
+.table {
+  position: relative;
+  top: 100px;
+  background-color: aqua;
 }
 
 body header h1 {
