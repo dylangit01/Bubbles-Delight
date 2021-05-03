@@ -4,9 +4,14 @@
 $primary-color: #6f451a;
 $secondary-color: #a58b70;
 
+html{
+    min-height: 100%; // Set min-height of html element to 100% of the viewport so that the body can inherit this height
+}
+
 body {
   box-sizing: border-box;
-  background-color: #eee;
+  background: linear-gradient(to bottom right, #ffe7c8,white);
+  min-height: 100%; //Set min-height of body element to 100% of the viewport so that background gradient colours encompases the whole viewport
 
   // Navbar
   .navbar {
@@ -37,7 +42,6 @@ body {
     background-size: cover;
     background-position: fixed;
 
-
     h1 {
       color: $primary-color;
     }
@@ -47,6 +51,9 @@ body {
     }
   }
 
+  h2 {
+    color: $primary-color;
+  }
   // .card {
   //   position: relative;
   //   top: 80px;
