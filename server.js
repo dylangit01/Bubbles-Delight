@@ -62,7 +62,7 @@ app.post('/login', (req, res) => {
 // For now, set link accept all path:"*"
 app.get("/*", (req, res) => {
   // res.render("index");
-  res.sendFile(path.resolve('public', 'index.html'));
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
 });
 
 app.listen(PORT, () => {

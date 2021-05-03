@@ -11,6 +11,16 @@ body .navbar {
   z-index: 1;
 }
 
+body .navbar .cartBtn {
+  border: none;
+  background-color: #fff;
+}
+
+body .navbar:active {
+  border: none;
+  outline: none;
+}
+
 body header {
   padding: 5%;
   padding-top: 10%;
@@ -18,21 +28,66 @@ body header {
   height: 75vh;
   background-image: url("../images/header-background.jpg");
   background-size: cover;
+<<<<<<< HEAD
   background-position: fixed;
+=======
+>>>>>>> master
 }
 
 body header h1 {
-  color: #6F451A;
+  color: #6f451a;
 }
 
 body header h3 {
-  color: #A58B70;
+  color: #a58b70;
+}
+
+body .card {
+  position: relative;
+  top: 80px;
+}
+
+body .table {
+  position: relative;
+  top: 80px;
+  /* background-color: aqua; */
+}
+
+body .modal-backdrop {
+  z-index: 0;
+}
+
+body .text-center {
+  display: flex;
+  justify-content: space-between;
 }
 
 body footer {
   margin-top: 5%;
 }
 
+body footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 body footer .fab {
   font-size: 1.5rem;
+}
+
+body .menu-item {
+  min-width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body .menu-item:hover {
+  cursor: pointer;
+}
+
+body .menu-item:hover .card-img-top {
+  transform: scale(1.2);
+  transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
 }

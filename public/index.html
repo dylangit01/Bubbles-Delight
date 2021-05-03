@@ -26,126 +26,63 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
   <!-- App JS -->
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="module" src="/scripts/app.js"></script>
 </head>
 
 <body>
   <!-- Nav bar section -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a class="navbar-brand" href="#"><i class="fas fa-glass-whiskey-rocks"></i> Bubbles Delight</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="/" data-link><i class="fas fa-glass-whiskey-rocks"></i> Bubbles Delight</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+      aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarToggler">
-      <ul class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll" style="max-height: 100px;">
-        <li class="nav-item"><a class="nav-link" href="/bubbleteas" data-link>Menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="/orders" data-link>Orders</a></li>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/bubbleteas" data-link>Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/orders" data-link>Orders</a>
+        </li>
       </ul>
-      <a class="nav-item nav-link text-dark" href="/cart" data-link><i class="bi bi-bag fa-2x"></i></a>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="cartBtn m-0 p-0" data-toggle="modal" data-target="#exampleModalCenter">
+        <i class="bi bi-bag fa-2x" data-link></i>
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Modal title
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">...</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <a class="nav-item nav-link text-dark" href="/login" data-link>Login <i class="fas fa-sign-in-alt"></i></a>
       <a class="nav-item nav-link text-dark" href="/register">Register <i class="fas fa-user-plus"></i></a>
     </div>
   </nav>
-
-  <!-- Header section -->
-  <header>
-    <h1>Bubbles Delight</h1>
-    <h3>De<em>light</em>ful bubbleteas brewed by Lighthouse Labs!</h3>
-  </header>
-
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-    Launch demo modal
-  </button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">...</div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Menu items -->
-  <main class="container mt-4">
-    <h2 class="mb-4">Heaven in every sip...</h2>
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-      <div class="col mb-4">
-        <div class="card">
-          <img src="images/1.jpg" class="card-img-top" alt="bubbletea1" />
-          <div class="card-body">
-            <h5 class="card-title">Bubbletea 1</h5>
-            <p class="card-text">Price: $5.99</p>
-            <button type="button" class="w-100 btn btn-outline-danger">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div class="card">
-          <img src="images/2.jpg" class="card-img-top" alt="bubbletea2" />
-          <div class="card-body">
-            <h5 class="card-title">Bubbletea 2</h5>
-            <p class="card-text">rice: $5.99</p>
-            <button type="button" class="w-100 btn btn-outline-danger">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div class="card">
-          <img src="images/3.jpg" class="card-img-top" alt="bubbletea3" />
-          <div class="card-body">
-            <h5 class="card-title">Bubbletea 3</h5>
-            <p class="card-text">Price: $5.99</p>
-            <button type="button" class="w-100 btn btn-outline-danger">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div class="card">
-          <img src="images/4.jpg" class="card-img-top" alt="bubbletea4" />
-          <div class="card-body">
-            <h5 class="card-title">Bubbletea 4</h5>
-            <p class="card-text">Price: $5.99</p>
-            <button type="button" class="w-100 btn btn-outline-danger">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col mb-4">
-        <div class="card">
-          <img src="images/5.jpg" class="card-img-top" alt="bubbletea4" />
-          <div class="card-body">
-            <h5 class="card-title">Bubbletea 4</h5>
-            <p class="card-text">Price: $5.99</p>
-            <button type="button" class="w-100 btn btn-outline-danger">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+  <div id="appComponent"></div>
 
   <!-- Footer -->
   <footer class="bg-dark text-center text-white">
@@ -157,12 +94,12 @@
         <a class="m-2 text-white" role="button"><i class="fab fa-twitter"></i></a>
         <a class="m-2 text-white" role="button"><i class="fab fa-instagram"></i></a>
       </section>
+      <!-- Copyright -->
+      <div class="text-center p-3">© 2021 Dylan & Ruby</div>
     </div>
 
-    <!-- Copyright -->
-    <div class="text-center p-3">© 2021 Dylan & Ruby</div>
-  </footer>
 
+  </footer>
   <!-- jQuery and Boostrap Bundle -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

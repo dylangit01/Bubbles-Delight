@@ -1,8 +1,8 @@
 // See: https://sass-lang.com/
 
 // Variables
-$primary-color: #6F451A;
-$secondary-color: #A58B70;
+$primary-color: #6f451a;
+$secondary-color: #a58b70;
 
 body {
   box-sizing: border-box;
@@ -15,6 +15,16 @@ body {
     left: 0;
     right: 0;
     z-index: 1;
+    // background-color: coral;
+
+    .cartBtn {
+      border: none;
+      background-color: #fff;
+    }
+    &:active {
+      border: none;
+      outline: none;
+    }
   }
 
   // Header section
@@ -37,13 +47,57 @@ body {
     }
   }
 
+  .card {
+    position: relative;
+    top: 80px;
+    // background-color: chartreuse;
+  }
+
+  .table {
+    position: relative;
+    top: 80px;
+    /* background-color: aqua; */
+  }
+
+  .modal-backdrop {
+    z-index: 0;
+  }
+
+  .text-center {
+    display: flex;
+    justify-content: space-between;
+  }
+
   // Footer section
   footer {
     margin-top: 5%;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
     .fab {
       font-size: 1.5rem;
     }
   }
 
+  .menu-item {
+    min-width: 50%;
+    height: 100%;
+    overflow: hidden;
+
+    &:hover {
+      cursor: pointer;
+
+      & .card-img-top {
+        transform: scale(1.2);
+        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+    }
+  }
 }
+
+//  box-shadow: 5px 5px 0 2px #b8b5ff;
