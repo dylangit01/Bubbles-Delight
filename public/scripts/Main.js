@@ -19,7 +19,9 @@ export default class extends AbstractView {
     <div class="row row-cols-1 row-cols-md-4 g-4">
     <div class="col mb-4">
       <div class="card">
-        <img src="images/1.jpg" class="card-img-top" alt="bubbletea1" />
+      <div class="menu-item">
+      <img src="images/1.jpg" class="card-img-top" alt="bubbletea1" />
+      </div>
         <div class="card-body">
           <h5 class="card-title">Bubbletea 1</h5>
           <p class="card-text">Price: $5.99</p>
@@ -31,7 +33,9 @@ export default class extends AbstractView {
     </div>
     <div class="col mb-4">
       <div class="card">
-        <img src="images/2.jpg" class="card-img-top" alt="bubbletea2" />
+      <div class="menu-item">
+      <img src="images/2.jpg" class="card-img-top" alt="bubbletea2" />
+      </div>
         <div class="card-body">
           <h5 class="card-title">Bubbletea 2</h5>
           <p class="card-text">rice: $5.99</p>
@@ -43,7 +47,9 @@ export default class extends AbstractView {
     </div>
     <div class="col mb-4">
       <div class="card">
-        <img src="images/3.jpg" class="card-img-top" alt="bubbletea3" />
+      <div class="menu-item">
+      <img src="images/3.jpg" class="card-img-top" alt="bubbletea3" />
+      </div>
         <div class="card-body">
           <h5 class="card-title">Bubbletea 3</h5>
           <p class="card-text">Price: $5.99</p>
@@ -55,7 +61,9 @@ export default class extends AbstractView {
     </div>
     <div class="col mb-4">
       <div class="card">
-        <img src="images/4.jpg" class="card-img-top" alt="bubbletea4" />
+      <div class="menu-item">
+      <img src="images/4.jpg" class="card-img-top" alt="bubbletea4" />
+      </div>
         <div class="card-body">
           <h5 class="card-title">Bubbletea 4</h5>
           <p class="card-text">Price: $5.99</p>
@@ -67,7 +75,9 @@ export default class extends AbstractView {
     </div>
     <div class="col mb-4">
       <div class="card">
+      <div class="menu-item">
         <img src="images/5.jpg" class="card-img-top" alt="bubbletea4" />
+        </div>
         <div class="card-body">
           <h5 class="card-title">Bubbletea 4</h5>
           <p class="card-text">Price: $5.99</p>
