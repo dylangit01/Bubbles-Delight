@@ -7,12 +7,13 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
+  // Get all bubbleteas
   router.get("/", (req, res) => {
     const queryString = `SELECT * FROM bubbleteas;`;
     db.query(queryString)
       .then(data => {
         const bubbleteas = data.rows;
-        res.json({ bubbleteas }); // This may need to be just sending back bubbleteas with no { }
+        res.json(bubbleteas);
       })
       .catch(err => {
         res.status(500).json({ error: err.message });

@@ -9,12 +9,13 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
+  // Get all the users
   router.get("/", (req, res) => {
     const queryString = `SELECT * FROM users;`;
     db.query(queryString)
       .then(data => {
         const users = data.rows;
-        res.json({ users });  // This may need to be just sending back users with no { }
+        res.json(users);
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
