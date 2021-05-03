@@ -84,20 +84,18 @@ body {
     }
   }
 
-  // .menu-item {
-  //   min-width: 50%;
-  //   height: 100%;
-  //   overflow: hidden;
+  .menu-item {
+    overflow: hidden;
 
-  //   &:hover {
-  //     cursor: pointer;
+    &:hover {
+      cursor: pointer;
 
-  //     & .card-img-top {
-  //       transform: scale(1.2);
-  //       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-  //     }
-  //   }
-  // }
+      & .card-img-top {
+        transform: scale(1.2);
+        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+    }
+  }
 }
 
 //  box-shadow: 5px 5px 0 2px #b8b5ff;

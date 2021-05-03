@@ -68,3 +68,16 @@ body footer .container {
 body footer .fab {
   font-size: 1.5rem;
 }
+
+body .menu-item {
+  overflow: hidden;
+}
+
+body .menu-item:hover {
+  cursor: pointer;
+}
+
+body .menu-item:hover .card-img-top {
+  transform: scale(1.2);
+  transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+}
