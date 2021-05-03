@@ -23,9 +23,9 @@ module.exports = (db) => {
     db.query(queryString, values)
       .then(data => {
         const orders = data.rows;
-        const templateVars = { orders };
-        console.log(templateVars);
-        return res.render('orders', templateVars)
+        const userID = req.session['user_id'];
+        const templateVars = { orders, userID };
+        return res.render('orders', templateVars);
       })
       .catch(err => {
         res.status(500).json({ error: err.message });

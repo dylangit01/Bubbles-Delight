@@ -15,7 +15,6 @@ module.exports = (db) => {
         const bubbleteas = data.rows;
         const userID = req.session['user_id'];
         const templateVars = { bubbleteas, userID };
-        console.log("userID", userID);
         res.render("bubbleteas", templateVars);
       })
       .catch(err => {

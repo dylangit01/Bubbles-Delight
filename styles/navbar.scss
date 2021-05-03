@@ -1,0 +1,36 @@
+// See: https://sass-lang.com/
+
+// Variables
+$primary-color: #6f451a;
+$secondary-color: #a58b70;
+
+body {
+  // Navbar
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    .cartBtn {
+      border: none;
+      background-color: #fff;
+    }
+
+    &:active {
+      border: none;
+      outline: none;
+    }
+  }
+
+  // Cart modal
+  .modal-backdrop {
+    z-index: 0;
+  }
+
+  .text-center {
+    display: flex;
+    justify-content: space-between;
+  }
+}

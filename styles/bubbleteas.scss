@@ -1,0 +1,47 @@
+// See: https://sass-lang.com/
+
+// Variables
+$primary-color: #6f451a;
+$secondary-color: #a58b70;
+
+body {
+  // Header cover section
+  header {
+    padding: 5%;
+    padding-top: 10%;
+    height: 75vh;
+    background-image: url('../images/header-background.jpg');
+    background-size: cover;
+    background-position: fixed;
+
+    h1 {
+      color: $primary-color;
+    }
+
+    h3 {
+      color: $secondary-color;
+    }
+  }
+
+  // Menu section
+  // .card {
+  //   position: relative;
+  //   top: 80px;
+  //   // background-color: chartreuse;
+  // }
+
+  // .menu-item {
+  //   min-width: 50%;
+  //   height: 100%;
+  //   overflow: hidden;
+
+  //   &:hover {
+  //     cursor: pointer;
+
+  //     & .card-img-top {
+  //       transform: scale(1.2);
+  //       transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+  //     }
+  //   }
+  // }
+}
