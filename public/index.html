@@ -32,33 +32,28 @@
 
 <body>
 
-  <!-- Header section FIX THIS LATER -->
+  <!-- Nav bar section -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="#">Bubbles Delight</a>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+      <a class="nav-item nav-link text-dark" href="/cart"><i class="bi bi-bag fa-2x"></i></a>
+      <a class="nav-item nav-link text-dark" href="/login">Login <i class="fas fa-sign-in-alt"></i></a>
+      <a class="nav-item nav-link text-dark" href="/register">Register <i class="fas fa-user-plus"></i></a>
+    </div>
+  </nav>
+
+  <!-- Header section -->
   <header>
-    <!-- Nav bar section -->
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-      <a class="navbar-brand" href="#">Bubbles Delight</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
-        aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarToggler">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Menu</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-        </ul>
-        <a class="nav-item nav-link text-dark" href="/cart"><i class="bi bi-bag fa-2x"></i></a>
-        <a class="nav-item nav-link text-dark" href="/login">Login <i class="fas fa-sign-in-alt"></i></a>
-        <a class="nav-item nav-link text-dark" href="/register">Register <i class="fas fa-user-plus"></i></a>
-      </div>
-    </nav>
-    <div>HELLO!</div>
-
+    <h1>Bubbles Delight</h1>
+    <h3>Delightful bubbleteas brewed by Lighthouse Labs!</h3>
   </header>
 
   <!-- Popup cart window -->
@@ -105,60 +100,55 @@
 
   <!-- Menu items -->
   <main class="container mt-4">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
+    <h2 class="mb-4">Heaven in every sip...</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col mb-4">
         <div class="card">
           <img src="images/1.jpg" class="card-img-top" alt="bubbletea1" />
           <div class="card-body">
             <h5 class="card-title">Bubbletea 1</h5>
-            <p class="card-text">
-              Price: $5.99
-            </p>
-            <button type="button" class="w-100 btn btn-outline-danger">
-              Add to Cart
-            </button>
+            <p class="card-text">Price: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col mb-4">
         <div class="card">
           <img src="images/2.jpg" class="card-img-top" alt="bubbletea2" />
           <div class="card-body">
             <h5 class="card-title">Bubbletea 2</h5>
-            <p class="card-text">
-              Price: $5.99
-            </p>
-            <button type="button" class="w-100 btn btn-outline-danger">
-              Add to Cart
-            </button>
+            <p class="card-text">rice: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col mb-4">
         <div class="card">
           <img src="images/3.jpg" class="card-img-top" alt="bubbletea3" />
           <div class="card-body">
             <h5 class="card-title">Bubbletea 3</h5>
-            <p class="card-text">
-              Price: $5.99
-            </p>
-            <button type="button" class="w-100 btn btn-outline-danger">
-              Add to Cart
-            </button>
+            <p class="card-text">Price: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col mb-4">
         <div class="card">
           <img src="images/4.jpg" class="card-img-top" alt="bubbletea4" />
           <div class="card-body">
             <h5 class="card-title">Bubbletea 4</h5>
-            <p class="card-text">
-              Price: $5.99
-            </p>
-            <button type="button" class="w-100 btn btn-outline-danger">
-              Add to Cart
-            </button>
+            <p class="card-text">Price: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="images/5.jpg" class="card-img-top" alt="bubbletea4" />
+          <div class="card-body">
+            <h5 class="card-title">Bubbletea 4</h5>
+            <p class="card-text">Price: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
           </div>
         </div>
       </div>
@@ -170,10 +160,10 @@
     <!-- Grid container -->
     <div class="container p-4">
       <!-- Section: Social media -->
-      <section class="mb-4">
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+      <section>
+        <a class="m-2 text-white" role="button"><i class="fab fa-facebook-f"></i></a>
+        <a class="m-2 text-white" role="button"><i class="fab fa-twitter"></i></a>
+        <a class="m-2 text-white" role="button"><i class="fab fa-instagram"></i></a>
       </section>
     </div>
 

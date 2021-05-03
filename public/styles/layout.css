@@ -12,13 +12,26 @@ body .navbar {
 }
 
 body header {
-  padding-top: 100px;
-  height: 50vh;
-  background: lightskyblue;
+  padding: 5%;
+  padding-top: 10%;
+  height: 70vh;
+  background-image: url("../images/header-background.jpg");
 }
 
-body h1 {
-  color: #244751;
+body header h1 {
+  color: #6F451A;
+}
+
+body header h3 {
+  color: #A58B70;
+}
+
+body footer {
+  margin-top: 5%;
+}
+
+body footer .fab {
+  font-size: 1.5rem;
 }
 
 body .hover_bkgr_fricc {
