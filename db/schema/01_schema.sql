@@ -18,7 +18,7 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   phone_number VARCHAR(255) NOT NULL,
-  is_admin BOOLEAN NOT NULL DEFAULT TRUE
+  is_admin BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 CREATE TABLE bubbleteas (

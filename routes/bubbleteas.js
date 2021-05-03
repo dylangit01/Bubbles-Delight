@@ -8,7 +8,8 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM bubbleteas;`)
+    const queryString = `SELECT * FROM bubbleteas;`;
+    db.query(queryString)
       .then(data => {
         const bubbleteas = data.rows;
         res.json({ bubbleteas });
