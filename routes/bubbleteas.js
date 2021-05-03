@@ -13,7 +13,9 @@ module.exports = (db) => {
     db.query(queryString)
       .then(data => {
         const bubbleteas = data.rows;
-        res.json(bubbleteas);
+        const templateVars = { bubbleteas };
+        console.log(bubbleteas);
+        res.render("bubbleteas", templateVars);
       })
       .catch(err => {
         res.status(500).json({ error: err.message });

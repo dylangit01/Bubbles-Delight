@@ -44,21 +44,19 @@ app.use("/users", usersRoutes(db));
 app.use("/bubbleteas", bubbleteasRoutes(db));
 app.use("/orders", ordersRoutes(db));
 
-
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-
 // Handle user login and set a cookie with the (not for production)
 app.post('/login', (req, res) => {
   // req.session.user_id = req.params.id;
   res.redirect('/');
 });
 
+// Home page
+// Warning: avoid creating more routes in this file!
+// Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.redirect("bubbleteas");
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`Bubbles Delight app listening on port ${PORT}`);
 });
