@@ -50,6 +50,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+// In order to setup front-end SPA,the server will need to sendFile to index.html
 // For now, set link accept all path:"*"
 app.get("/*", (req, res) => {
   // res.render("index");
