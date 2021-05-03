@@ -4,19 +4,27 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
 module.exports = (db) => {
   // Get all orders for a certain user (whether a customer or admin)
   router.get("/", (req, res) => {
     // const userID = req.session['user_id'];
-    const queryString = `SELECT * FROM orders WHERE id = $1;`;
+    const queryString = `SELECT orders.id as Order_ID, count(orders.id) * cost as total_price, orders.* FROM orders
+                        JOIN users ON user_id = users.id
+                        JOIN order_line_items ON orders.id = order_id
+                        JOIN bubbleteas ON bubbletea_id = bubbleteas.id
+                        WHERE user_id = $1
+                        GROUP BY orders.id,cost
+                        ;`;
     const values = [1]; //Update to cookie session id
 
     db.query(queryString, values)
       .then(data => {
         const orders = data.rows;
-        res.json(orders);
+        const templateVars = { orders };
+        console.log(templateVars);
+        return res.render('orders', templateVars)
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
@@ -24,3 +32,5 @@ module.exports = (db) => {
   });
   return router;
 };
+
+

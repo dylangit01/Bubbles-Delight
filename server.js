@@ -55,8 +55,6 @@ app.post('/login', (req, res) => {
   res.redirect('/');
 });
 
-// In order to setup front-end SPA,the server will need to sendFile to index.html
-// For now, set link accept all path:"*"
 app.get("/", (req, res) => {
   res.render("index");
 });
