@@ -3,8 +3,12 @@ const loadBubbleteas = function() {
   // GET request to the /bubbletea endpoint using AJAX to get all the bubbleteas (default is JSON)
   $.ajax('/bubbleteas')
     .then((bubbleteas) => {
+      if (localStorage.getItem('bubbleTeas') === null) {
+        
+      }
       renderBubbleteas(bubbleteas);
     });
+
 };
 
 /*
@@ -15,7 +19,7 @@ const loadBubbleteas = function() {
 
 
 const renderBubbleteas = function(bubbleteas) {
-  console.log($('#bubbleteaMenu'));
+  // console.log($('#bubbleteaMenu'));
   for (const bubbletea of bubbleteas) {
     const $bubbletea = createBubbleteaElement(bubbletea);
     $('#bubbleteaMenu').append($bubbletea); // to add it to the page so we can make sure it's got all the right elements, classes, etc.

@@ -11,20 +11,8 @@
 // });
 // })
 
-$("document").ready(() => {
-  $(".trigger_cart").click(function () {
-    console.log("11111");
-    setTimeout(() => {
-      $(".cart").show();
-    }, 200);
-    $(".cartCloseButton").click(function () {
-      $(".cart").hide();
-    });
-  });
-});
-
 import Login from "./Login.js";
-import Menu from "./Menu.js";
+import Order from "./Order.js";
 import Main from "./Main.js";
 
 // Actual fn to avoid page refresh:
@@ -36,7 +24,7 @@ const navigateTo = (url) => {
 const router = async () => {
   const routes = [
     { path: "/bubbleteas", view: Main },
-    { path: "/bubbleteas", view: Menu },
+    { path: "/orders", view: Order },
     { path: "/login", view: Login },
     // { path: '/cart', view: () => console.log('Viewing cart page') },
   ];
