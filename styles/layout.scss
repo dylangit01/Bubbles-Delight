@@ -1,9 +1,14 @@
 // See: https://sass-lang.com/
 
+// Variables
+$primary-color: #6F451A;
+$secondary-color: #A58B70;
+
 body {
   box-sizing: border-box;
   background-color: #eee;
 
+  // Navbar
   .navbar {
     position: fixed;
     top: 0;
@@ -12,69 +17,29 @@ body {
     z-index: 1;
   }
 
+  // Header section
   header {
-    margin-top: 200 px;
-    height: 50vh;
-    background: lightskyblue;
+    padding: 5%;
+    padding-top: 10%;
+    height: 70vh;
+    background-image: url('../images/header-background.jpg');
+
+    h1 {
+      color: $primary-color;
+    }
+
+    h3 {
+      color: $secondary-color;
+    }
   }
 
-  h1 {
-    color: #244751;
+  // Footer section
+  footer {
+    margin-top: 5%;
+
+    .fab {
+      font-size: 1.5rem;
+    }
   }
 
-  .cart {
-    background: rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    display: none;
-    height: 100%;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    width: 100%;
-    z-index: 10000;
-  }
-  .cart .cart_center {
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-  }
-  .cart > div {
-    background-color: #fff;
-    box-shadow: 10px 10px 60px #555;
-    display: inline-block;
-    height: auto;
-    max-width: 551px;
-    min-height: 100px;
-    vertical-align: middle;
-    width: 60%;
-    position: relative;
-    border-radius: 8px;
-    padding: 15px 5%;
-  }
-  .cartCloseButton {
-    // background-color: #fff;
-    // border: 3px solid #999;
-    // border-radius: 50px;
-    // cursor: pointer;
-    // display: inline-block;
-    // font-family: arial;
-    // font-weight: bold;
-    // position: absolute;
-    // top: -20px;
-    // right: -20px;
-    // font-size: 25px;
-    // line-height: 30px;
-    // width: 30px;
-    // height: 30px;
-    // text-align: center;
-  }
-  .cartCloseButton:hover {
-    background-color: #ccc;
-  }
-  .trigger_cart {
-    cursor: pointer;
-    font-size: 20px;
-    display: inline-block;
-    font-weight: bold;
-  }
 }

@@ -1,252 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <!-- Meta Information -->
+  <title>Bubbles Delight</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <!-- Bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
-    />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <!-- Bootstrap Icon -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <title>Bubbles Delight</title>
-  </head>
-  <body>
-    <!-- Nav bar section -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Bubbles Delight</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <!-- External JS -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/" data-link
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/menu" data-link>Menu</a>
-          </li>
-        </ul>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
 
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="text"
-            placeholder="Email"
-            aria-label="Email"
-          />
-          <button type="button" class="btn btn-outline-primary mr-2">
-            <a class="nav-link p-0" href="/login" data-link>Login</a>
-          </button>
+</head>
 
-          <!-- To Cart -->
-          <a href="#" class="trigger_cart">
-            <button
-              id="cartBtn"
-              class="btn btn-outline-primary my-2 my-sm-0"
-              type="button"
-            >
-              <i class="bi bi-bag"></i>
-            </button>
-          </a>
-        </form>
-      </div>
-    </nav>
+<body>
 
-    <!-- Login section -->
-    <form class="container mt-4">
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="exampleInputEmail1"
-          aria-describedby="emailHelp"
-          placeholder="Enter email"
-        />
-        <small id="emailHelp" class="form-text text-muted"
-          >We'll never share your email with anyone else.</small
-        >
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input
-          type="password"
-          class="form-control"
-          id="exampleInputPassword1"
-          placeholder="Password"
-        />
-      </div>
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+  <!-- Nav bar section -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <a class="navbar-brand" href="#"><i class="bi bi-cup-straw"></i> Bubbles Delight</a>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+      <a class="nav-item nav-link text-dark" href="/cart"><i class="bi bi-bag fa-2x"></i></a>
+      <a class="nav-item nav-link text-dark" href="/login">Login <i class="fas fa-sign-in-alt"></i></a>
+      <a class="nav-item nav-link text-dark" href="/register">Register <i class="fas fa-user-plus"></i></a>
+    </div>
+  </nav>
 
-    <!-- Header section FIX THIS LATER -->
-    <header><div>HEADER HERE</div></header>
+  <!-- Header section -->
+  <header>
+    <h1>Bubbles Delight</h1>
+    <h3>De<em>light</em>ful bubbleteas brewed by Lighthouse Labs!</h3>
+  </header>
 
-    <!-- Orders of Cart -->
-    <div class="cart">
-      <span class="cart_center"></span>
-      <div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
-        <button
-          class="btn btn-outline-danger my-sm-0 cartCloseButton"
-          type="submit"
-        >
-          Submit Order
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- Menu items -->
+  <main class="container mt-4">
+    <h2 class="mb-4">Heaven in every sip...</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col mb-4">
+        <div class="card">
+          <img src="images/1.jpg" class="card-img-top" alt="bubbletea1" />
+          <div class="card-body">
+            <h5 class="card-title">Bubbletea 1</h5>
+            <p class="card-text">Price: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="images/2.jpg" class="card-img-top" alt="bubbletea2" />
+          <div class="card-body">
+            <h5 class="card-title">Bubbletea 2</h5>
+            <p class="card-text">rice: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="images/3.jpg" class="card-img-top" alt="bubbletea3" />
+          <div class="card-body">
+            <h5 class="card-title">Bubbletea 3</h5>
+            <p class="card-text">Price: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="images/4.jpg" class="card-img-top" alt="bubbletea4" />
+          <div class="card-body">
+            <h5 class="card-title">Bubbletea 4</h5>
+            <p class="card-text">Price: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card">
+          <img src="images/5.jpg" class="card-img-top" alt="bubbletea4" />
+          <div class="card-body">
+            <h5 class="card-title">Bubbletea 4</h5>
+            <p class="card-text">Price: $5.99</p>
+            <button type="button" class="w-100 btn btn-outline-danger">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section>
+        <a class="m-2 text-white" role="button"><i class="fab fa-facebook-f"></i></a>
+        <a class="m-2 text-white" role="button"><i class="fab fa-twitter"></i></a>
+        <a class="m-2 text-white" role="button"><i class="fab fa-instagram"></i></a>
+      </section>
     </div>
 
-    <!-- Menu items -->
-    <main class="container mt-4">
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card">
-            <img src="images/1.jpg" class="card-img-top" alt="bubbletea1" />
-            <div class="card-body">
-              <h5 class="card-title">Bubbletea 1</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <div class="card-footer">
-                <small class="text-muted">Price: $5.99</small>
-                <button
-                  type="button"
-                  class="w-100 btn btn-lg btn-outline-primary"
-                >
-                  Add to Cart
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="images/2.jpg" class="card-img-top" alt="bubbletea2" />
-            <div class="card-body">
-              <h5 class="card-title">Bubbletea 2</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="images/3.jpg" class="card-img-top" alt="bubbletea3" />
-            <div class="card-body">
-              <h5 class="card-title">Bubbletea 3</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="images/4.jpg" class="card-img-top" alt="bubbletea4" />
-            <div class="card-body">
-              <h5 class="card-title">Bubbletea 4</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    <!-- Copyright -->
+    <div class="text-center p-3">© 2021 Dylan & Ruby</div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-center text-white">
-      <!-- Grid container -->
-      <div class="container p-4">
-        <!-- Section: Social media -->
-        <section class="mb-4">
-          <a
-            class="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a
-            class="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-            ><i class="fab fa-twitter"></i
-          ></a>
-          <a
-            class="btn btn-outline-light btn-floating m-1"
-            href="#!"
-            role="button"
-            ><i class="fab fa-instagram"></i
-          ></a>
-        </section>
-      </div>
+  <!-- jQuery and Boostrap Bundle -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
 
       <!-- Copyright -->
       <div class="text-center p-3">© 2021 Dylan & Ruby</div>
