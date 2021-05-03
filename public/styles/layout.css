@@ -28,10 +28,7 @@ body header {
   height: 75vh;
   background-image: url("../images/header-background.jpg");
   background-size: cover;
-<<<<<<< HEAD
   background-position: fixed;
-=======
->>>>>>> master
 }
 
 body header h1 {
