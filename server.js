@@ -52,11 +52,17 @@ app.use("/orders", ordersRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+// Handle user login and set a cookie with the (not for production)
+app.post('/login', (req, res) => {
+  // req.session.user_id = req.params.id;
+  res.redirect('/');
+});
+
 // In order to setup front-end SPA,the server will need to sendFile to index.html
 // For now, set link accept all path:"*"
 app.get("/*", (req, res) => {
   // res.render("index");
-  res.sendFile(path.resolve('public', 'index.html'))
+  res.sendFile(path.resolve('public', 'index.html'));
 });
 
 app.listen(PORT, () => {
