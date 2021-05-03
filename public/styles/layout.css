@@ -14,8 +14,11 @@ body .navbar {
 body header {
   padding: 5%;
   padding-top: 10%;
-  height: 70vh;
+  margin-top: 50px;
+  height: 75vh;
   background-image: url("../images/header-background.jpg");
+  background-size: cover;
+  background-position: fixed;
 }
 
 body header h1 {
