@@ -36,7 +36,7 @@ const navigateTo = (url) => {
 const router = async () => {
   const routes = [
     { path: "/", view: Main },
-    { path: "/bubbleteas", view: Menu },
+    { path: "/bubbleteasmenu", view: Menu },
     { path: "/login", view: Login },
     // { path: '/cart', view: () => console.log('Viewing cart page') },
   ];
