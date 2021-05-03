@@ -5,7 +5,10 @@
     <title>Bubbles Delight</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -41,11 +44,44 @@
     ></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/bubbletea-helpers.js"></script>
-    <script type="module" src="/scripts/app.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/bubbletea-helpers.js"></script> -->
+    <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
 
   <body>
+    <div class="container mp-1" >
+      <table class="table">
+      <caption>
+        List of orders
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Order #</th>
+          <th scope="col">Total Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Ordered On</th>
+          <th scope="col">Status</th>
+          <th scope="col">ETA (minutes)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(const order of orders) { %>
+        <tr>
+          <td><%= order.order_id %></td>
+          <td> <%=order.total_price %></td>
+          <td><%= order.quantity %></td>
+          <td><%= order.created_at.getFullYear() + "/" + (order.created_at.getMonth() + 1) + "/" + order.created_at.getDate() %> </td>
+          <td><button class="btn btn-outline-info">
+            <%= order.status %>
+          </button></td>
+          <td><%= order.eta %></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    </div>
+
+
     <!-- jQuery and Boostrap Bundle -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
