@@ -10,9 +10,15 @@ body footer .container {
 }
 
 body footer .fab {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 body footer .fab:hover {
   color: #a58b70;
+}
+
+body footer .footer-text {
+  font-size: 0.75rem;
+  padding: 1rem;
+  padding-bottom: 0;
 }
