@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // Build localStorage class and fns:
   class StoreBubbletea {
     static getBubbleteas() {
       let bubbleteas;
@@ -28,7 +29,7 @@ $(document).ready(function () {
     }
   }
 
-  // Add to Cart
+  // Add chosen item to cart:
   let imageUrl, bubbleteaName, bubbleteaPrice, bubbleteaId;
   let addToCartBtns = document.querySelectorAll("#addToCart");
   addToCartBtns.forEach((btn) =>
@@ -67,43 +68,37 @@ $(document).ready(function () {
       bubbleteas.forEach((bubbletea) => cartUI.addToCart(bubbletea));
     }
     static addToCart(bubbletea) {
-      // const bubbleList = document.querySelector("#cart-items");
-      // const tableRow = document.createElement("tr");
-      // tableRow.innerHTML = `
-      //   <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto" alt=""/></td>
-      //   <td class="align-middle">${bubbletea.bubbleteaName}</td>
-      //   <td class="align-middle">${bubbletea.bubbleteaPrice}</td>
-      //   <td class="align-middle"><a href="#"><i class="bi bi-eraser fa-2x removeBubbletea" style="color:#ff0000"></i></a></td>
-      //   <td class="d-none">${bubbletea.bubbleteaId}</td>
-      // `;
-      // bubbleList.appendChild(tableRow);
-
-      $("<tr/>").html(`
+      $("<tr/>")
+        .html( `
         <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto" alt=""/></td>
         <td class="align-middle">${bubbletea.bubbleteaName}</td>
         <td class="align-middle">${bubbletea.bubbleteaPrice}</td>
         <td class="align-middle"><i class="bi bi-eraser fa-2x btn removeBubbletea" style="color:#ff0000"></i></td>
         <td class="d-none">${bubbletea.bubbleteaId}</td>
-      `).appendTo('#cart-items')
+      ` )
+        .appendTo("#cart-items");
     }
 
+    // Remove UI list item:
     static removeUIBubbletea(el) {
-      if (el.classList.contains('removeBubbletea')) {
-        el.parentElement.parentElement.remove()
+      if (el.classList.contains("removeBubbletea")) {
+        el.parentElement.parentElement.remove();
       }
     }
   }
 
+  // Handle showing cart items event
   $(".cartBtn").click(() => {
     $("#cart-items").text("");
     cartUI.displayCartItems();
   });
 
-  $("#cart-items").click(e => {
+  // Handle remove btn of Cart item:
+  $("#cart-items").click((e) => {
     cartUI.removeUIBubbletea(e.target);
     // console.log(e.target.parentElement.nextElementSibling.textContent);
     StoreBubbletea.removeBubbletea(
       e.target.parentElement.nextElementSibling.textContent
     );
-  })
+  });
 });
