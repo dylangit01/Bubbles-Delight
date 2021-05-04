@@ -65,6 +65,8 @@
                 <% if (order.status === 'COMPLETED') { %>
                   <input class="form-control form-control-sm" type="text" name="ETA" placeholder="<%= order.eta %>"
                   disabled />
+                <% } else if (order.status === 'IN PROGRESS') { %>
+                  <input class="form-control form-control-sm" type="text" name="ETA" placeholder="<%= order.eta %>" />
                 <% } else { %>
                   <input class="form-control form-control-sm" type="text" name="ETA" placeholder="ETA" />
                 <% } %>
