@@ -17,12 +17,13 @@ module.exports = (db) => {
 
     const userID = req.user.id;
     const queryString = `
-      SELECT orders.*, quantity * cost as total_cost, quantity
+      SELECT orders.*, sum(quantity * cost) as total_cost, sum(quantity) as total_items
       FROM orders
       JOIN users ON user_id = users.id
       JOIN order_line_items ON orders.id = order_id
       JOIN bubbleteas ON bubbletea_id = bubbleteas.id
-      WHERE user_id = $1;
+      WHERE user_id = $1
+      GROUP BY orders.id;
     `;
     const values = [userID];
 

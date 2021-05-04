@@ -7,12 +7,12 @@
 </head>
 
 <body>
-  <div class="background-image">
-    <!-- Navbar -->
-    <%- include('partials/_navbar') %>
+  <!-- Navbar -->
+  <%- include('partials/_navbar') %>
 
+  <div class="background-image">
     <!-- Orders List -->
-    <div class="orders container shadow-lg p-3 rounded">
+    <div class="orders container shadow-lg p-4 rounded">
       <h2>My Orders</h2>
       <table class="table table-hover">
         <thead>
@@ -29,8 +29,8 @@
           <% for(const order of orders) { %>
           <tr>
             <td><%= order.id %></td>
-            <td> <%=order.total_cost / 100 %></td>
-            <td><%= order.quantity %></td>
+            <td>$ <%=order.total_cost / 100 %></td>
+            <td><%= order.total_items %></td>
             <td>
               <%= order.created_at.getFullYear() + "/" + (order.created_at.getMonth() + 1) + "/" + order.created_at.getDate() %>
             </td>
