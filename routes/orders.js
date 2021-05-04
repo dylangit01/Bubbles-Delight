@@ -7,7 +7,7 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
-  // Get all orders for a certain user (whether a customer or admin)
+  // Get all orders for a customer user
   router.get("/", (req, res) => {
     // If not logged in, redirect to main page
     const user = req.user;
@@ -46,14 +46,14 @@ module.exports = (db) => {
   // Post order route:
   router.post("/", (req, res) => {
     const orders = req.body;
-    const user_id = req.user.id;
-    const created_at = new Date();
+    const userID = req.user.id;
+    const createdAt = new Date();
 
     const queryString = `
-    INSERT INTO orders (user_id, created_at)
-    VALUES ($1, $2) RETURNING *;
+      INSERT INTO orders (user_id, created_at)
+      VALUES ($1, $2) RETURNING *;
     `;
-    const values = [user_id, created_at];
+    const values = [userID, createdAt];
 
     return db
       .query(queryString, values)
@@ -63,8 +63,8 @@ module.exports = (db) => {
         orders.forEach(order => {
           const { bubbleteaId } = order;
           const queryString = `
-          INSERT INTO order_line_items (bubbletea_id, order_id)
-          VALUES ($1, $2) RETURNING *;
+            INSERT INTO order_line_items (bubbletea_id, order_id)
+            VALUES ($1, $2) RETURNING *;
           `;
           const values = [bubbleteaId, id];
           db.query(queryString, values)
