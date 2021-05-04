@@ -13,8 +13,8 @@ module.exports = (db) => {
     db.query(queryString)
       .then(data => {
         const bubbleteas = data.rows;
-        const userID = req.session['user_id'];
-        const templateVars = { bubbleteas, userID };
+        const user = req.user;
+        const templateVars = { bubbleteas, user };
         res.render("bubbleteas", templateVars);
       })
       .catch(err => {

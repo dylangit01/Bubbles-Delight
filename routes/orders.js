@@ -23,11 +23,11 @@ module.exports = (db) => {
     db.query(queryString, values)
       .then(data => {
         const orders = data.rows;
-        const userID = req.session['user_id'];
-        const templateVars = { orders, userID };
+        const user = req.user;
+        const templateVars = { orders, user };
 
         // If not logged in, redirect to main page
-        if (!userID) {
+        if (!user) {
           return res.redirect('/');
         }
 

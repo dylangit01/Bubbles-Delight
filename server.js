@@ -36,6 +36,25 @@ app.use("/styles", sass({
 }));
 app.use(express.static("public"));
 
+// Custom middleware to get the currently logged in user
+const userParser = (req, res, next) => {
+  const userID = req.session['user_id'];
+  const queryString = `SELECT * FROM users WHERE id = $1;`;
+  const values = [userID];
+
+  // Get user object from database
+  db.query(queryString, values)
+    .then(data => {
+      const user = data.rows[0];
+      req.user = user;  // Add user object to req object and pass it to the next middleware
+      next();
+    })
+    .catch(err => {
+      res.status(500).json({ error: err.message });
+    });
+};
+app.use(userParser);
+
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");

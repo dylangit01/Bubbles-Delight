@@ -15,8 +15,8 @@ module.exports = (db) => {
 
   // Display log in form
   router.get("/", (req, res) => {
-    const userID = req.session["user_id"];
-    const templateVars = { userID };
+    const user = req.user;
+    const templateVars = { user };
     res.render("login", templateVars);
   });
 
