@@ -40,4 +40,17 @@ body {
       font-size: 1.5rem;
     }
   }
+
+  .menu-item {
+    overflow: hidden;
+
+    &:hover {
+      cursor: pointer;
+
+      & .card-img-top {
+        transform: scale(1.2);
+        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      }
+    }
+  }
 }
