@@ -16,19 +16,20 @@ module.exports = (db) => {
     }
 
     const userID = req.user.id;
-    const queryString = `SELECT orders.id as Order_ID, count(orders.id) * cost as total_price, count(quantity) quantity, orders.*
-                        FROM orders
-                        JOIN users ON user_id = users.id
-                        JOIN order_line_items ON orders.id = order_id
-                        JOIN bubbleteas ON bubbletea_id = bubbleteas.id
-                        WHERE user_id = $1
-                        GROUP BY orders.id,cost
-                        ;`;
+    const queryString = `
+      SELECT orders.*, quantity * cost as total_cost, quantity
+      FROM orders
+      JOIN users ON user_id = users.id
+      JOIN order_line_items ON orders.id = order_id
+      JOIN bubbleteas ON bubbletea_id = bubbleteas.id
+      WHERE user_id = $1;
+    `;
     const values = [userID];
 
     db.query(queryString, values)
       .then(data => {
         const orders = data.rows;
+        console.log(orders);
         const templateVars = { orders, user };
         return res.render('orders', templateVars);
       })
@@ -36,7 +37,7 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-  
+
 
 
 
