@@ -19,7 +19,3 @@ body .background-image {
   background-image: url("../images/header-background.jpg");
   background-size: cover;
 }
-
-body h2 {
-  color: #6f451a;
-}
