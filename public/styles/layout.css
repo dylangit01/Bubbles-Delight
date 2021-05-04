@@ -1,57 +1,17 @@
+html {
+  min-height: 100%;
+}
+
 body {
   box-sizing: border-box;
-  background-color: #eee;
-}
-
-body .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
-body .navbar .cartBtn {
-  border: none;
-  background-color: #fff;
-}
-
-body .navbar:active {
-  border: none;
-  outline: none;
-}
-
-body header {
-  padding: 5%;
-  padding-top: 10%;
-  margin-top: 50px;
-  height: 75vh;
-  background-image: url("../images/header-background.jpg");
-  background-size: cover;
-  background-position: fixed;
-}
-
-body header h1 {
-  color: #6f451a;
-}
-
-body header h3 {
-  color: #a58b70;
-}
-
-body .table {
+  background: #FAF9F6;
+  min-height: 100%;
+  padding-top: 50px;
   position: relative;
-  top: 80px;
-  /* background-color: aqua; */
 }
 
-body .modal-backdrop {
-  z-index: 0;
-}
-
-body .text-center {
-  display: flex;
-  justify-content: space-between;
+body h2 {
+  color: #6f451a;
 }
 
 body footer {

@@ -1,0 +1,10 @@
+body .orders {
+  padding-top: 5%;
+}
+
+body .table {
+  padding: 10%;
+  padding-top: 10%;
+  margin-top: 50px;
+  text-align: center;
+}

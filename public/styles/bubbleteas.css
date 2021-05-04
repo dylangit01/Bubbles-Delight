@@ -1,0 +1,16 @@
+body header {
+  padding: 5%;
+  padding-top: 10%;
+  height: 75vh;
+  background-image: url("../images/header-background.jpg");
+  background-size: cover;
+  background-position: fixed;
+}
+
+body header h1 {
+  color: #6f451a;
+}
+
+body header h3 {
+  color: #a58b70;
+}

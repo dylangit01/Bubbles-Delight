@@ -1,0 +1,18 @@
+// See: https://sass-lang.com/
+
+// Variables
+$primary-color: #6f451a;
+$secondary-color: #a58b70;
+
+body {
+  .orders {
+    padding-top: 5%;
+  }
+
+  .table {
+    padding: 10%;
+    padding-top: 10%;
+    margin-top: 50px;
+    text-align: center;
+  }
+}

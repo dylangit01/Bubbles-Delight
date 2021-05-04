@@ -1,0 +1,26 @@
+body .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+body .navbar .cartBtn {
+  border: none;
+  background-color: #fff;
+}
+
+body .navbar:active {
+  border: none;
+  outline: none;
+}
+
+body .modal-backdrop {
+  z-index: 0;
+}
+
+body .text-center {
+  display: flex;
+  justify-content: space-between;
+}

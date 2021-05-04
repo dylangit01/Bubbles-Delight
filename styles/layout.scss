@@ -4,68 +4,25 @@
 $primary-color: #6f451a;
 $secondary-color: #a58b70;
 
+html {
+  min-height: 100%; // Set min-height of html element to 100% of the viewport so that the body can inherit this height
+}
+
 body {
   box-sizing: border-box;
-  background-color: #eee;
-
-  // Navbar
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    // background-color: coral;
-
-    .cartBtn {
-      border: none;
-      background-color: #fff;
-    }
-    &:active {
-      border: none;
-      outline: none;
-    }
-  }
-
-  // Header section
-  header {
-    padding: 5%;
-    padding-top: 10%;
-    margin-top: 50px;
-    height: 75vh;
-    background-image: url('../images/header-background.jpg');
-    background-size: cover;
-    background-position: fixed;
-
-
-    h1 {
-      color: $primary-color;
-    }
-
-    h3 {
-      color: $secondary-color;
-    }
-  }
-
-  // .card {
+  background: #FAF9F6;
+  // background: linear-gradient(to bottom right, #ffe7c8, white);
+  min-height: 100%; //Set min-height of body element to 100% of the viewport so that background gradient colours encompases the whole viewport
+  padding-top: 50px;
+  position: relative;
+  // .table {
   //   position: relative;
   //   top: 80px;
-  //   // background-color: chartreuse;
+  //   /* background-color: aqua; */
   // }
 
-  .table {
-    position: relative;
-    top: 80px;
-    /* background-color: aqua; */
-  }
-
-  .modal-backdrop {
-    z-index: 0;
-  }
-
-  .text-center {
-    display: flex;
-    justify-content: space-between;
+  h2 {
+    color: $primary-color;
   }
 
   // Footer section
@@ -97,5 +54,3 @@ body {
     }
   }
 }
-
-//  box-shadow: 5px 5px 0 2px #b8b5ff;
