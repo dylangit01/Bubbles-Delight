@@ -49,6 +49,7 @@ module.exports = (db) => {
     const user_id = req.user.id;
     const created_at = new Date();
 
+    // Only need user_id and created_at for order insert query
     const queryString = `
     INSERT INTO orders (user_id, created_at)
     VALUES ($1, $2) RETURNING *;
@@ -57,10 +58,10 @@ module.exports = (db) => {
 
     return db
       .query(queryString, values)
-      .then((res) => res.rows[0])
+      .then((res) => res.rows[0])   // query returns a single order
       .then(order => {
         const { id } = order;
-        orders.forEach(order => {
+        orders.forEach(order => {   // req.body contains an array
           const { bubbleteaId } = order;
           const queryString = `
           INSERT INTO order_line_items (bubbletea_id, order_id)
@@ -68,8 +69,12 @@ module.exports = (db) => {
           `;
           const values = [bubbleteaId, id];
           db.query(queryString, values)
-            .then((res) => console.log(res.rows))
+            .then((res) => {
+              console.log(res.rows);
+
+            })
         })
+        res.redirect("/orders");
       })
       .catch((err) => console.log(err.message));
   });
