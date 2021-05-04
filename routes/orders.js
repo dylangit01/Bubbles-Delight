@@ -9,6 +9,12 @@ const router = express.Router();
 module.exports = (db) => {
   // Get all orders for a certain user (whether a customer or admin)
   router.get("/", (req, res) => {
+    // If not logged in, redirect to main page
+    const user = req.user;
+    if (!user) {
+      return res.redirect('/');
+    }
+
     const userID = req.user.id;
     const queryString = `SELECT orders.id as Order_ID, count(orders.id) * cost as total_price, count(quantity) quantity, orders.*
                         FROM orders
@@ -23,14 +29,7 @@ module.exports = (db) => {
     db.query(queryString, values)
       .then(data => {
         const orders = data.rows;
-        const user = req.user;
         const templateVars = { orders, user };
-
-        // If not logged in, redirect to main page
-        if (!user) {
-          return res.redirect('/');
-        }
-
         return res.render('orders', templateVars);
       })
       .catch(err => {
