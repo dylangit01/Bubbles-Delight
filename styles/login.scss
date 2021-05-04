@@ -9,5 +9,10 @@ body {
     display: flex;
     align-items: center;
     padding-bottom: 3rem;
+
+    form {
+      background: rgba(white, 0.7);
+      border-radius: 20px;
+    }
   }
 }
