@@ -22,9 +22,18 @@ module.exports = (db) => {
 
   // FOR DEVELOPMENT PURPOSES: Handle user log in
   router.post("/", (req, res) => {
-    // const { email, password } = req.body;
-    // Are we supposed to query databse for user?
-    res.redirect("/login/1"); // Redirection for user 1
+    // Get the user from database
+    const { email } = req.body;
+    const queryString = `SELECT * FROM users WHERE email = $1;`;
+    const values = [email];
+    db.query(queryString, values)
+      .then(data => {
+        const user = data.rows[0];
+        res.redirect(`/login/${user.id}`);
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
   });
 
   return router;
