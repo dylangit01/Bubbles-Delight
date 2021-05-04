@@ -15,8 +15,8 @@ body {
   justify-content: center;
   background: #fdf8f4;
   // background: linear-gradient(to bottom right,white, #f5ddcb);
-  min-height: 100%; //Set min-height of body element to 100% of the viewport so that background gradient colours encompases the whole viewport
-  padding-top: 50px;
+  min-height: 100%;
+  padding-top: 5vh; // Padding so that navbar doesn't cover any elements
 
   .background-image {
     display: flex;

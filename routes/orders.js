@@ -68,8 +68,8 @@ module.exports = (db) => {
           `;
           const values = [bubbleteaId, id];
           db.query(queryString, values)
-            .then((res) => console.log(res.rows))
-        })
+            .then((res) => console.log(res.rows));
+        });
       })
       .catch((err) => console.log(err.message));
   });

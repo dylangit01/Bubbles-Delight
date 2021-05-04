@@ -12,55 +12,57 @@
 
   <div class="background-image">
     <!-- Orders List -->
-    <div class="orders container shadow-lg p-4 rounded">
-      <h2>My Orders</h2>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">Order #</th>
-            <th scope="col">Total Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Ordered On</th>
-            <th scope="col">Status</th>
-            <th scope="col">ETA (minutes)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for(const order of orders) { %>
-          <tr>
-            <td><%= order.id %></td>
-            <td>$ <%=order.total_cost / 100 %></td>
-            <td><%= order.total_items %></td>
-            <td>
-              <%= order.created_at.getFullYear() + "/" + (order.created_at.getMonth() + 1) + "/" + order.created_at.getDate() %>
-            </td>
-            <td>
-              <!-- Display order submitted, in progress or completed progress bar depending on order -->
-              <% if (order.status === 'COMPLETED') { %>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%"
-                  aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              Complete
-              <% } else if (order.status === 'IN PROGRESS') { %>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
-                  style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              Brewing in Progress...
-              <% } else { %>
-              <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                  style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              Order Submitted
-              <% } %>
-            </td>
-            <td><%= order.eta %></td>
-          </tr>
-          <% } %>
-        </tbody>
-      </table>
+    <div id="orders-table" class="card-body">
+      <div class="orders container shadow-lg p-4 rounded">
+        <h2>My Orders</h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Order #</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Ordered On</th>
+              <th scope="col">Status</th>
+              <th scope="col">ETA (minutes)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(const order of orders) { %>
+            <tr>
+              <td class="align-middle"><%= order.id %></td>
+              <td class="align-middle">$ <%=order.total_cost / 100 %></td>
+              <td class="align-middle"><%= order.total_items %></td>
+              <td class="align-middle">
+                <%= order.created_at.getFullYear() + "/" + (order.created_at.getMonth() + 1) + "/" + order.created_at.getDate() %>
+              </td>
+              <td class="align-middle">
+                <!-- Display order submitted, in progress or completed progress bar depending on order -->
+                <% if (order.status === 'COMPLETED') { %>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 100%"
+                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                Complete
+                <% } else if (order.status === 'IN PROGRESS') { %>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
+                    style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                Brewing in Progress...
+                <% } else { %>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                    style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                Order Submitted
+                <% } %>
+              </td>
+              <td class="align-middle"><%= order.eta %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Footer -->

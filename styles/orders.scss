@@ -5,9 +5,13 @@ $primary-color: #6f451a;
 $secondary-color: #a58b70;
 
 body {
+  #orders-table {
+    display: flex;
+    align-items: center;
+    padding: 5rem;
+  }
+
   .orders {
-    margin: auto;
-    margin-bottom: 0;
     background: rgba(white, 0.7);
     border-radius: 20px;
   }

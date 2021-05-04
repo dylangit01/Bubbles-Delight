@@ -1,7 +1,7 @@
 body #login-form {
   display: flex;
   align-items: center;
-  padding-bottom: 3rem;
+  padding-bottom: 5rem;
 }
 
 body #login-form form {

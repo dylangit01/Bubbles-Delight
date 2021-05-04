@@ -1,6 +1,10 @@
+body #orders-table {
+  display: flex;
+  align-items: center;
+  padding: 5rem;
+}
+
 body .orders {
-  margin: auto;
-  margin-bottom: 0;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 20px;
 }
