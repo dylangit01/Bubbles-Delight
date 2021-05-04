@@ -1,16 +1,3 @@
-// $("document").ready(() => {
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/api/users",
-//   }).done((users) => {
-//     for (user of users.users) {
-//       $("<div>").text(user.name).appendTo($("body"));
-//     }
-//   });
-// });
-// })
-
 $(document).ready(function () {
   class StoreBubbletea {
     static getBubbleteas() {
@@ -48,4 +35,53 @@ $(document).ready(function () {
       StoreBubbletea.addBubbletea(bubbletea);
     })
   );
+
+  // Add event listener to cart button:
+  class Bubbletea {
+    constructor(imageUrl, bubbleteaName, bubbleteaPrice) {
+      this.imageUrl = imageUrl;
+      this.bubbleteaName = bubbleteaName;
+      this.bubbleteaPrice = bubbleteaPrice;
+    }
+  }
+
+  // UI Class: Handle UI tasks
+  class cartUI {
+    static displayCartItems() {
+      const storedBubbleteas = StoreBubbletea.getBubbleteas();
+      let bubbleteas = [];
+      console.log(bubbleteas);
+      bubbleteas = storedBubbleteas;
+      bubbleteas.forEach((bubbletea) => cartUI.addToCart(bubbletea));
+    }
+    static addToCart(bubbletea) {
+      const bubbleList = document.querySelector("#cart-items");
+
+      const tableRow = document.createElement("tr");
+      tableRow.innerHTML = `
+        <td>${bubbletea.imageUrl}</td>
+        <td>${bubbletea.bubbleteaName}</td>
+        <td>${bubbletea.bubbleteaPrice}</td>
+        <td><a href="#" class="btn btn-outline-danger btn-sm delete">X</a></td>
+      `;
+      bubbleList.appendChild(tableRow);
+
+      // $("<tr/>").html(`
+      // <td>${bubbletea.imageUrl}</td>
+      // <td>${bubbletea.bubbleteaName}</td>
+      // <td>${bubbletea.bubbleteaPrice}</td>
+      // <td><a href="#" class="btn btn-outline-danger btn-sm delete">X</a></td>
+      // `).appendTo('#cart-items')
+
+    }
+  }
+
+  $(".cartBtn").click(() => {
+    $("#cart-items").text('')
+    cartUI.displayCartItems();
+  });
+
+
+
+
 });
