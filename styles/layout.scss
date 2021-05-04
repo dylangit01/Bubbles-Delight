@@ -5,16 +5,18 @@ $primary-color: #6f451a;
 $secondary-color: #a58b70;
 
 html {
-  min-height: 100%; // Set min-height of html element to 100% of the viewport so that the body can inherit this height
+  height: 100%; // Set min-height of html element to 100% of the viewport so that the body can inherit this height
 }
 
 body {
   box-sizing: border-box;
-  background: #FAF9F6;
-  // background: linear-gradient(to bottom right, #ffe7c8, white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fdf8f4;
+  // background: linear-gradient(to bottom right,white, #f5ddcb);
   min-height: 100%; //Set min-height of body element to 100% of the viewport so that background gradient colours encompases the whole viewport
   padding-top: 50px;
-  position: relative;
 
   h2 {
     color: $primary-color;

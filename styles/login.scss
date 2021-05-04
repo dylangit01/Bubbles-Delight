@@ -1,0 +1,13 @@
+// See: https://sass-lang.com/
+
+// Variables
+$primary-color: #6f451a;
+$secondary-color: #a58b70;
+
+body {
+  #login-form {
+    display: flex;
+    align-items: center;
+    padding-bottom: 3rem;
+  }
+}

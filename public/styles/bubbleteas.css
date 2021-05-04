@@ -15,6 +15,10 @@ body header h3 {
   color: #a58b70;
 }
 
+body #bubbleteaMenu {
+  margin-bottom: 5%;
+}
+
 body .menu-item {
   overflow: hidden;
 }
