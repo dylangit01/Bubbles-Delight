@@ -19,5 +19,9 @@ body {
     .fab {
       font-size: 1.5rem;
     }
+
+    .fab:hover {
+      color: $secondary-color;
+    }
   }
 }
