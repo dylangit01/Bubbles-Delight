@@ -53,18 +53,6 @@ app.use("/logout", logoutRoutes(db));
 app.use("/bubbleteas", bubbleteasRoutes(db));
 app.use("/orders", ordersRoutes(db));
 
-// FOR DEVELOPMENT: handle user login and set a cookie with the user id
-// app.get('/login/:id', (req, res) => {
-//   req.session['user_id'] = req.params.id;
-//   res.redirect('/');
-// });
-
-// FOR DEVELOPMENT: Handle user logout and clear cookies
-// app.post("/logout", (req, res) => {
-//   req.session = null;
-//   res.redirect('/');
-// });
-
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
