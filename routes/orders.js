@@ -12,7 +12,8 @@ module.exports = (db) => {
     // If not logged in, redirect to main page
     const user = req.user;
     if (!user) {
-      return res.redirect("/");
+      res.redirect("/");
+      return;
     }
 
     const userID = req.user.id;
@@ -23,18 +24,14 @@ module.exports = (db) => {
       JOIN order_line_items ON orders.id = order_id
       JOIN bubbleteas ON bubbletea_id = bubbleteas.id
       WHERE user_id = $1
-      GROUP BY orders.id;
+      GROUP BY orders.id
+      ORDER BY orders.id DESC;
     `;
     const values = [userID];
 
     db.query(queryString, values)
       .then((data) => {
         const orders = data.rows;
-        // Sort orders from most recent to oldest
-        orders.sort(function(a, b) {
-          return b.id - a.id;
-        });
-        // console.log(orders);
         const templateVars = { orders, user };
         return res.render("orders", templateVars);
       })

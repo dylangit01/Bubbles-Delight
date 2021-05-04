@@ -33,7 +33,7 @@ CREATE TABLE orders (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   created_at TIMESTAMP,
   completed_at TIMESTAMP,
-  status VARCHAR(255) DEFAULT 'submitted',
+  status VARCHAR(255) DEFAULT 'SUBMITTED',
   eta INTEGER     -- The ETA of the order in minutes
 );
 
