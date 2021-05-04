@@ -15,11 +15,6 @@ body {
   min-height: 100%; //Set min-height of body element to 100% of the viewport so that background gradient colours encompases the whole viewport
   padding-top: 50px;
   position: relative;
-  // .table {
-  //   position: relative;
-  //   top: 80px;
-  //   /* background-color: aqua; */
-  // }
 
   h2 {
     color: $primary-color;
@@ -38,19 +33,6 @@ body {
 
     .fab {
       font-size: 1.5rem;
-    }
-  }
-
-  .menu-item {
-    overflow: hidden;
-
-    &:hover {
-      cursor: pointer;
-
-      & .card-img-top {
-        transform: scale(1.2);
-        transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-      }
     }
   }
 }
