@@ -14,7 +14,7 @@ body footer .fab {
 }
 
 body footer .fab:hover {
-  color: #a58b70;
+  color: lightgray;
 }
 
 body footer .footer-text {
