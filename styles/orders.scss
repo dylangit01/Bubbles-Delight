@@ -6,7 +6,9 @@ $secondary-color: #a58b70;
 
 body {
   .orders {
-    padding-top: 5%;
+    margin-top: 5%;
+    background: rgba(white, 0.7);
+    border-radius: 20px;
   }
 
   .table {

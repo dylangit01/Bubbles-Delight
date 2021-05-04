@@ -1,5 +1,7 @@
 body .orders {
-  padding-top: 5%;
+  margin-top: 5%;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
 }
 
 body .table {
