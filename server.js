@@ -39,6 +39,8 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
+const loginRoutes = require("./routes/login");
+const logoutRoutes = require("./routes/logout");
 const bubbleteasRoutes = require("./routes/bubbleteas");
 const ordersRoutes = require("./routes/orders");
 
@@ -46,20 +48,22 @@ const ordersRoutes = require("./routes/orders");
 // Note: Feel free to replace the example routes below with your own
 // Note: mount other resources here, using the same pattern above
 app.use("/api/users", usersRoutes(db));
+app.use("/login", loginRoutes(db));
+app.use("/logout", logoutRoutes(db));
 app.use("/bubbleteas", bubbleteasRoutes(db));
 app.use("/orders", ordersRoutes(db));
 
 // FOR DEVELOPMENT: handle user login and set a cookie with the user id
-app.get('/login/:id', (req, res) => {
-  req.session['user_id'] = req.params.id;
-  res.redirect('/');
-});
+// app.get('/login/:id', (req, res) => {
+//   req.session['user_id'] = req.params.id;
+//   res.redirect('/');
+// });
 
 // FOR DEVELOPMENT: Handle user logout and clear cookies
-app.post("/logout", (req, res) => {
-  req.session = null;
-  res.redirect('/');
-});
+// app.post("/logout", (req, res) => {
+//   req.session = null;
+//   res.redirect('/');
+// });
 
 // Home page
 // Warning: avoid creating more routes in this file!

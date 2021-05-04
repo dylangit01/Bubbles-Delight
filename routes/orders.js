@@ -25,6 +25,12 @@ module.exports = (db) => {
         const orders = data.rows;
         const userID = req.session['user_id'];
         const templateVars = { orders, userID };
+
+        // If not logged in, redirect to main page
+        if (!userID) {
+          return res.redirect('/');
+        }
+
         return res.render('orders', templateVars);
       })
       .catch(err => {
