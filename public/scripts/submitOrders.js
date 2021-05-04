@@ -2,21 +2,21 @@ $(document).ready(function() {
 
   $('#submitOrders').click(e => {
     e.preventDefault();
-    console.log('hererer');
-    localStorage.getItem('')
+    // jQuery cannot handle deep array, so have to send string
+    const order = localStorage.getItem("bubbletea");
+    console.log(order);
+
+    $.ajax({
+      type: "POST",
+      url: "/orders",
+      data: order,
+      contentType: "application/json"   // This is to prevent have FormData
+    });
+
   });
 
 
-  // const postOrder = (order) => {
-  //   const
 
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: '/tweets',
-  //     data: $(order.target).serialize(),
-  //   }).then(() => {
-  //   });
-  // };
 
 
 });

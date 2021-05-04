@@ -3,7 +3,7 @@
  * Since this file is loaded in server.js into /orders, these routes are mounted onto /bubbleteas
  */
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
@@ -12,7 +12,7 @@ module.exports = (db) => {
     // If not logged in, redirect to main page
     const user = req.user;
     if (!user) {
-      return res.redirect('/');
+      return res.redirect("/");
     }
 
     const userID = req.user.id;
@@ -27,20 +27,46 @@ module.exports = (db) => {
     const values = [userID];
 
     db.query(queryString, values)
-      .then(data => {
+      .then((data) => {
         const orders = data.rows;
         const templateVars = { orders, user };
-        return res.render('orders', templateVars);
+        return res.render("orders", templateVars);
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({ error: err.message });
       });
   });
-  
 
+  // Post order route:
+  router.post("/", (req, res) => {
+    const orders = req.body;
+    const user_id = req.user.id;
+    const created_at = new Date();
 
+    const queryString = `
+    INSERT INTO orders (user_id, created_at)
+    VALUES ($1, $2) RETURNING *;
+    `;
+    const values = [user_id, created_at];
+
+    return db
+      .query(queryString, values)
+      .then((res) => res.rows[0])
+      .then(order => {
+        const { id } = order;
+        orders.forEach(order => {
+          const { bubbleteaId } = order;
+          const queryString = `
+          INSERT INTO order_line_items (bubbletea_id, order_id)
+          VALUES ($1, $2) RETURNING *;
+          `;
+          const values = [bubbleteaId, id];
+          db.query(queryString, values)
+            .then((res) => console.log(res.rows))
+        })
+      })
+      .catch((err) => console.log(err.message));
+  });
 
   return router;
 };
-
-

@@ -19,7 +19,7 @@ $(document).ready(function () {
 
     static removeBubbletea(id) {
       const bubbleteas = StoreBubbletea.getBubbleteas();
-      console.log(bubbleteas);
+      // console.log(bubbleteas);
       bubbleteas.forEach((bubbletea, index) => {
         if (bubbletea.bubbleteaId == id) {
           bubbleteas.splice(index, 1);
