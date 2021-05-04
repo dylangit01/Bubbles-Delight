@@ -42,10 +42,6 @@ module.exports = (db) => {
         res.status(500).json({ error: err.message });
       });
   });
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 
   // Post order route:
   router.post("/", (req, res) => {
