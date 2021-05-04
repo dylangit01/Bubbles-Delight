@@ -9,7 +9,7 @@ const router = express.Router();
 module.exports = (db) => {
   // Get all orders for a certain user (whether a customer or admin)
   router.get("/", (req, res) => {
-    // const userID = req.session['user_id'];
+    const userID = req.user.id;
     const queryString = `SELECT orders.id as Order_ID, count(orders.id) * cost as total_price, count(quantity) quantity, orders.*
                         FROM orders
                         JOIN users ON user_id = users.id
@@ -18,7 +18,7 @@ module.exports = (db) => {
                         WHERE user_id = $1
                         GROUP BY orders.id,cost
                         ;`;
-    const values = [1]; //Update to cookie session id
+    const values = [userID];
 
     db.query(queryString, values)
       .then(data => {
