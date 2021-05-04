@@ -30,7 +30,11 @@ module.exports = (db) => {
     db.query(queryString, values)
       .then(data => {
         const orders = data.rows;
-        console.log(orders);
+        // Sort orders from most recent to oldest
+        orders.sort(function(a, b) {
+          return b.id - a.id;
+        });
+        // console.log(orders);
         const templateVars = { orders, user };
         return res.render('orders', templateVars);
       })
