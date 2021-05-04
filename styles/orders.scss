@@ -9,6 +9,11 @@ body {
     display: flex;
     align-items: center;
     padding: 5rem;
+
+    // Center ETA input field for restaurant orders table
+    table input {
+      text-align: center;
+    }
   }
 
   .orders {
