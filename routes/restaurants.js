@@ -23,31 +23,26 @@ module.exports = (db) => {
     }
 
     // Query for all the orders (because we only have one restaurant)
-    const userID = req.user.id;
     const queryString = `
-      SELECT orders.*, sum(quantity * cost) as total_cost, sum(quantity) as total_items
+      SELECT orders.*, sum(quantity * cost) as total_cost, sum(quantity) as total_items, users.name as user_name
       FROM orders
       JOIN users ON user_id = users.id
       JOIN order_line_items ON orders.id = order_id
       JOIN bubbleteas ON bubbletea_id = bubbleteas.id
-      GROUP BY orders.id
+      GROUP BY orders.id, users.name
       ORDER BY orders.id DESC;
     `;
 
-  //   db.query(queryString)
-  //     .then((data) => {
-  //       const orders = data.rows;
-  //       // Sort orders from most recent to oldest
-  //       orders.sort(function(a, b) {
-  //         return b.id - a.id;
-  //       });
-  //       // console.log(orders);
-  //       const templateVars = { orders, user };
-  //       return res.render("orders", templateVars);
-  //     })
-  //     .catch((err) => {
-  //       res.status(500).json({ error: err.message });
-  //     });
+    db.query(queryString)
+      .then((data) => {
+        const orders = data.rows;
+        const templateVars = { orders, user };
+        console.log(orders);
+        return res.render("restaurant", templateVars);
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
   });
 
   return router;

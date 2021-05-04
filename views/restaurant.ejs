@@ -22,8 +22,10 @@
               <th scope="col">Total Price</th>
               <th scope="col">Quantity</th>
               <th scope="col">Ordered On</th>
+              <th scope="col">Ordered By</th>
               <th scope="col">Status</th>
               <th scope="col">ETA (minutes)</th>
+              <th scope="col">Action Required</th>
             </tr>
           </thead>
           <tbody>
@@ -35,6 +37,7 @@
               <td class="align-middle">
                 <%= order.created_at.getFullYear() + "/" + (order.created_at.getMonth() + 1) + "/" + order.created_at.getDate() %>
               </td>
+              <td class="align-middle"><%= order.user_name %></td>
               <td class="align-middle">
                 <!-- Display order submitted, in progress or completed progress bar depending on order -->
                 <% if (order.status === 'COMPLETED') { %>
@@ -58,6 +61,28 @@
                 <% } %>
               </td>
               <td class="align-middle"><%= order.eta %></td>
+              <td class="align-middle">
+
+                <% if (order.status === 'COMPLETED') { %>
+                  <select class="custom-select custom-select-sm" disabled>
+                    <option value="COMPLETE" selected>Order Picked Up</option>
+                  </select>
+                <% } else if (order.status === 'IN PROGRESS') { %>
+                  <select class="custom-select custom-select-sm">
+                    <option vakue="NEW ORDER">New Order!</option>
+                    <option value="IN PROGRESS" selected>Order Accepted</option>
+                    <option value="CANCELED">Order Canceled</option>
+                    <option value="COMPLETE">Order Picked Up</option>
+                  </select>
+                <% } else { %>
+                  <select class="custom-select custom-select-sm">
+                    <option vakue="NEW ORDER" selected>New Order!</option>
+                    <option value="IN PROGRESS">Order Accepted</option>
+                    <option value="CANCELED">Order Canceled</option>
+                    <option value="COMPLETE">Order Picked Up</option>
+                  </select>
+                <% } %>
+              </td>
             </tr>
             <% } %>
           </tbody>
