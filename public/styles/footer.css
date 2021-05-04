@@ -1,0 +1,14 @@
+body footer {
+  margin-top: 5%;
+}
+
+body footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body footer .fab {
+  font-size: 1.5rem;
+}

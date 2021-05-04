@@ -19,20 +19,4 @@ body {
   h2 {
     color: $primary-color;
   }
-
-  // Footer section
-  footer {
-    margin-top: 5%;
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .fab {
-      font-size: 1.5rem;
-    }
-  }
 }
