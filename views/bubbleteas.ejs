@@ -32,13 +32,20 @@
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><%= bubbletea.name %></h5>
             <p class="card-text">Price: <span class="card-price">$<%= bubbletea.cost / 100 %></span></p>
-            <button id="addToCart" type="submit" class="w-100 mt-auto btn btn-outline-success">Pick Me!</button>
-            <span class="d-none"><%= bubbletea.id %></span>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="w-100 btn btn-outline-secondary" data-toggle="modal"
+              data-target="#bubbleteaOptions">Options</button>
+            <button id="addToCart" type="submit" class="w-100 mt-auto btn btn-success">Order</button>
+              <span class="d-none"><%= bubbletea.id %></span>
           </div>
         </div>
       </div>
       <% } %>
   </main>
+
+  <!-- Options Modal -->
+  <%- include('partials/_customizations') %>
 
   <!-- Footer -->
   <%- include('partials/_footer') %>
@@ -51,4 +58,5 @@
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
   </script>
 </body>
+
 </html>
