@@ -37,7 +37,6 @@ module.exports = (db) => {
       .then((data) => {
         const orders = data.rows;
         const templateVars = { orders, user };
-        console.log(orders);
         return res.render("restaurant", templateVars);
       })
       .catch((err) => {

@@ -1,24 +1,25 @@
-
-
-// wrap each row in a form
-// event listener for the form on submit
-// play with this
-// For the select options
-// https://learn.jquery.com/using-jquery-core/faq/how-do-i-get-the-text-value-of-a-selected-option/
-// https://stackoverflow.com/questions/14460421/get-the-contents-of-a-table-row-with-a-button-click
+// Update table row relating to the order updated
+const loadUpdatedOrder = function(rowToUpdate) {
+  console.log(rowToUpdate);
+};
 
 // Handle updates from restaurant
 const restaurantSubmitHandler = function() {
-  const $row = $(this).closest("tr");               // Find closest row <tr>
+  const $row = $(this).closest("tr");              // Find closest row <tr>
   const orderID = $row.find('.order-id').text();   // Get descendent with order-id class
   const eta = $row.find('input').val();            // Get descendent input element and it's value
   const status = $row.find('select').val();        // Get descendent select element and it's currently selected option value
   const update = { orderID, eta, status };
-  console.log(update);
+
+  // Ajax call to update the status and eta of an open order
   $.ajax({
     type: "POST",
     url: `/orders/${orderID}`,
     data: update
+  }).then((data) => {
+    //HOW TO GET THE RETURNED DATA?!
+    loadUpdatedOrder($row);
+    console.log(data);
   });
 };
 
