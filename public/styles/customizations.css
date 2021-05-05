@@ -1,3 +1,7 @@
+body .modal-body .card {
+  flex-direction: row;
+}
+
 .onoffswitch {
   position: relative;
   width: 200px;

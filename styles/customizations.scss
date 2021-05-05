@@ -4,6 +4,14 @@
 $primary-color: #6f451a;
 $secondary-color: #a58b70;
 
+body {
+  // For card container in options modal
+  .modal-body .card {
+    flex-direction: row;
+  }
+}
+
+// Styling for hot/cold option
 .onoffswitch {
   position: relative; width: 200px;
   -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
