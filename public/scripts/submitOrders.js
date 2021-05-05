@@ -16,7 +16,8 @@ $(document).ready(function() {
 
   $("#submitOrders").click((e) => {
     e.preventDefault();
-    // jQuery cannot handle deep array, so have to send string
+    // jQuery cannot handle nested arrays and objects, so have to send string first
+    // Server body-parser:json will convert string to object
     const order = localStorage.getItem("bubbletea");
 
     $.ajax({
@@ -25,6 +26,10 @@ $(document).ready(function() {
       data: order,
       contentType: "application/json", // This is to prevent have FormData
     });
+
+    $.get('/sendSMS', () => {
+      console.log('Message sent to customer');
+    })
 
     // clear cart items after submitting:
     Spinner.showSpinner("", "spinner");

@@ -71,10 +71,9 @@ module.exports = (db) => {
           db.query(queryString, values)
             .then((res) => {
               console.log(res.rows);
-
             })
         })
-        res.redirect("/orders");
+
       })
       .catch((err) => console.log(err.message));
   });
