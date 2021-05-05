@@ -6,6 +6,10 @@ body .navbar {
   z-index: 1;
 }
 
+body .navbar .navbar-brand {
+  text-shadow: 4px 1px 3px lightgray;
+}
+
 body .navbar .cartBtn {
   border: none;
   background-color: #fff;
