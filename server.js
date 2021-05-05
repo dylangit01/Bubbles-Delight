@@ -75,7 +75,7 @@ app.use("/logout", logoutRoutes(db));
 app.use("/bubbleteas", bubbleteasRoutes(db));
 app.use("/orders", ordersRoutes(db));
 app.use("/restaurants", restaurantsRoutes(db));
-app.use("/sendSMS", twilioRoutes(db));
+app.use("/sendSMS/", twilioRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!

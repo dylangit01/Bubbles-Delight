@@ -5,14 +5,14 @@ const express = require("express");
 const router = express.Router();
 
 // Setup twilio account:
-const ACCOUNTSID = process.env.ACCOUNTSID;
-const AUTHTOKEN = process.env.AUTHTOKEN;
-const TO_NUMBER = process.env.TO_NUMBER;
-const MSG_SERVICE_SID = process.env.MSG_SERVICE_SID;
+const ACCOUNT_SID = process.env.ACCOUNT_SID_D;
+const AUTH_TOKEN = process.env.AUTH_TOKEN_D;
+const TO_NUMBER = process.env.TO_NUMBER_D;
+const MSG_SERVICE_SID = process.env.MSG_SERVICE_SID_D;
 
 const setupTwilio = (msg) => {
-  const accountSid = ACCOUNTSID;
-  const authToken = AUTHTOKEN;
+  const accountSid = ACCOUNT_SID;
+  const authToken = AUTH_TOKEN;
   const client = require("twilio")(accountSid, authToken);
   return client.messages.create({
     body: msg,
@@ -22,7 +22,8 @@ const setupTwilio = (msg) => {
 };
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
+  // Send msg to customer
+  router.get("/customer", (req, res) => {
     const msg = "Hi, your order is successfully submitted, Thank you";
     const twilioSMS = setupTwilio(msg);
     twilioSMS.then((message) => {
@@ -31,6 +32,18 @@ module.exports = (db) => {
       `);
     });
   });
+
+  // Send msg to owner
+  router.get("/owner", (req, res) => {
+    const msg = "Hi owner, you have new order(s) coming...";
+    const twilioSMS = setupTwilio(msg);
+    twilioSMS.then((msg) => {
+      res.send(`${msg.body}`);
+    })
+  })
+
+
+
 
   return router;
 };
