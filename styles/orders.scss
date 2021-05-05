@@ -28,3 +28,12 @@ body {
     text-align: center;
   }
 }
+
+.bi-x-square{
+  color: #e84545;
+
+  &:hover{
+    cursor: pointer;
+    color: #fb3640;
+  }
+}
