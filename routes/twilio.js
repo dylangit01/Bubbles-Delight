@@ -5,10 +5,10 @@ const express = require("express");
 const router = express.Router();
 
 // Setup twilio account:
-const ACCOUNT_SID = process.env.ACCOUNT_SID_S;
-const AUTH_TOKEN = process.env.AUTH_TOKEN_S;
-const TO_NUMBER = process.env.TO_NUMBER_S;
-const MSG_SERVICE_SID = process.env.MSG_SERVICE_SID_S;
+const ACCOUNT_SID = process.env.ACCOUNT_SID_D;
+const AUTH_TOKEN = process.env.AUTH_TOKEN_D;
+const TO_NUMBER = process.env.TO_NUMBER_D;
+const MSG_SERVICE_SID = process.env.MSG_SERVICE_SID_D;
 
 const setupTwilio = (msg) => {
   const accountSid = ACCOUNT_SID;
@@ -43,15 +43,32 @@ module.exports = (db) => {
   });
 
   // Send customer message with status and eta:
-  router.post("/:status", (req, res) => {
+  router.post("/inprogress", (req, res) => {
     const { orderID, eta, status } = req.body;
-    const msg = `Dear customer, your order# ${orderID} has been ${status}, will be ready in ${eta} minutes, thank you for your order!`;
+    console.log(status);
+    const msg = `Dear customer, your order# ${orderID} is ${status} , will be ready in ${eta} minutes, thank you for your order!`;
     const twilioSMS = setupTwilio(msg);
     twilioSMS
       .then((message) => {
-        console.log(message);
+        return res.send(`
+        Message has been sent to customer:${message.to} on ${message.dateCreated}.
+        `);
       })
-      .catch((err) => console.log(err.message));
+      .catch((err) => console.log(err));
+  });
+
+  router.post("/completed", (req, res) => {
+    const { orderID, status } = req.body;
+    console.log(status);
+    const msg = `Dear customer, your order# ${orderID} is ${status} and ready for pick up, thank you for your business!`;
+    const twilioSMS = setupTwilio(msg);
+    twilioSMS
+      .then((message) => {
+        return res.send(`
+        Message has been sent to customer:${message.to} on ${message.dateCreated}.
+        `);
+      })
+      .catch((err) => console.log(err));
   });
 
   return router;
