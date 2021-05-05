@@ -1,8 +1,3 @@
-// Update table row relating to the order updated
-const loadUpdatedOrder = function (rowToUpdate) {
-  console.log(rowToUpdate);
-};
-
 // Handle updates from restaurant
 const restaurantSubmitHandler = function () {
   const $row = $(this).closest("tr");             // Find closest row <tr>
@@ -16,10 +11,11 @@ const restaurantSubmitHandler = function () {
     type: "POST",
     url: `/orders/${orderID}`,
     data: update
-  }); // WHY DOESN'T .THEN WORK HERE?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?
+  }).then(() => {
+    // Refresh current page /restaurant/:id/orders after AJAX call
+    location.href = '';
+  });
 
-  // Refresh current page /restaurant/:id/orders
-  location.href = '';
 };
 
 $(document).ready(function() {

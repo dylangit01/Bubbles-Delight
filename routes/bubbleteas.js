@@ -15,7 +15,7 @@ module.exports = (db) => {
         const bubbleteas = data.rows;
         const user = req.user;
         const templateVars = { bubbleteas, user };
-        res.render("bubbleteas", templateVars);
+        return res.render("bubbleteas", templateVars);
       })
       .catch(err => {
         res.status(500).json({ error: err.message });

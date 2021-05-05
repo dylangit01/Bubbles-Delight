@@ -3,7 +3,7 @@
 -- Customers
 INSERT INTO users (name, email, password, phone_number)
 VALUES
-('Bubbletea Lover', 'example@gmail.com', 'password', 4161231234),
+('Bubbletea Lover', 'user@example.com', 'password', 4161231234),
 ('Dylan Du', 'dylan@gmail.com', 'password', 4161235678),
 ('Khurram Virani', 'kv@gmail.com', 'password', 4161239876);
 

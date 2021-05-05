@@ -39,8 +39,8 @@ module.exports = (db) => {
     const twilioSMS = setupTwilio(msg);
     twilioSMS.then((msg) => {
       res.send(`${msg.body}`);
-    })
-  })
+    });
+  });
 
 
 
