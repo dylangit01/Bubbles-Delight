@@ -64,6 +64,7 @@ const logoutRoutes = require("./routes/logout");
 const bubbleteasRoutes = require("./routes/bubbleteas");
 const ordersRoutes = require("./routes/orders");
 const restaurantsRoutes = require("./routes/restaurants");
+const twilioRoutes = require("./routes/twilio")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -74,6 +75,7 @@ app.use("/logout", logoutRoutes(db));
 app.use("/bubbleteas", bubbleteasRoutes(db));
 app.use("/orders", ordersRoutes(db));
 app.use("/restaurants", restaurantsRoutes(db));
+app.use("/sendSMS", twilioRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!

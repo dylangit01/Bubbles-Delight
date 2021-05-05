@@ -51,6 +51,7 @@ module.exports = (db) => {
     const userID = req.user.id;
     const createdAt = new Date();
 
+    // Only need user_id and created_at for order insert query
     const queryString = `
       INSERT INTO orders (user_id, created_at)
       VALUES ($1, $2) RETURNING *;
@@ -59,15 +60,11 @@ module.exports = (db) => {
 
     return db
       .query(queryString, values)
-      .then((res) => res.rows[0])
+      .then((res) => res.rows[0])   // query returns a single order
       .then(order => {
-        const {
-          id
-        } = order;
-        orders.forEach(order => {
-          const {
-            bubbleteaId
-          } = order;
+        const { id } = order;
+        orders.forEach(order => {   // req.body contains an array
+          const { bubbleteaId } = order;
           const queryString = `
             INSERT INTO order_line_items (bubbletea_id, order_id)
             VALUES ($1, $2) RETURNING *;
