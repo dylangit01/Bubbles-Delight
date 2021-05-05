@@ -5,10 +5,10 @@ const loadUpdatedOrder = function (rowToUpdate) {
 
 // Handle updates from restaurant
 const restaurantSubmitHandler = function () {
-  const $row = $(this).closest("tr");             // Find closest row <tr>
-  const orderID = $row.find(".order-id").text();  // Get descendent with order-id class
-  const eta = $row.find("input").val();           // Get descendent input element and it's value
-  const status = $row.find("select").val();       // Get descendent select element and it's currently selected option value
+  const $row = $(this).closest("tr"); // Find closest row <tr>
+  const orderID = $row.find(".order-id").text(); // Get descendent with order-id class
+  const eta = $row.find("input").val(); // Get descendent input element and it's value
+  const status = $row.find("select").val(); // Get descendent select element and it's currently selected option value
   const update = { orderID, eta, status };
 
   // Ajax call to update the status and eta of an open order
@@ -21,11 +21,38 @@ const restaurantSubmitHandler = function () {
   location.href = `orders`;
 };
 
+const restaurantSendSMS = function () {
+  const $row = $(this).closest("tr"); // Find closest row <tr>
+  const orderID = $row.find(".order-id").text(); // Get descendent with order-id class
+  const eta = $row.find("input").val(); // Get descendent input element and it's value
+  const status = $row.find("select").val(); // Get descendent select element and it's currently selected option value
+  const update = { orderID, eta, status };
+
+  $.ajax({
+    type: "POST",
+    url: `/sendSMS/${status}`,
+    data: update,
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => console.log(err));
+};
+
+
+
+
+
+
+
 $(document).ready(function () {
   // Event listener on all the order status update buttons
   $(".order-status-update").on("click", restaurantSubmitHandler);
+  $(".order-status-update").on("click", restaurantSendSMS);
 
-  // $(".bi-x-square").click(() => {
-
+  // $(".order-status-update").click((e) => {
+  //   // e.preventDefault();
+  //   restaurantSubmitHandler();
+  //   restaurantSendSMS();
   // });
 });

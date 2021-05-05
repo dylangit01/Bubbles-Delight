@@ -73,7 +73,6 @@ module.exports = (db) => {
         });
       })
       .catch((err) => console.log(err.message));
-    // res.redirect('/orders')
   });
 
   // Update order status & eta request (from restaurant side)
@@ -86,11 +85,10 @@ module.exports = (db) => {
       RETURNING *;
     `;
     const values = [status, eta, orderID];
-
     return db
       .query(queryString, values)
       .then((res) => {
-        console.log(res.rows[0]);
+        // console.log(res.rows[0]);
         return res.rows[0];
       })
       .catch((err) => console.log(err.message));

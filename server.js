@@ -28,7 +28,7 @@ app.use(cookieSession({
 }));
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json());
 app.use("/styles", sass({
   src: __dirname + "/styles",
   dest: __dirname + "/public/styles",
@@ -75,7 +75,7 @@ app.use("/logout", logoutRoutes(db));
 app.use("/bubbleteas", bubbleteasRoutes(db));
 app.use("/orders", ordersRoutes(db));
 app.use("/restaurants", restaurantsRoutes(db));
-app.use("/sendSMS/", twilioRoutes(db));
+app.use("/sendSMS", twilioRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
