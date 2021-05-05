@@ -11,24 +11,18 @@
         </div>
         <div class="modal-body">
           <div class="card">
-            <div class="menu-item h-100">
-              <img src='images/1.jpg' class="card-img-top" alt='Brown Sugar' />
+            <div class="menu-item">
+              <img src='images/1.jpg' class="card-img" alt='Brown Sugar' />
             </div>
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Brown Sugar Milk Tea</h5>
               <p class="card-text"><strong>Price:</strong> $4.99</span></p>
               <form>
                 <!-- Hot/Cold Switch -->
-                <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"
-                    checked>
-                  <label class="onoffswitch-label" for="myonoffswitch">
-                    <span class="onoffswitch-inner"></span>
-                    <span class="onoffswitch-switch"></span>
-                  </label>
-                </div>
+                <input type="checkbox" checked data-toggle="toggle" data-on="Cold" data-off="Hot" data-onstyle="primary" data-offstyle="danger" data-width="100%">
+
                 <!-- Sugar Level -->
-                <div class="form-group">
+                <div class="form-group mt-3">
                   <label for="sugarLevel"><strong>Sugar Level: </strong></label>
                   <span id="sugarRangeVal">50%</span>
                   <input type="range" class="form-control-range" step="25" id="sugarLevel"
@@ -41,15 +35,28 @@
                   <input type="range" class="form-control-range" step="25" id="iceLevel"
                     onInput="$('#iceRangeVal').html($(this).val()+'%')">
                 </div>
+                <p><strong>Toppings:</strong></p>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="tapioca" value="tapioca">
+                  <label class="form-check-label" for="tapioca">Tapioca</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="pudding" value="pudding">
+                  <label class="form-check-label" for="pudding">Pudding</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="grass-jelly" value="grass-jelly">
+                  <label class="form-check-label" for="grass-jelly">Grass Jelly</label>
+                </div>
               </form>
               <span class="d-none">1</span>
             </div>
           </div>
         </div>
-        <!-- <div class="modal-footer">
+        <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Add to Cart</button>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>

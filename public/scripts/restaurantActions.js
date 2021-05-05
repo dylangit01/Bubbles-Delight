@@ -1,7 +1,7 @@
 // Update table row relating to the order updated
-const loadUpdatedOrder = function (rowToUpdate) {
-  console.log(rowToUpdate);
-};
+// const loadUpdatedOrder = function (rowToUpdate) {
+//   console.log(rowToUpdate);
+// };
 
 // Handle updates from restaurant
 const restaurantSubmitHandler = function () {
