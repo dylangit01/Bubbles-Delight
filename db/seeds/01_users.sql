@@ -1,10 +1,13 @@
--- Users table seeds here (Example)
+-- Users table seeds
 
+-- Customers
 INSERT INTO users (name, email, password, phone_number)
 VALUES
 ('Bubbletea Lover', 'bubbletealover@gmail.com', 'password', 4161231234),
-('Kira', 'kira@gmail.com', 'password', 4161235678);
+('Dylan Du', 'dylan@gmail.com', 'password', 4161235678),
+('Khurram Virani', 'kv@gmail.com', 'password', 4161239876);
 
+-- Admin
 INSERT INTO users (name, email, password, phone_number, is_admin)
 VALUES
 ('Admin', 'admin@bubbles.com', 'password', 4161230000, TRUE);
