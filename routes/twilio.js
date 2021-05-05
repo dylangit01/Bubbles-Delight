@@ -5,13 +5,11 @@ const express = require("express");
 const router = express.Router();
 
 // Setup twilio account:
-const ACCOUNT_SID = process.env.ACCOUNT_SID_D;
-const AUTH_TOKEN = process.env.AUTH_TOKEN_D;
-const TO_NUMBER = process.env.TO_NUMBER_D;
-const MSG_SERVICE_SID = process.env.MSG_SERVICE_SID_D;
+const accountSid = process.env.ACCOUNT_SID_S;
+const authToken = process.env.AUTH_TOKEN_S;
+const TO_NUMBER = process.env.TO_NUMBER_S;
+const MSG_SERVICE_SID = process.env.MSG_SERVICE_SID_S;
 
-const accountSid = ACCOUNT_SID;
-const authToken = AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const sendTwilioMsg = (msg) => {

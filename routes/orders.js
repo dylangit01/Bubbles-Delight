@@ -58,7 +58,7 @@ module.exports = (db) => {
     const values = [userID, createdAt];
 
     db.query(queryString, values)
-      .then((res) => res.rows[0]) // query returns a single order
+      .then((res) => res.rows[0])     // query returns a single order: res.rows[0]
       .then((order) => {
         const { id } = order;
         orders.forEach((order) => {
@@ -69,8 +69,9 @@ module.exports = (db) => {
             VALUES ($1, $2) RETURNING *;
           `;
           const values = [bubbleteaId, id];
-          db.query(queryString, values).then((res) => console.log(res.rows));
+          db.query(queryString, values);
         });
+        res.json(order);    // if needs return data to front-end without network "red" error
       })
       .catch((err) => console.log(err.message));
   });
@@ -85,11 +86,10 @@ module.exports = (db) => {
       RETURNING *;
     `;
     const values = [status, eta, orderID];
-    return db
+    db
       .query(queryString, values)
-      .then((res) => {
-        // console.log(res.rows[0]);
-        return res.rows[0];
+      .then((data) => {
+        res.json(data.rows[0])
       })
       .catch((err) => console.log(err.message));
   });
