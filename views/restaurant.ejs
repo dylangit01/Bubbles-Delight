@@ -75,7 +75,7 @@
                 <!-- Display different actions for restaurant depending on order status -->
                 <% if (order.status === 'COMPLETED') { %>
                 <select class="custom-select custom-select-sm" disabled>
-                  <option value="COMPLETE" selected>Picked Up</option>
+                  <option value="COMPLETED" selected>Picked Up</option>
                 </select>
                 <% } else if (order.status === 'IN PROGRESS') { %>
                 <div class="input-group" style="min-width: 175px">
@@ -83,7 +83,7 @@
                     <option value="NEW ORDER">New Order!</option>
                     <option value="IN PROGRESS" selected>Accept</option>
                     <option value="CANCELED">Cancel</option>
-                    <option value="COMPLETE">Picked Up</option>
+                    <option value="COMPLETED">Picked Up</option>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-warning btn-sm order-status-update" type="submit">Submit</button>
@@ -95,7 +95,7 @@
                     <option value="NEW ORDER" selected>New Order!</option>
                     <option value="IN PROGRESS">Accept</option>
                     <option value="CANCELED">Cancel</option>
-                    <option value="COMPLETE">Picked Up</option>
+                    <option value="COMPLETED">Picked Up</option>
                   </select>
                   <div class="input-group-append">
                     <button class="btn btn-primary btn-sm order-status-update" type="submit">Submit</button>
