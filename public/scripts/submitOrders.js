@@ -1,16 +1,15 @@
-$(document).ready(function() {
-
+$(document).ready(function () {
   class Spinner {
     static showSpinner(msg, className) {
-      const div = document.createElement('div');
-      div.className = `${className}`
+      const div = document.createElement("div");
+      div.className = `${className}`;
       div.appendChild(document.createTextNode(msg));
       const parentEl = document.querySelector(".spin-parent");
       const test = document.querySelector(".spin-child");
       parentEl.insertBefore(div, test);
       setTimeout(() => {
         document.querySelector(".spinner").remove();
-      }, 2000)
+      }, 2000);
     }
   }
 
@@ -20,6 +19,7 @@ $(document).ready(function() {
     // Server body-parser:json will convert string to object
     const order = localStorage.getItem("bubbletea");
 
+    // Post orders to database
     $.ajax({
       type: "POST",
       url: "/orders",
@@ -27,21 +27,29 @@ $(document).ready(function() {
       contentType: "application/json", // This is to prevent have FormData
     });
 
-    $.get('/sendSMS', () => {
-      console.log('Message sent to customer');
-    })
+    // Send SMS to customer
+    $.get("/sendSMS/customer", () => {
+      console.log("Message sent to customer");
+    });
+
+    // Send SMS to Owner
+    $.get("/sendSMS/owner", () => {
+      console.log("Message sent to owner");
+    });
 
     // clear cart items after submitting:
     Spinner.showSpinner("", "spinner");
     setTimeout(() => {
       $("#cart-items").text("");
       localStorage.clear();
-    },2001);
+    }, 2001);
 
-    // Close the cart:
+    // Close the cart and redirect to orders page
     setTimeout(() => {
-      $("#cartPage").modal('hide');
-    }, 2050)
+      $("#cartPage").modal("hide");
+      $("#cartPage").on('hidden.bs.modal', e => {
+        location.href='/orders'
+      })
+    }, 2050);
   });
-
 });

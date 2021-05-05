@@ -15,7 +15,6 @@ module.exports = (db) => {
       res.redirect("/");
       return;
     }
-
     const userID = req.user.id;
     const queryString = `
       SELECT orders.*, sum(quantity * cost) as total_cost, sum(quantity) as total_items
@@ -34,13 +33,13 @@ module.exports = (db) => {
         const orders = data.rows;
         const templateVars = {
           orders,
-          user
+          user,
         };
         return res.render("orders", templateVars);
       })
       .catch((err) => {
         res.status(500).json({
-          error: err.message
+          error: err.message,
         });
       });
   });
@@ -58,32 +57,28 @@ module.exports = (db) => {
     `;
     const values = [userID, createdAt];
 
-    return db
-      .query(queryString, values)
-      .then((res) => res.rows[0])   // query returns a single order
-      .then(order => {
+    db.query(queryString, values)
+      .then((res) => res.rows[0]) // query returns a single order
+      .then((order) => {
         const { id } = order;
-        orders.forEach(order => {   // req.body contains an array
+        orders.forEach((order) => {
+          // req.body contains an array
           const { bubbleteaId } = order;
           const queryString = `
             INSERT INTO order_line_items (bubbletea_id, order_id)
             VALUES ($1, $2) RETURNING *;
           `;
           const values = [bubbleteaId, id];
-          db.query(queryString, values)
-            .then((res) => console.log(res.rows));
+          db.query(queryString, values).then((res) => console.log(res.rows));
         });
       })
       .catch((err) => console.log(err.message));
+    // res.redirect('/orders')
   });
 
   // Update order status & eta request (from restaurant side)
   router.post("/:id", (req, res) => {
-    const {
-      orderID,
-      eta,
-      status
-    } = req.body;
+    const { orderID, eta, status } = req.body;
     const queryString = `
       UPDATE orders
       SET status = $1, eta = $2
