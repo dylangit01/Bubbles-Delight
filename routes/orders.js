@@ -32,11 +32,16 @@ module.exports = (db) => {
     db.query(queryString, values)
       .then((data) => {
         const orders = data.rows;
-        const templateVars = { orders, user };
+        const templateVars = {
+          orders,
+          user
+        };
         return res.render("orders", templateVars);
       })
       .catch((err) => {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({
+          error: err.message
+        });
       });
   });
 
@@ -56,9 +61,13 @@ module.exports = (db) => {
       .query(queryString, values)
       .then((res) => res.rows[0])
       .then(order => {
-        const { id } = order;
+        const {
+          id
+        } = order;
         orders.forEach(order => {
-          const { bubbleteaId } = order;
+          const {
+            bubbleteaId
+          } = order;
           const queryString = `
             INSERT INTO order_line_items (bubbletea_id, order_id)
             VALUES ($1, $2) RETURNING *;
@@ -68,6 +77,26 @@ module.exports = (db) => {
             .then((res) => console.log(res.rows));
         });
       })
+      .catch((err) => console.log(err.message));
+  });
+
+  // Update order status & eta request (from restaurant side)
+  router.post("/:id", (req, res) => {
+    const {
+      orderID,
+      eta,
+      status
+    } = req.body;
+    const queryString = `
+      UPDATE orders
+      SET status = $1, eta = $2
+      WHERE id = $3
+      RETURNING *;
+    `;
+    const values = [status, eta, orderID];
+
+    db.query(queryString, values)
+      .then((res) => console.log(res.rows[0]))
       .catch((err) => console.log(err.message));
   });
 
