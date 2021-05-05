@@ -24,13 +24,18 @@ body {
     }
   }
 
+  // Fix navbar height (would need to change this for responsive design)
+  .navbar-custom {
+    height: 75px;
+  }
+
   // Cart modal
   .modal-backdrop {
     z-index: 0;
   }
 
-  .text-center {
-    display: flex;
-    justify-content: space-between;
-  }
+  // .text-center {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
 }

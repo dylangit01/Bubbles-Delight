@@ -16,11 +16,10 @@ body .navbar:active {
   outline: none;
 }
 
-body .modal-backdrop {
-  z-index: 0;
+body .navbar-custom {
+  height: 75px;
 }
 
-body .text-center {
-  display: flex;
-  justify-content: space-between;
+body .modal-backdrop {
+  z-index: 0;
 }

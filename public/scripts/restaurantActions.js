@@ -16,7 +16,7 @@ const restaurantSubmitHandler = function () {
     type: "POST",
     url: `/orders/${orderID}`,
     data: update
-  });
+  }); // WHY DOESN'T .THEN WORK HERE?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?
 
   // Refresh current page /restaurant/:id/orders
   location.href = '';
