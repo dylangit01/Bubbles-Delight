@@ -15,13 +15,14 @@ const restaurantSubmitHandler = function () {
   $.ajax({
     type: "POST",
     url: `/orders/${orderID}`,
-    data: update,
+    data: update
   });
-  // Refresh page to /restaurant/id/orders
-  location.href = `orders`;
+
+  // Refresh current page /restaurant/:id/orders
+  location.href = '';
 };
 
-$(document).ready(function () {
+$(document).ready(function() {
   // Event listener on all the order status update buttons
   $(".order-status-update").on("click", restaurantSubmitHandler);
 });
