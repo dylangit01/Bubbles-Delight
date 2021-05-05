@@ -44,9 +44,12 @@ $(document).ready(function () {
       localStorage.clear();
     }, 2001);
 
-    // Close the cart:
+    // Close the cart and redirect to orders page
     setTimeout(() => {
       $("#cartPage").modal("hide");
+      $("#cartPage").on('hidden.bs.modal', e => {
+        location.href='/orders'
+      })
     }, 2050);
   });
 });
