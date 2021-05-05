@@ -87,8 +87,10 @@ module.exports = (db) => {
     `;
     const values = [status, eta, orderID];
 
-    db.query(queryString, values)
+    return db
+      .query(queryString, values)
       .then((res) => {
+        console.log(res.rows[0]);
         return res.rows[0];
       })
       .catch((err) => console.log(err.message));
