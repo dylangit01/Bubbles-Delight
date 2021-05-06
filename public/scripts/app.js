@@ -6,7 +6,6 @@ $(document).ready(function() {
   // Update the cart number if user selects bubbletea
   const updateCartNumber = function() {
     const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
-    // console.log(itemNum);
     if (itemNum > 0) {
       $("#cartNum").show();
       $(".cartIcon").removeClass('text-muted');
