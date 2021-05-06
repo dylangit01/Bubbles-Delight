@@ -10,14 +10,14 @@ module.exports = (db) => {
   // FOR DEVELOPMENT PURPOSES: handle user login and set a cookie with the user id
   router.get("/:id", (req, res) => {
     req.session["user_id"] = req.params.id;
-    res.redirect("/");
+    return res.redirect("/");
   });
 
   // Display log in form
   router.get("/", (req, res) => {
     const user = req.user;
     const templateVars = { user };
-    res.render("login", templateVars);
+    return res.render("login", templateVars);
   });
 
   // FOR DEVELOPMENT PURPOSES: Handle user log in
@@ -29,7 +29,7 @@ module.exports = (db) => {
     db.query(queryString, values)
       .then(data => {
         const user = data.rows[0];
-        res.redirect(`/login/${user.id}`);
+        return res.redirect(`/login/${user.id}`);
       })
       .catch(err => {
         res.status(500).json({ error: err.message });

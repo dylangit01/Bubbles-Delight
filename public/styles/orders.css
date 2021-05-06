@@ -19,3 +19,30 @@ body .table {
   margin: 75px auto;
   text-align: center;
 }
+
+.bi-x-square {
+  color: #e84545;
+}
+
+.bi-x-square:hover {
+  cursor: pointer;
+  color: #fb3640;
+}
+
+.orderCloseBtn {
+  color: #393e46;
+}
+
+.orderCloseBtn:hover {
+  text-decoration: none;
+  font-size: xx-large;
+  color: #393e46;
+}
+
+.orderTable {
+  overflow-x: scroll;
+}
+
+th, td {
+  min-width: 130px;
+}

@@ -28,3 +28,26 @@ body {
     text-align: center;
   }
 }
+
+.bi-x-square{
+  color: #e84545;
+
+  &:hover{
+    cursor: pointer;
+    color: #fb3640;
+  }
+}
+
+.orderCloseBtn{
+  color: #393e46;
+  &:hover{
+    text-decoration: none;
+    font-size: xx-large;
+    color: #393e46;
+  }
+}
+
+.orderTable {
+  overflow-x: scroll;
+}
+th, td { min-width: 130px; }

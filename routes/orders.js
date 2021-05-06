@@ -44,7 +44,7 @@ module.exports = (db) => {
       });
   });
 
-  // Post order route:
+  // When a user creates a new order
   router.post("/", (req, res) => {
     const orders = req.body;
     const userID = req.user.id;
@@ -58,7 +58,7 @@ module.exports = (db) => {
     const values = [userID, createdAt];
 
     db.query(queryString, values)
-      .then((res) => res.rows[0]) // query returns a single order
+      .then((data) => data.rows[0]) // query returns a single order
       .then((order) => {
         const { id } = order;
         orders.forEach((order) => {
@@ -69,11 +69,11 @@ module.exports = (db) => {
             VALUES ($1, $2) RETURNING *;
           `;
           const values = [bubbleteaId, id];
-          db.query(queryString, values).then((res) => console.log(res.rows));
+          db.query(queryString, values); // Can't do res.send or res.json here because in loop?
         });
+        res.json(order);    // if needs return data to front-end without network "red" error
       })
       .catch((err) => console.log(err.message));
-    // res.redirect('/orders')
   });
 
   // Update order status & eta request (from restaurant side)
@@ -86,12 +86,10 @@ module.exports = (db) => {
       RETURNING *;
     `;
     const values = [status, eta, orderID];
-
-    return db
+    db
       .query(queryString, values)
-      .then((res) => {
-        console.log(res.rows[0]);
-        return res.rows[0];
+      .then((data) => {
+        res.json(data.rows[0]);
       })
       .catch((err) => console.log(err.message));
   });

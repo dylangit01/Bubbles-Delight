@@ -10,7 +10,7 @@ module.exports = (db) => {
   // Handle user logout and clear cookies
   router.post("/", (req, res) => {
     req.session = null;
-    res.redirect('/');
+    return res.redirect('/');
   });
 
   return router;
