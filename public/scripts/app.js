@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  // Get cart number from localStorage:
+  if (localStorage.getItem("bubbletea")) {
+    const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
+    $("#cartNum").text(itemNum);
+  }
+
   // Build localStorage class and fns:
   class StoreBubbletea {
     static getBubbleteas() {
@@ -40,7 +46,7 @@ $(document).ready(function () {
       bubbleteaName = e.target.parentElement.children[0].innerHTML;
       bubbleteaPrice = e.target.parentElement.children[1].children[0].innerHTML;
       bubbleteaId = e.target.nextElementSibling.innerHTML;
-      // console.log(e.target.nextElementSibling.innerHTML);
+
       const bubbletea = {
         imageUrl,
         bubbleteaName,
@@ -67,15 +73,31 @@ $(document).ready(function () {
       const bubbleteas = storedBubbleteas;
       bubbleteas.forEach((bubbletea) => cartUI.addToCart(bubbletea));
     }
-    static addToCart(bubbletea) {
 
+    static addToCart(bubbletea) {
       $("<tr/>")
         .html(
           `
-        <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto" alt=""/></td>
+        <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto; border-radius: 3px;" alt=""/></td>
         <td class="align-middle">${bubbletea.bubbleteaName}</td>
         <td class="align-middle">${bubbletea.bubbleteaPrice}</td>
-        <td class="align-middle"><div onclick="leftArrow()" class="d-inline mr-1"><</div> <span>1</span> <div onclick="rightArrow()" class="d-inline ml-1">></div> </td>
+        <td class="align-middle">
+          <div class="form-group m-0">
+            <label for="exampleFormControlSelect1"></label>
+            <select class="form-control-sm " id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+          </div>
+        </td>
         <td class="align-middle"><i class="bi bi-x fa-2x btn removeBubbletea" style="color:#ff0000"></i></td>
         <td class="d-none">${bubbletea.bubbleteaId}</td>
         `
@@ -99,19 +121,16 @@ $(document).ready(function () {
 
   // Handle remove btn of Cart item:
   $("#cart-items").click((e) => {
-    cartUI.removeUIBubbletea(e.target);
-    // console.log(e.target.parentElement.nextElementSibling.textContent);
-    StoreBubbletea.removeBubbletea(
-      e.target.parentElement.nextElementSibling.textContent
-    );
+    cartUI.removeUIBubbletea(e.target); // Remove item from UI
+
+    // If statement to filter out null/undefined textContent of next element
+    if (e.target.parentElement.nextElementSibling) {
+      StoreBubbletea.removeBubbletea(
+        e.target.parentElement.nextElementSibling.textContent
+      );
+    }
+    // Update the cart number if remove the item from cart
+    const cartItemNumber = StoreBubbletea.getBubbleteas().length;
+    console.log($("#cartNum").text(cartItemNumber));
   });
-
-
-
-
-
-
-
-
-
 });
