@@ -47,8 +47,8 @@ $(document).ready(function () {
     // Close the cart and redirect to orders page
     setTimeout(() => {
       $("#cartPage").modal("hide");
-      $("#cartPage").on('hidden.bs.modal', e => {
-      $("#cartNum").text('0');
+      $("#cartPage").on('hidden.bs.modal', () => {
+        $("#cartNum").text('0');
         location.href = '/orders';
       });
 
