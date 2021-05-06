@@ -38,9 +38,7 @@
                   <td class="align-middle">$ <%=order.total_cost / 100 %></td>
                   <td class="align-middle"><%= order.total_items %></td>
                   <td class="align-middle">
-                    <%= order.created_at.getFullYear() + "/" +
-                    (order.created_at.getMonth() + 1) + "/" +
-                    order.created_at.getDate() %>
+                    <%= `${months[order.created_at.getMonth()]} ${order.created_at.getDate()}, ${order.created_at.getFullYear()}` %>
                   </td>
                   <td class="align-middle">
                     <!-- Display order submitted, in progress or completed progress bar depending on order -->
