@@ -12,14 +12,18 @@ const restaurantSubmitHandler = function () {
   const update = { orderID, eta, status };
 
   // Ajax call to update the status and eta of an open order
-  $.ajax({
-    type: "POST",
-    url: `/orders/${orderID}`,
-    data: update
-  }); // WHY DOESN'T .THEN WORK HERE?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?!?
+  const url = `/orders/${orderID}`;
+  $.post(url, update).then((res) => console.log(res));
 
-  // Refresh current page /restaurant/:id/orders
-  location.href = '';
+  // Ajax call to send sms to customer based on different status
+  if (status === "IN PROGRESS") {
+    $.post("/sendSMS/inprogress", update);
+  } else if (status === "COMPLETED") {
+    $.post("/sendSMS/completed", update)
+      .then((res) => {
+      location.href = `orders`;     // Refresh page after the status changing
+    });
+  }
 };
 
 $(document).ready(function() {
