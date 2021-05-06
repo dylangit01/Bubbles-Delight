@@ -1,4 +1,4 @@
-.spinner {
+body .spinner {
   width: 80px;
   height: 80px;
   border: 2px solid #f3f3f3;
@@ -19,10 +19,7 @@
   }
 }
 
-.modal-header {
-  overflow-x: scroll;
-}
-
-th, td {
+body th,
+body td {
   min-width: 130px;
 }

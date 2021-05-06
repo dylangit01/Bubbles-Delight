@@ -13,7 +13,7 @@
   <%- include('partials/_navbar') %>
 
   <!-- Cover photo and text -->
-  <header>
+  <header class="shadow">
     <h1>Bubbles Delight</h1>
     <h3>De<em>light</em>ful bubbleteas brewed by Lighthouse Labs!</h3>
   </header>
@@ -34,10 +34,10 @@
             <p class="card-text">Price: <span class="card-price">$<%= bubbletea.cost / 100 %></span></p>
 
             <!-- Button trigger modal -->
-            <button type="button" class="w-100 btn btn-outline-secondary" data-toggle="modal"
-              data-target="#bubbleteaOptions">Options</button>
+            <button type="submit" class="bubbleteaOptions w-100 btn btn-secondary">Options</button>
 
             <!-- Button Add to Cart -->
+            <!-- Do we need to change the id here to class because id will appear for all these buttons? -->
             <button id="addToCart" type="submit" class="w-100 mt-auto btn btn-success">Order</button>
             <span class="d-none"><%= bubbletea.id %></span>
           </div>

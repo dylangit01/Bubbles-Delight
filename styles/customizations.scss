@@ -7,39 +7,43 @@ $secondary-color: #a58b70;
 body {
 
   // Set minimum width of modal container for options and center it
-  .modal-dialog {
+  #bubbleteaOptionsModal .modal-dialog {
     min-width: 700px;
     margin: auto;
-}
 
-  // Card container in options modal
-  .modal-body .card {
-    // Make image appear side by side with the card content/body
-    flex-direction: row;
-    border: none;
-
-    // Makes card content aligned with image size
-    .card-body {
-      padding-top: 0;
-      padding-bottom: 0;
+    .modal-header {
+      overflow-x: 0; // To get rid of grey spacing in header (doesn't work here)
     }
 
-    // Container for image on options modal container
-    .menu-item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-basis: 50%;  // Only take up 50% of container
+    // Card container in options modal
+    .modal-body .card {
+      // Make image appear side by side with the card content/body
+      flex-direction: row;
+      border: none;
 
-      .card-img {
-        height: 100%;
-        object-fit: cover;
+      // Makes card content aligned with image size
+      .card-body {
+        padding-top: 0;
+        padding-bottom: 0;
       }
-    }
 
-    // Toppings heading
-    p {
-      margin-bottom: 0.5rem;
+      // Container for image on options modal container
+      .menu-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-basis: 50%;  // Only take up 50% of container
+
+        .card-img {
+          height: 500px;
+          object-fit: cover;
+        }
+      }
+
+      // Toppings heading
+      p {
+        margin-bottom: 0.5rem;
+      }
     }
   }
 }

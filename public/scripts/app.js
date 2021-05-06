@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   // Build localStorage class and fns:
   class StoreBubbletea {
     static getBubbleteas() {

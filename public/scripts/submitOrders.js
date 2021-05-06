@@ -28,14 +28,14 @@ $(document).ready(function () {
     });
 
     // Send SMS to customer
-    // $.get("/sendSMS/customer", () => {
-    //   console.log("Message sent to customer");
-    // });
+    $.get("/sendSMS/customer", () => {
+      console.log("Message sent to customer");
+    });
 
     // // Send SMS to Owner
-    // $.get("/sendSMS/owner", () => {
-    //   console.log("Message sent to owner");
-    // });
+    $.get("/sendSMS/owner", () => {
+      console.log("Message sent to owner");
+    });
 
     // clear cart items after submitting:
     Spinner.showSpinner("", "spinner");
