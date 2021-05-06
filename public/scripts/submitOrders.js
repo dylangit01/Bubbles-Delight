@@ -8,7 +8,7 @@ $(document).ready(function () {
       const test = document.querySelector(".spin-child");
       parentEl.insertBefore(div, test);
       setTimeout(() => {
-        document.querySelector(".spinner").remove();
+        document.querySelector(".cartSpinner").remove();
       }, 2000);
     }
   }
@@ -38,7 +38,7 @@ $(document).ready(function () {
     });
 
     // clear cart items after submitting:
-    Spinner.showSpinner("", "spinner");
+    Spinner.showSpinner("", "cartSpinner");
     setTimeout(() => {
       $("#cart-items").text("");
       localStorage.clear();

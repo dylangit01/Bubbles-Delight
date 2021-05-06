@@ -6,19 +6,51 @@
   <title>Bubbles Delight</title>
   <!-- Head -->
   <%- include('partials/_head') %>
+
+  <!-- For page preload... -->
+  <style>
+	#overlay{
+		position: fixed;
+		top: 0;
+		z-index: 100;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.9);
+
+	}
+	.cv-spinner{
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+
 </head>
 
 <body>
+  <!-- Preload section -->
+  <h4>Page Loader onload / onclick Both</h4>
+  <!-- <button class="btn btn-danger center-block">Load Loader</button> -->
+
+  <div id="overlay">
+	  <div class="cv-spinner">
+		  <div class="spinner">
+			  <img src="https://image.flaticon.com/icons/png/128/3081/3081162.png" alt="">
+			  <!--use other image-->
+		  </div>
+	  </div>
+  </div>
+
   <!-- Navbar -->
   <%- include('partials/_navbar') %>
-
-
-  <!-- Carousel part -->
 
   <!-- Cover photo and text -->
   <header class="shadow">
     <h1>Bubbles Delight</h1>
     <h3>De<em>light</em>ful bubbleteas brewed by Lighthouse Labs!</h3>
+
+    <!-- Carousel part -->
     <%- include('partials/_carousel') %>
   </header>
 
@@ -73,6 +105,20 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
   </script>
+
+  <!-- Preload js -->
+  <script>
+	$(document).ready(function(){
+		$(".btn-danger").click(function(event) {
+			$("#overlay").fadeIn("fast", function() {
+				$("#overlay").delay(3000).fadeOut("slow");
+			});
+		});
+
+		$("#overlay").delay(10000).fadeOut("slow");
+
+	})
+</script>
 </body>
 
 </html>
