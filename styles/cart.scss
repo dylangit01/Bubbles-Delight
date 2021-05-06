@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-body {
-  .spinner {
-    width: 80px;
-    height: 80px;
-=======
 .spinner {
   width: 80px;
   height: 80px;
->>>>>>> master
 
   border: 2px solid #f3f3f3;
   border-top: 3px solid #f25a41;
@@ -20,21 +13,20 @@ body {
   right: 0;
   margin: auto;
 
-    animation: spin 1s infinite linear;
-  }
+  animation: spin 1s infinite linear;
+}
 
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
+}
 
-  // .modal-header {
-  //   overflow-x: scroll;
-  // }
+// .modal-header {
+//   overflow-x: scroll;
+// }
 
-  th,
-  td {
-    min-width: 130px;
-  }
+th,
+td {
+  min-width: 130px;
 }

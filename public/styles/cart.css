@@ -1,4 +1,4 @@
-body .spinner {
+.spinner {
   width: 80px;
   height: 80px;
   border: 2px solid #f3f3f3;
@@ -19,7 +19,7 @@ body .spinner {
   }
 }
 
-body th,
-body td {
+th,
+td {
   min-width: 130px;
 }
