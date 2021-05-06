@@ -101,9 +101,16 @@ $(document).ready(function () {
   $("#cart-items").click((e) => {
     cartUI.removeUIBubbletea(e.target);
     // console.log(e.target.parentElement.nextElementSibling.textContent);
+    // const $row = $(this).closest('tr');
+
+    // const removeButton = $row.find(".removeBubbletea").text();
+    // const removeButtonTest = row.nextElementSibling.textContent;
+
+    // if (removeButton) {
     StoreBubbletea.removeBubbletea(
       e.target.parentElement.nextElementSibling.textContent
     );
+    // }
   });
 
 

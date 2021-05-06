@@ -25,7 +25,7 @@ const restaurantSubmitHandler = function() {
   }
 };
 
-$(document).ready(function () {
+$(document).ready(function() {
   // Event listener on all the order status update buttons
   $(".order-status-update").on("click", restaurantSubmitHandler);
 });

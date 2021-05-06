@@ -16,7 +16,7 @@
       <div class="orders container shadow-lg p-4 rounded">
         <div class="d-flex align-items-center justify-content-between">
           <h2>All Orders for Bubbles Delight</h2>
-          <a href="/bubbleteas"><button class="btn btn-outline-danger mr-3">X</button></a>
+          <!-- <a href="/bubbleteas"><button class="btn btn-outline-danger mr-3">X</button></a> -->
         </div>
         <table class="table table-hover">
           <thead>
@@ -38,7 +38,7 @@
               <td class="align-middle">$ <%=order.total_cost / 100 %></td>
               <td class="align-middle"><%= order.total_items %></td>
               <td class="align-middle">
-                <%= order.created_at.getFullYear() + "/" + (order.created_at.getMonth() + 1) + "/" + order.created_at.getDate() %>
+                <%= order.created_at.getFullYear() + " / " + (order.created_at.getMonth() + 1) + " / " + order.created_at.getDate() %>
               </td>
               <td class="align-middle"><%= order.user_name %></td>
               <td class="align-middle">
