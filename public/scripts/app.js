@@ -65,16 +65,24 @@ $(document).ready(function () {
       $("<tr/>")
         .html(
           `
-        <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto" alt=""/></td>
+        <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto; border-radius: 3px;" alt=""/></td>
         <td class="align-middle">${bubbletea.bubbleteaName}</td>
         <td class="align-middle">${bubbletea.bubbleteaPrice}</td>
         <td class="align-middle">
-          <div onMouseOver="this.style.cursor='pointer'" class="left-arrow d-inline mr-1">
-          <
-          </div>
-            <span class="itemQuantity">1</span>
-          <div onMouseOver="this.style.cursor='pointer'" class="right-arrow d-inline ml-1">
-          >
+          <div class="form-group m-0">
+            <label for="exampleFormControlSelect1"></label>
+            <select class="form-control-sm px-5" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
           </div>
         </td>
         <td class="align-middle"><i class="bi bi-x fa-2x btn removeBubbletea" style="color:#ff0000"></i></td>
@@ -90,19 +98,6 @@ $(document).ready(function () {
         el.parentElement.parentElement.remove();
       }
     }
-
-    // Add bubbletea quantity:
-    // static reduceQuantity(el) {
-    //   if (el.classList.contains("left-arrow")) {
-    //     el.addEventListener('click', () => {
-    //       console.log(el.nextElementSibling.innerText);
-    //       el.nextElementSibling.innerText >0 && --el.nextElementSibling.innerText;
-    //     })
-    //   }
-    // }
-
-
-
   };
 
   // Handle showing cart items event
@@ -118,10 +113,6 @@ $(document).ready(function () {
     StoreBubbletea.removeBubbletea(
       e.target.parentElement.nextElementSibling.textContent
     );
-
-    // cartUI.reduceQuantity(e.target)
-
-
   });
 
 
