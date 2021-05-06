@@ -34,19 +34,12 @@ $(document).ready(function () {
   let addToCartBtns = document.querySelectorAll("#addToCart");
   addToCartBtns.forEach((btn) =>
     btn.addEventListener("click", (e) => {
-      imageUrl =
-        e.target.parentElement.parentElement.children[0].childNodes[1]
-          .currentSrc;
+      imageUrl = e.target.parentElement.parentElement.children[0].childNodes[1].currentSrc;
       bubbleteaName = e.target.parentElement.children[0].innerHTML;
       bubbleteaPrice = e.target.parentElement.children[1].children[0].innerHTML;
       bubbleteaId = e.target.nextElementSibling.innerHTML;
-      // console.log(e.target.nextElementSibling.innerHTML);
-      const bubbletea = {
-        imageUrl,
-        bubbleteaName,
-        bubbleteaPrice,
-        bubbleteaId,
-      };
+
+      const bubbletea = { imageUrl, bubbleteaName, bubbleteaPrice, bubbleteaId, };
       StoreBubbletea.addBubbletea(bubbletea);
     })
   );
@@ -58,7 +51,7 @@ $(document).ready(function () {
       this.bubbleteaName = bubbleteaName;
       this.bubbleteaPrice = bubbleteaPrice;
     }
-  }
+  };
 
   // UI Class: Handle UI tasks
   class cartUI {
@@ -66,16 +59,24 @@ $(document).ready(function () {
       const storedBubbleteas = StoreBubbletea.getBubbleteas();
       const bubbleteas = storedBubbleteas;
       bubbleteas.forEach((bubbletea) => cartUI.addToCart(bubbletea));
-    }
-    static addToCart(bubbletea) {
+    };
 
+    static addToCart(bubbletea) {
       $("<tr/>")
         .html(
           `
         <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto" alt=""/></td>
         <td class="align-middle">${bubbletea.bubbleteaName}</td>
         <td class="align-middle">${bubbletea.bubbleteaPrice}</td>
-        <td class="align-middle"><div onclick="leftArrow()" class="d-inline mr-1"><</div> <span>1</span> <div onclick="rightArrow()" class="d-inline ml-1">></div> </td>
+        <td class="align-middle">
+          <div onMouseOver="this.style.cursor='pointer'" class="left-arrow d-inline mr-1">
+          <
+          </div>
+            <span class="itemQuantity">1</span>
+          <div onMouseOver="this.style.cursor='pointer'" class="right-arrow d-inline ml-1">
+          >
+          </div>
+        </td>
         <td class="align-middle"><i class="bi bi-x fa-2x btn removeBubbletea" style="color:#ff0000"></i></td>
         <td class="d-none">${bubbletea.bubbleteaId}</td>
         `
@@ -89,7 +90,20 @@ $(document).ready(function () {
         el.parentElement.parentElement.remove();
       }
     }
-  }
+
+    // Add bubbletea quantity:
+    // static reduceQuantity(el) {
+    //   if (el.classList.contains("left-arrow")) {
+    //     el.addEventListener('click', () => {
+    //       console.log(el.nextElementSibling.innerText);
+    //       el.nextElementSibling.innerText >0 && --el.nextElementSibling.innerText;
+    //     })
+    //   }
+    // }
+
+
+
+  };
 
   // Handle showing cart items event
   $(".cartBtn").click(() => {
@@ -100,10 +114,14 @@ $(document).ready(function () {
   // Handle remove btn of Cart item:
   $("#cart-items").click((e) => {
     cartUI.removeUIBubbletea(e.target);
-    // console.log(e.target.parentElement.nextElementSibling.textContent);
+    console.log(e.target);
     StoreBubbletea.removeBubbletea(
       e.target.parentElement.nextElementSibling.textContent
     );
+
+    // cartUI.reduceQuantity(e.target)
+
+
   });
 
 
