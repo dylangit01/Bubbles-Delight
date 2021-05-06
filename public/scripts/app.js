@@ -140,7 +140,7 @@ $(document).ready(function () {
 
   let bubbletea;
 
-  // Handle updates from restaurant
+  // Display bubbletea customization options for a specific bubbletea through a modal
   const bubbleteaOptionsHandler = function () {
     const $card = $(this).closest(".card"); // Find closest card
     const bubbleteaId = $card.find('.d-none').text();
@@ -161,6 +161,7 @@ $(document).ready(function () {
     $('#bubbleteaOptionsModal').modal('show'); // Display modal
   };
 
+  // Create the bubbletea options modal body specific to the bubbletea clicked
   const createBubbleteaOptions = function(bubbletea) {
     // Create bubbletea options markup for modal
     const $bubbleteaOptions = `
@@ -242,10 +243,19 @@ $(document).ready(function () {
     return $bubbleteaOptions;
   };
 
+  // Store current bubbletea information in local storage if user adds it to cart through a button
   const addToCartFromOptionsHandler = function () {
     console.log("submit from options");
     $("#bubbleteaOptionsModal").modal("hide");
-    StoreBubbletea.addBubbletea(bubbletea); // Current bubbletea will be stored in variable from bubbleteaOptionsHandler
+    StoreBubbletea.addBubbletea(bubbletea); // Current bubbletea will be stored in variable from bubbleteaOptionsHandler that's within scope
+    updateCartNumber(); // Update cart number dynamically
+  };
+
+  // Update the cart number if user selects bubbletea
+  const updateCartNumber = function() {
+    const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
+    console.log(itemNum);
+    $("#cartNum").text(itemNum);
   };
 
   //////////////////////////////////////////////////////////////////
