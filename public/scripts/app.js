@@ -1,7 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
   // Get cart number from localStorage:
-  // const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
-  // $("#cartNum").text(itemNum);
+  if (localStorage.getItem("bubbletea")) {
+    const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
+    $("#cartNum").text(itemNum);
+  }
 
   // Build localStorage class and fns:
   class StoreBubbletea {
@@ -38,12 +40,19 @@ $(document).ready(function() {
   let addToCartBtns = document.querySelectorAll("#addToCart");
   addToCartBtns.forEach((btn) =>
     btn.addEventListener("click", (e) => {
-      imageUrl = e.target.parentElement.parentElement.children[0].childNodes[1].currentSrc;
+      imageUrl =
+        e.target.parentElement.parentElement.children[0].childNodes[1]
+          .currentSrc;
       bubbleteaName = e.target.parentElement.children[0].innerHTML;
       bubbleteaPrice = e.target.parentElement.children[1].children[0].innerHTML;
       bubbleteaId = e.target.nextElementSibling.innerHTML;
 
-      const bubbletea = { imageUrl, bubbleteaName, bubbleteaPrice, bubbleteaId, };
+      const bubbletea = {
+        imageUrl,
+        bubbleteaName,
+        bubbleteaPrice,
+        bubbleteaId,
+      };
       StoreBubbletea.addBubbletea(bubbletea);
     })
   );
@@ -55,7 +64,7 @@ $(document).ready(function() {
       this.bubbleteaName = bubbleteaName;
       this.bubbleteaPrice = bubbleteaPrice;
     }
-  };
+  }
 
   // UI Class: Handle UI tasks
   class cartUI {
@@ -63,7 +72,7 @@ $(document).ready(function() {
       const storedBubbleteas = StoreBubbletea.getBubbleteas();
       const bubbleteas = storedBubbleteas;
       bubbleteas.forEach((bubbletea) => cartUI.addToCart(bubbletea));
-    };
+    }
 
     static addToCart(bubbletea) {
       $("<tr/>")
@@ -75,7 +84,7 @@ $(document).ready(function() {
         <td class="align-middle">
           <div class="form-group m-0">
             <label for="exampleFormControlSelect1"></label>
-            <select class="form-control-sm px-5" id="exampleFormControlSelect1">
+            <select class="form-control-sm " id="exampleFormControlSelect1">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -102,7 +111,7 @@ $(document).ready(function() {
         el.parentElement.parentElement.remove();
       }
     }
-  };
+  }
 
   // Handle showing cart items event
   $(".cartBtn").click(() => {
@@ -112,33 +121,16 @@ $(document).ready(function() {
 
   // Handle remove btn of Cart item:
   $("#cart-items").click((e) => {
+    cartUI.removeUIBubbletea(e.target); // Remove item from UI
 
-    // const cartItemNumber = StoreBubbletea.getBubbleteas().length;
-    // console.log(cartItemNumber);
-    // // console.log($("#cartNum").text());
-
-    cartUI.removeUIBubbletea(e.target);     // Remove item from UI
-    const $row = $(this).closest("tr");     // Find tr element
-    const removeButton = $row.find(".removeBubbletea").text(); // Find element text content with removeBubbletea class
-    // console.log(typeof removeButton);
-    // if (removeButton) {                  // If statement to filter null/undefined textContent
+    // If statement to filter out null/undefined textContent of next element
+    if (e.target.parentElement.nextElementSibling) {
       StoreBubbletea.removeBubbletea(
         e.target.parentElement.nextElementSibling.textContent
       );
-    // }
-
-
-
-
-
+    }
+    // Update the cart number if remove the item from cart
+    const cartItemNumber = StoreBubbletea.getBubbleteas().length;
+    console.log($("#cartNum").text(cartItemNumber));
   });
-
-
-
-
-
-
-
-
-
 });
