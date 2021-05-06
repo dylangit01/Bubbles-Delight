@@ -9,3 +9,8 @@
 
 //   }
 // }
+
+.restaurantOrderTable {
+  overflow-x: scroll;
+}
+th, td { min-width: 100px; }

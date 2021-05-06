@@ -48,8 +48,10 @@ $(document).ready(function () {
     setTimeout(() => {
       $("#cartPage").modal("hide");
       $("#cartPage").on('hidden.bs.modal', e => {
+      $("#cartNum").text('0');
         location.href = '/orders';
       });
+
     }, 2050);
   });
 });

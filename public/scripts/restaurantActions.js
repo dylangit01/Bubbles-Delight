@@ -4,11 +4,7 @@ const restaurantSubmitHandler = function () {
   const orderID = $row.find(".order-id").text(); // Get descendent with order-id class
   const eta = $row.find("input").val(); // Get descendent input element and it's value
   const status = $row.find("select").val(); // Get descendent select element and it's currently selected option value
-  const update = {
-    orderID,
-    eta,
-    status
-  };
+  const update = { orderID, eta, status };
 
   // Ajax call to update the status and eta of an open order
   const url = `/orders/${orderID}`;

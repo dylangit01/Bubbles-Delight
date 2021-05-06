@@ -1,4 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
+  // Get cart number from localStorage:
+  // const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
+  // $("#cartNum").text(itemNum);
+
   // Build localStorage class and fns:
   class StoreBubbletea {
     static getBubbleteas() {
@@ -108,11 +112,25 @@ $(document).ready(function () {
 
   // Handle remove btn of Cart item:
   $("#cart-items").click((e) => {
-    cartUI.removeUIBubbletea(e.target);
-    console.log(e.target);
-    StoreBubbletea.removeBubbletea(
-      e.target.parentElement.nextElementSibling.textContent
-    );
+
+    // const cartItemNumber = StoreBubbletea.getBubbleteas().length;
+    // console.log(cartItemNumber);
+    // // console.log($("#cartNum").text());
+
+    cartUI.removeUIBubbletea(e.target);     // Remove item from UI
+    const $row = $(this).closest("tr");     // Find tr element
+    const removeButton = $row.find(".removeBubbletea").text(); // Find element text content with removeBubbletea class
+    // console.log(typeof removeButton);
+    // if (removeButton) {                  // If statement to filter null/undefined textContent
+      StoreBubbletea.removeBubbletea(
+        e.target.parentElement.nextElementSibling.textContent
+      );
+    // }
+
+
+
+
+
   });
 
 
