@@ -242,10 +242,6 @@ $(document).ready(function () {
     return $bubbleteaOptions;
   };
 
-  // const clearOptionsHandler = function() {
-  //   $('#bubbletea-options-container').empty(); // Clear container
-  // };
-
   const addToCartFromOptionsHandler = function () {
     console.log("submit from options");
     $("#bubbleteaOptionsModal").modal("hide");
@@ -258,9 +254,6 @@ $(document).ready(function () {
 
   // Event listener on all the order status update buttons (have to use class and not id)
   $(".bubbleteaOptionsBtn").on("click", bubbleteaOptionsHandler);
-
-  // Even listener on when modal is hidden to empty it's contents
-  // $("#bubbleteaOptionsModal").on("hidden.bs.modal", clearOptionsHandler);
 
   // Event listener on Add to Cart button from the options modal
   $("#addToCartBtnFromOptions").on("click", addToCartFromOptionsHandler);
