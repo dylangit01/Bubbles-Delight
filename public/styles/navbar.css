@@ -33,10 +33,15 @@ body .cartIcon {
 }
 
 body .cartIcon #cartNum {
-  color: #c06014;
+  display: none;
   position: absolute;
-  font-size: medium;
-  top: 16px;
-  right: 16px;
-  left: 10px;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0.2rem;
+  color: white;
+  font-size: 0.95rem;
+  font-style: normal;
 }
