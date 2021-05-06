@@ -1,0 +1,33 @@
+#carouselExampleIndicators{
+  position: relative;
+}
+
+
+.fa-arrow-right {
+    font-size: 50px;
+    color: #a799b7;
+}
+
+.fa-arrow-left {
+    font-size: 50px;
+    color: #a799b7;
+}
+
+.carousel-indicators li {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: #553c8b;
+}
+
+.carImg{
+    height: 730px;
+    width: 100%;
+    // min-height: 100%;
+    // background-repeat: no-repeat;
+    // background-attachment: fixed;
+    // background-position: center;
+    // background-size: cover;
+    object-fit: cover;
+    object-position: top;
+}
