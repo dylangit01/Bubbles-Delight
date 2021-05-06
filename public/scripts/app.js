@@ -156,7 +156,6 @@ $(document).ready(function() {
     const bubbleteaName = $card.find('.card-title').text();
     const bubbleteaPrice = $card.find('.card-price').text();
     const imageUrl = $card.find('img').attr('src');
-    // console.log(bubbleteaId, name, price, imgSrc);
 
     bubbletea = {
       bubbleteaId,
@@ -171,7 +170,7 @@ $(document).ready(function() {
   };
 
   // Create the bubbletea options modal body specific to the bubbletea clicked
-  const createBubbleteaOptions = function (bubbletea) {
+  const createBubbleteaOptions = function(bubbletea) {
     // Create bubbletea options markup for modal
     const $bubbleteaOptions = `
       <div class="card">
@@ -252,9 +251,8 @@ $(document).ready(function() {
     return $bubbleteaOptions;
   };
 
-  // Store current bubbletea information in local storage if user adds it to cart through a button
-  const addToCartFromOptionsHandler = function () {
-    console.log("submit from options");
+  // Store current bubbletea information in local storage if user adds it to cart through button on options modal
+  const addToCartFromOptionsHandler = function() {
     $("#bubbleteaOptionsModal").modal("hide");
     StoreBubbletea.addBubbletea(bubbletea); // Current bubbletea will be stored in variable from bubbleteaOptionsHandler that's within scope
     updateCartNumber(); // Update cart number dynamically
