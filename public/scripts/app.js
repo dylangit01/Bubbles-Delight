@@ -76,11 +76,6 @@ $(document).ready(function() {
   //     StoreBubbletea.addBubbletea(bubbletea);
   //   })
   // );
-  const getBubbleteaDataHandler = function() {
-    let imageUrl, bubbleteaName, bubbleteaPrice, bubbleteaId;
-    const 
-    }
-
 
   //////////////////////////////////////////////////////////////////
   // USER INTERFACE FUNCTIONS --------------------------------------
@@ -163,7 +158,7 @@ $(document).ready(function() {
   let bubbletea;
 
   // Display bubbletea customization options for a specific bubbletea through a modal
-  const bubbleteaOptionsHandler = function () {
+  const bubbleteaOptionsHandler = function() {
     const $card = $(this).closest(".card"); // Find closest card
     const bubbleteaId = $card.find('.d-none').text();
     const bubbleteaName = $card.find('.card-title').text();

@@ -1,14 +1,20 @@
 $(document).ready(function () {
   class Spinner {
     static showSpinner(msg, className) {
-      const div = document.createElement("div");
-      div.className = `${className}`;
-      div.appendChild(document.createTextNode(msg));
-      const parentEl = document.querySelector(".spin-parent");
-      const test = document.querySelector(".spin-child");
-      parentEl.insertBefore(div, test);
+      // const div = document.createElement("div");
+      // div.className = `${className}`;
+      // div.appendChild(document.createTextNode(msg));
+      // const parentEl = document.querySelector(".spin-parent");
+      // const test = document.querySelector(".spin-child");
+      // parentEl.insertBefore(div, test);
+      // setTimeout(() => {
+      //   document.querySelector(".cartSpinner").remove();
+      // }, 2000);
+
+      const $divSpinner = $("<div/>").addClass(`${className}`).text(`${msg}`);
+      $divSpinner.insertBefore(".spin-child");
       setTimeout(() => {
-        document.querySelector(".cartSpinner").remove();
+        $(".cartSpinner").remove();
       }, 2000);
     }
   }
