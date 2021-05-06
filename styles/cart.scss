@@ -20,3 +20,9 @@
         transform: rotate(360deg);
     }
 }
+
+.modal-header {
+  overflow-x: scroll;
+}
+th, td { min-width: 130px; }
+
