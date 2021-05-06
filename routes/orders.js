@@ -86,17 +86,10 @@ module.exports = (db) => {
       RETURNING *;
     `;
     const values = [status, eta, orderID];
-<<<<<<< HEAD
-
-    db.query(queryString, values)
-      .then((data) => {
-        return res.send(data.rows[0]); // Need res.send
-=======
     db
       .query(queryString, values)
       .then((data) => {
-        res.json(data.rows[0])
->>>>>>> 756ed8f17b73f8e9678551bed4a5c847ff5b5af7
+        res.json(data.rows[0]);
       })
       .catch((err) => console.log(err.message));
   });

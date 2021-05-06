@@ -1,5 +1,5 @@
 // Handle updates from restaurant
-const restaurantSubmitHandler = function () {
+const restaurantSubmitHandler = function() {
   const $row = $(this).closest("tr"); // Find closest row <tr>
   const orderID = $row.find(".order-id").text(); // Get descendent with order-id class
   const eta = $row.find("input").val(); // Get descendent input element and it's value
