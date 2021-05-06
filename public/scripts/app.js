@@ -74,7 +74,7 @@ $(document).ready(function () {
         <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto" alt=""/></td>
         <td class="align-middle">${bubbletea.bubbleteaName}</td>
         <td class="align-middle">${bubbletea.bubbleteaPrice}</td>
-        <td class="align-middle"><i class="bi bi-chevron-left btn mr-2"></i><i class="bi bi-chevron-right btn"></i></td>
+        <td class="align-middle"><i class="bi bi-chevron-left btn p-0 mr-2"></i><i class="bi bi-chevron-right p-0 btn"></i></td>
         <td class="align-middle"><i class="bi bi-x fa-2x btn removeBubbletea" style="color:#ff0000"></i></td>
         <td class="d-none">${bubbletea.bubbleteaId}</td>
         `
