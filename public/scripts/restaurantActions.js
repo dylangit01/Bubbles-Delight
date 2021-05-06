@@ -8,16 +8,18 @@ const restaurantSubmitHandler = function() {
 
   // Ajax call to update the status and eta of an open order
   const url = `/orders/${orderID}`;
-  $.post(url, update).then((res) => console.log(res));
+  $.post(url, update).then(() => {
+    location.href = ""; // Refresh current page after updating database
+  });
 
   // Ajax call to send sms to customer based on different status
   if (status === "IN PROGRESS") {
     $.post("/sendSMS/inprogress", update);
   } else if (status === "COMPLETED") {
-    $.post("/sendSMS/completed", update)
-      .then((res) => {
-        location.href = `orders`; // Refresh page after the status changing
-      });
+    $.post("/sendSMS/completed", update);
+    // .then((res) => {
+    //   location.href = `orders`; // Refresh page after the status changing
+    // });
   }
 };
 
