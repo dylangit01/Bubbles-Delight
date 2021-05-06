@@ -1,4 +1,8 @@
-$(document).ready(function () {
+$(document).ready(function() {
+  //////////////////////////////////////////////////////////////////
+  // LOCAL STORAGE FUNCTIONS ---------------------------------------
+  //////////////////////////////////////////////////////////////////
+
   // Get cart number from localStorage:
   if (localStorage.getItem("bubbletea")) {
     const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
@@ -57,6 +61,7 @@ $(document).ready(function () {
     })
   );
 
+  // DO WE NEED THIS?
   // Add event listener to cart button:
   class Bubbletea {
     constructor(imageUrl, bubbleteaName, bubbleteaPrice) {
@@ -65,6 +70,10 @@ $(document).ready(function () {
       this.bubbleteaPrice = bubbleteaPrice;
     }
   }
+
+  //////////////////////////////////////////////////////////////////
+  // USER INTERFACE FUNCTIONS --------------------------------------
+  //////////////////////////////////////////////////////////////////
 
   // UI Class: Handle UI tasks
   class cartUI {
@@ -162,7 +171,7 @@ $(document).ready(function () {
   };
 
   // Create the bubbletea options modal body specific to the bubbletea clicked
-  const createBubbleteaOptions = function(bubbletea) {
+  const createBubbleteaOptions = function (bubbletea) {
     // Create bubbletea options markup for modal
     const $bubbleteaOptions = `
       <div class="card">
@@ -252,7 +261,7 @@ $(document).ready(function () {
   };
 
   // Update the cart number if user selects bubbletea
-  const updateCartNumber = function() {
+  const updateCartNumber = function () {
     const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
     console.log(itemNum);
     $("#cartNum").text(itemNum);
