@@ -21,8 +21,6 @@ $(document).ready(function() {
   // Get cart number from localStorage:
   if (localStorage.getItem("bubbletea")) {
     updateCartNumber();
-    // const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
-    // $("#cartNum").text(itemNum);
   }
 
   // Build localStorage class and fns:
@@ -37,12 +35,14 @@ $(document).ready(function() {
       return bubbleteas;
     }
 
+    // Add new bubbletea data to localStorage
     static addBubbletea(bubbletea) {
       const bubbleteas = StoreBubbletea.getBubbleteas();
       bubbleteas.push(bubbletea);
       localStorage.setItem("bubbletea", JSON.stringify(bubbleteas));
     }
 
+    // Remove matched bubbletea from localStorage
     static removeBubbletea(id) {
       const bubbleteas = StoreBubbletea.getBubbleteas();
       // console.log(bubbleteas);
