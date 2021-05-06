@@ -58,6 +58,7 @@ $(document).ready(function() {
   // Add chosen item to cart:
   let imageUrl, bubbleteaName, bubbleteaPrice, bubbleteaId;
   let addToCartBtns = document.querySelectorAll("#addToCart");
+  
   addToCartBtns.forEach((btn) =>
     btn.addEventListener("click", (e) => {
       imageUrl =
