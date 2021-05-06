@@ -77,16 +77,6 @@ $(document).ready(function() {
     })
   );
 
-  // DO WE NEED THIS?
-  // Add event listener to cart button:
-  // class Bubbletea {
-  //   constructor(imageUrl, bubbleteaName, bubbleteaPrice) {
-  //     this.imageUrl = imageUrl;
-  //     this.bubbleteaName = bubbleteaName;
-  //     this.bubbleteaPrice = bubbleteaPrice;
-  //   }
-  // }
-
   //////////////////////////////////////////////////////////////////
   // USER INTERFACE FUNCTIONS --------------------------------------
   //////////////////////////////////////////////////////////////////
