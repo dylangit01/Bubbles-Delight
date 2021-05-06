@@ -121,31 +121,7 @@ $(document).ready(function () {
 
   // Handle remove btn of Cart item:
   $("#cart-items").click((e) => {
-<<<<<<< HEAD
-    cartUI.removeUIBubbletea(e.target);
-    // console.log(e.target.parentElement.nextElementSibling.textContent);
-    // const $row = $(this).closest('tr');
-
-    // const removeButton = $row.find(".removeBubbletea").text();
-    // const removeButtonTest = row.nextElementSibling.textContent;
-
-    // if (removeButton) {
-    StoreBubbletea.removeBubbletea(
-      e.target.parentElement.nextElementSibling.textContent
-    );
-    // }
-  });
-
-
-
-
-
-
-
-
-=======
     cartUI.removeUIBubbletea(e.target); // Remove item from UI
->>>>>>> master
 
     // If statement to filter out null/undefined textContent of next element
     if (e.target.parentElement.nextElementSibling) {
