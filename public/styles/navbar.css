@@ -33,6 +33,7 @@ body .cartIcon {
 }
 
 body .cartIcon #cartNum {
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;

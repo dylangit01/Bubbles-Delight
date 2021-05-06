@@ -3,8 +3,25 @@ $(document).ready(function() {
   // LOCAL STORAGE FUNCTIONS ---------------------------------------
   //////////////////////////////////////////////////////////////////
 
+  // Update the cart number if user selects bubbletea
+  const updateCartNumber = function() {
+    const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
+    console.log(itemNum);
+    if (itemNum > 0) {
+      $("#cartNum").show();
+      $(".cartIcon").removeClass('text-muted');
+      $(".cartIcon").addClass('text-success');
+    } else {
+      $("#cartNum").hide();
+      $(".cartIcon").removeClass('text-success');
+      $(".cartIcon").addClass('text-muted');
+    }
+    $("#cartNum").text(itemNum);
+  };
+
   // Get cart number from localStorage:
   if (localStorage.getItem("bubbletea")) {
+    updateCartNumber();
     const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
     $("#cartNum").text(itemNum);
   }
@@ -138,9 +155,11 @@ $(document).ready(function() {
         e.target.parentElement.nextElementSibling.textContent
       );
     }
+
+    updateCartNumber();
     // Update the cart number if remove the item from cart
-    const cartItemNumber = StoreBubbletea.getBubbleteas().length;
-    console.log($("#cartNum").text(cartItemNumber));
+    // const cartItemNumber = StoreBubbletea.getBubbleteas().length;
+    // console.log($("#cartNum").text(cartItemNumber));
   });
 
   //////////////////////////////////////////////////////////////////
@@ -170,7 +189,7 @@ $(document).ready(function() {
   };
 
   // Create the bubbletea options modal body specific to the bubbletea clicked
-  const createBubbleteaOptions = function(bubbletea) {
+  const createBubbleteaOptions = function (bubbletea) {
     // Create bubbletea options markup for modal
     const $bubbleteaOptions = `
       <div class="card">
@@ -252,17 +271,10 @@ $(document).ready(function() {
   };
 
   // Store current bubbletea information in local storage if user adds it to cart through button on options modal
-  const addToCartFromOptionsHandler = function() {
+  const addToCartFromOptionsHandler = function () {
     $("#bubbleteaOptionsModal").modal("hide");
     StoreBubbletea.addBubbletea(bubbletea); // Current bubbletea will be stored in variable from bubbleteaOptionsHandler that's within scope
     updateCartNumber(); // Update cart number dynamically
-  };
-
-  // Update the cart number if user selects bubbletea
-  const updateCartNumber = function () {
-    const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
-    console.log(itemNum);
-    $("#cartNum").text(itemNum);
   };
 
   //////////////////////////////////////////////////////////////////

@@ -46,6 +46,7 @@ body {
   .cartIcon {
     position: relative;
     #cartNum {
+      display: none; // Hide initially
       position: absolute;
       top: 50%;
       left: 50%;
