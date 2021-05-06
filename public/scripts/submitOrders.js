@@ -11,6 +11,7 @@ $(document).ready(function () {
       //   document.querySelector(".cartSpinner").remove();
       // }, 2000);
 
+      // Using jQuery
       const $divSpinner = $("<div/>").addClass(`${className}`).text(`${msg}`);
       $divSpinner.insertBefore(".spin-child");
       setTimeout(() => {
