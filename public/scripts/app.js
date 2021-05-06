@@ -6,7 +6,7 @@ $(document).ready(function() {
   // Update the cart number if user selects bubbletea
   const updateCartNumber = function() {
     const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
-    console.log(itemNum);
+    // console.log(itemNum);
     if (itemNum > 0) {
       $("#cartNum").show();
       $(".cartIcon").removeClass('text-muted');
@@ -22,8 +22,8 @@ $(document).ready(function() {
   // Get cart number from localStorage:
   if (localStorage.getItem("bubbletea")) {
     updateCartNumber();
-    const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
-    $("#cartNum").text(itemNum);
+    // const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
+    // $("#cartNum").text(itemNum);
   }
 
   // Build localStorage class and fns:
@@ -80,13 +80,13 @@ $(document).ready(function() {
 
   // DO WE NEED THIS?
   // Add event listener to cart button:
-  class Bubbletea {
-    constructor(imageUrl, bubbleteaName, bubbleteaPrice) {
-      this.imageUrl = imageUrl;
-      this.bubbleteaName = bubbleteaName;
-      this.bubbleteaPrice = bubbleteaPrice;
-    }
-  }
+  // class Bubbletea {
+  //   constructor(imageUrl, bubbleteaName, bubbleteaPrice) {
+  //     this.imageUrl = imageUrl;
+  //     this.bubbleteaName = bubbleteaName;
+  //     this.bubbleteaPrice = bubbleteaPrice;
+  //   }
+  // }
 
   //////////////////////////////////////////////////////////////////
   // USER INTERFACE FUNCTIONS --------------------------------------
@@ -200,21 +200,15 @@ $(document).ready(function() {
           <h5 class="card-title">${bubbletea.bubbleteaName}</h5>
           <p class="card-text mt-1"><strong>Price:</strong> ${bubbletea.bubbleteaPrice}</span></p>
           <form>
+
+
+
             <!-- Hot/Cold Switch -->
-            <input id="hot-cold-toggle" type="checkbox" checked data-toggle="toggle" data-on="<i class='far fa-snowflake mr-2'></i>Cold"
+
+            <input id="hot-cold-toggle" type="checkbox" checked data-on="<i class='far fa-snowflake mr-2'></i>Cold"
               data-off="Hot<i class='fab fa-hotjar ml-2'></i>" data-onstyle="primary" data-offstyle="danger"
               data-width="100%">
 
-
-
-              <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-              <label class="custom-control-label" for="customRadioInline1">Cold</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-              <label class="custom-control-label" for="customRadioInline2">Hot</label>
-            </div>
 
 
 
@@ -271,7 +265,7 @@ $(document).ready(function() {
   };
 
   // Store current bubbletea information in local storage if user adds it to cart through button on options modal
-  const addToCartFromOptionsHandler = function () {
+  const addToCartFromOptionsHandler = function() {
     $("#bubbleteaOptionsModal").modal("hide");
     StoreBubbletea.addBubbletea(bubbletea); // Current bubbletea will be stored in variable from bubbleteaOptionsHandler that's within scope
     updateCartNumber(); // Update cart number dynamically
