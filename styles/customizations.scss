@@ -5,12 +5,26 @@ $primary-color: #6f451a;
 $secondary-color: #a58b70;
 
 body {
+
+  // Set minimum width of modal container for options and center it
+  .modal-dialog {
+    min-width: 700px;
+    margin: auto;
+}
+
   // Card container in options modal
   .modal-body .card {
     // Make image appear side by side with the card content/body
     flex-direction: row;
     border: none;
 
+    // Makes card content aligned with image size
+    .card-body {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    // Container for image on options modal container
     .menu-item {
       display: flex;
       justify-content: center;
@@ -21,6 +35,11 @@ body {
         height: 100%;
         object-fit: cover;
       }
+    }
+
+    // Toppings heading
+    p {
+      margin-bottom: 0.5rem;
     }
   }
 }

@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Customize Your Bubbletea</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Brown Sugar Milk Tea</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -15,29 +15,32 @@
               <img src='images/1.jpg' class="card-img" alt='Brown Sugar' />
             </div>
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Brown Sugar Milk Tea</h5>
-              <p class="card-text"><strong>Price:</strong> $4.99</span></p>
+              <h5 class="card-title">Customize Your Bubbletea</h5>
+              <p class="card-text mt-1"><strong>Price:</strong> $4.99</span></p>
               <form>
                 <!-- Hot/Cold Switch -->
-                <input type="checkbox" checked data-toggle="toggle" data-on="Cold" data-off="Hot" data-onstyle="primary" data-offstyle="danger" data-width="100%">
+                <input type="checkbox" checked data-toggle="toggle" data-on="<i class='far fa-snowflake mr-2'></i>Cold"
+                  data-off="Hot<i class='fab fa-hotjar ml-2'></i>" data-onstyle="primary" data-offstyle="danger"
+                  data-width="100%">
 
                 <!-- Sugar Level -->
-                <div class="form-group mt-3">
+                <div class="form-group mt-4">
                   <label for="sugarLevel"><strong>Sugar Level: </strong></label>
                   <span id="sugarRangeVal">50%</span>
                   <input type="range" class="form-control-range" step="25" id="sugarLevel"
                     onInput="$('#sugarRangeVal').html($(this).val()+'%')">
                 </div>
                 <!-- Ice Level -->
-                <div class="form-group">
+                <div class="form-group mt-1">
                   <label for="iceLevel"><strong>Ice Level: </strong></label>
                   <span id="iceRangeVal">50%</span>
                   <input type="range" class="form-control-range" step="25" id="iceLevel"
                     onInput="$('#iceRangeVal').html($(this).val()+'%')">
                 </div>
-                <p><strong>Toppings:</strong></p>
+                <!-- Toppings -->
+                <p class="mt-1"><strong>Toppings:</strong></p>
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="tapioca" value="tapioca">
+                  <input class="form-check-input" type="checkbox" id="tapioca" value="tapioca" checked>
                   <label class="form-check-label" for="tapioca">Tapioca</label>
                 </div>
                 <div class="form-check">
@@ -48,14 +51,28 @@
                   <input class="form-check-input" type="checkbox" id="grass-jelly" value="grass-jelly">
                   <label class="form-check-label" for="grass-jelly">Grass Jelly</label>
                 </div>
+                <!-- Quantity -->
+                <label class="my-1 mr-2 mt-3" for="quantity"><strong>Quantity: </strong></label>
+                <select class="custom-select my-1 mr-sm-2" id="quantity">
+                  <option value="1"selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
               </form>
-              <span class="d-none">1</span>
+              <span class="d-none">BubbleteaID</span>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Add to Cart</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Add to Cart</button>
         </div>
       </div>
     </div>

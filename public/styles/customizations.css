@@ -1,6 +1,16 @@
+body .modal-dialog {
+  min-width: 700px;
+  margin: auto;
+}
+
 body .modal-body .card {
   flex-direction: row;
   border: none;
+}
+
+body .modal-body .card .card-body {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 body .modal-body .card .menu-item {
@@ -13,4 +23,8 @@ body .modal-body .card .menu-item {
 body .modal-body .card .menu-item .card-img {
   height: 100%;
   object-fit: cover;
+}
+
+body .modal-body .card p {
+  margin-bottom: 0.5rem;
 }
