@@ -71,6 +71,7 @@ module.exports = (db) => {
           const values = [bubbleteaId, id];
           db.query(queryString, values); // Can't do res.send or res.json here because in loop?
         });
+        res.json(order);    // if needs return data to front-end without network "red" error
       })
       .catch((err) => console.log(err.message));
   });
@@ -85,10 +86,17 @@ module.exports = (db) => {
       RETURNING *;
     `;
     const values = [status, eta, orderID];
+<<<<<<< HEAD
 
     db.query(queryString, values)
       .then((data) => {
         return res.send(data.rows[0]); // Need res.send
+=======
+    db
+      .query(queryString, values)
+      .then((data) => {
+        res.json(data.rows[0])
+>>>>>>> 756ed8f17b73f8e9678551bed4a5c847ff5b5af7
       })
       .catch((err) => console.log(err.message));
   });
