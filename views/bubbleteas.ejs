@@ -9,26 +9,12 @@
 
   <!-- For page preload... -->
   <style>
-	#overlay{
-		position: fixed;
-		top: 0;
-		z-index: 100;
-		width: 100%;
-		height: 100%;
-		background: rgba(0, 0, 0, 0.9);
-	}
-	.cv-spinner{
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+
 </style>
 </head>
 
 <body>
   <!-- Preload section -->
-
   <div id="overlay">
 	  <div class="cv-spinner">
 		  <div class="spinner">
@@ -45,9 +31,6 @@
   <header class="shadow">
     <h1>Bubbles Delight</h1>
     <h3>De<em>light</em>ful bubbleteas brewed by Lighthouse Labs!</h3>
-
-    <!-- Carousel part -->
-    <%- include('partials/_carousel') %>
   </header>
 
   <!-- All the bubbletea menu items -->
@@ -107,11 +90,11 @@
 	$(document).ready(function(){
 		$(".btn-danger").click(function(event) {
 			$("#overlay").fadeIn("fast", function() {
-				$("#overlay").delay(5000).fadeOut("slow");
+				$("#overlay").delay(1000).fadeOut("slow");
 			});
 		});
 
-		$("#overlay").delay(5000).fadeOut("slow");
+		$("#overlay").delay(1000).fadeOut("slow");
 
 	})
 </script>

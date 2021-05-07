@@ -55,28 +55,6 @@ $(document).ready(function () {
     }
   }
 
-  // Add chosen item to cart:
-  // let imageUrl, bubbleteaName, bubbleteaPrice, bubbleteaId;
-  // let addToCartBtns = document.querySelectorAll("#addToCart");
-  // addToCartBtns.forEach((btn) =>
-  //   btn.addEventListener("click", (e) => {
-  //     imageUrl =
-  //       e.target.parentElement.parentElement.children[0].childNodes[1]
-  //       .currentSrc;
-  //     bubbleteaName = e.target.parentElement.children[0].innerHTML;
-  //     bubbleteaPrice = e.target.parentElement.children[1].children[0].innerHTML;
-  //     bubbleteaId = e.target.nextElementSibling.innerHTML;
-
-  //     const bubbletea = {
-  //       imageUrl,
-  //       bubbleteaName,
-  //       bubbleteaPrice,
-  //       bubbleteaId,
-  //     };
-  //     StoreBubbletea.addBubbletea(bubbletea);
-  //   })
-  // );
-
   //////////////////////////////////////////////////////////////////
   // USER INTERFACE FUNCTIONS --------------------------------------
   //////////////////////////////////////////////////////////////////
@@ -146,9 +124,6 @@ $(document).ready(function () {
     }
 
     updateCartNumber();
-    // Update the cart number if remove the item from cart
-    // const cartItemNumber = StoreBubbletea.getBubbleteas().length;
-    // console.log($("#cartNum").text(cartItemNumber));
   });
 
   //////////////////////////////////////////////////////////////////
