@@ -3,14 +3,14 @@
  * Since this file is loaded in server.js into /logout, these routes are mounted onto /logout
  */
 
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
   // Handle user logout and clear cookies
   router.post("/", (req, res) => {
     req.session = null;
-    return res.redirect('/');
+    return res.redirect("/");
   });
 
   return router;
