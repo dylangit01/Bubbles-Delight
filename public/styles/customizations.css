@@ -37,20 +37,21 @@ body #bubbleteaOptionsModal .modal-dialog .modal-body .card p {
   margin-bottom: 0.5rem;
 }
 
-body .toggle-container {
+body .temperature-toggle-container {
   display: inline-block;
   overflow: hidden;
   position: relative;
   width: 100%;
   border-radius: 20px;
+  border: none;
 }
 
-body .toggle-container input[type="checkbox"] {
+body .temperature-toggle-container input[type="checkbox"] {
   height: 30px;
   width: 100%;
 }
 
-body .toggle-container .toggle {
+body .temperature-toggle-container .toggle {
   color: white;
   line-height: 40px;
   pointer-events: none;
@@ -63,26 +64,26 @@ body .toggle-container .toggle {
   bottom: 0;
 }
 
-body .toggle-container .toggle-cold {
+body .temperature-toggle-container .toggle-cold {
   background: #0d6efd;
   border-radius: 18px;
   z-index: 1;
 }
 
-body .toggle-container .toggle-hot {
+body .temperature-toggle-container .toggle-hot {
   background: #dc3545;
   left: 89%;
   border-radius: 18px;
   z-index: 2;
 }
 
-body .toggle-container input[type="checkbox"]:checked ~ .toggle-cold {
+body .temperature-toggle-container input[type="checkbox"]:checked ~ .toggle-cold {
   left: -88.5%;
   border-radius: 18px;
   z-index: 3;
 }
 
-body .toggle-container input[type="checkbox"]:checked ~ .toggle-hot {
+body .temperature-toggle-container input[type="checkbox"]:checked ~ .toggle-hot {
   left: 0%;
   border-radius: 0;
 }

@@ -133,7 +133,7 @@ $(document).ready(function () {
   let bubbletea;
 
   // Display bubbletea customization options for a specific bubbletea through a modal
-  const bubbleteaOptionsHandler = function() {
+  const bubbleteaOptionsHandler = function () {
     const $card = $(this).closest(".card"); // Find closest card
     const bubbleteaId = $card.find('.d-none').text();
     const bubbleteaName = $card.find('.card-title').text();
@@ -183,11 +183,11 @@ $(document).ready(function () {
             </div>
 
             <!-- Hot/Cold Switch -->
-            <div class="toggle-container">
+            <button type="button" class="temperature-toggle-container">
               <input type="checkbox">
               <div class="toggle toggle-cold"><i class='far fa-snowflake mr-2'></i> Cold</div>
               <div class="toggle toggle-hot">Hot <i class='fab fa-hotjar ml-2'></i></div>
-            </div>
+            </button>
 
             <!-- Sugar Level -->
             <div class="form-group mt-2">
@@ -248,6 +248,16 @@ $(document).ready(function () {
     $("#bubbleteaOptionsModal").modal("hide");
     StoreBubbletea.addBubbletea(bubbletea); // Current bubbletea will be stored in variable from bubbleteaOptionsHandler that's within scope
     updateCartNumber(); // Update cart number dynamically
+  };
+
+
+  const temperatureHandler = function () {
+    console.log("made it here");
+    if ($(this).checked()) {
+      console.log("Checkbox is checked.");
+    } else {
+      console.log("Checkbox is unchecked.");
+    }
   };
 
   //////////////////////////////////////////////////////////////////

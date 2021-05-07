@@ -52,12 +52,13 @@ body {
   }
 
   // Hot/Cold Toggle
-  .toggle-container {
+  .temperature-toggle-container {
     display: inline-block;
     overflow: hidden;
     position: relative;
     width: 100%;
     border-radius: 20px;
+    border: none;
 
     input[type="checkbox"] {
       height: 30px;
