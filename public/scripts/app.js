@@ -110,7 +110,7 @@ $(document).ready(function () {
       //////////////////////////////////////////////////////////////////
       // Handle remove btn in Cart modal:
       // Using jQuery to remove cart item, since below fns are element event driven,
-      // they have to be inside whenever the tr has been created
+      // these fns have to be inside whenever the tr element has been created
       // using ".bubble-Id" to target each row of the cart items
       // since the id is in the same scope, we can use this id directly to
       //////////////////////////////////////////////////////////////////
@@ -165,7 +165,7 @@ $(document).ready(function () {
     const imageUrl = $card.find("img").attr("src");
 
     bubbletea = { bubbleteaId, bubbleteaName, bubbleteaPrice, imageUrl, };
-    
+
     const $newBubbleteaElement = createBubbleteaOptions(bubbletea);
     $("#bubbletea-options-container").empty(); // Clear container before appending
     $("#bubbletea-options-container").append($newBubbleteaElement); // Append/show specific bubbletea with options
