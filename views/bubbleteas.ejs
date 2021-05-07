@@ -88,14 +88,16 @@
   <!-- Preload js -->
   <script>
 	$(document).ready(function(){
-		$(".btn-danger").click(function(event) {
-			$("#overlay").fadeIn("fast", function() {
-				$("#overlay").delay(1000).fadeOut("slow");
-			});
-		});
-
-		$("#overlay").delay(1000).fadeOut("slow");
-
+      const preload = ()=> {
+        $("#overlay").delay(1000).fadeOut("slow");
+        $("#overlay").delay(1500).slideUp("500");
+      }
+      if(!sessionStorage.getItem('notShow')){
+        sessionStorage.setItem('notShow', true);
+        preload()
+      } else {
+        $('#overlay').hide()
+      }
 	})
 </script>
 </body>

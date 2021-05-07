@@ -259,4 +259,8 @@ $(document).ready(function () {
 
   // Event listener on Add to Cart button from the options modal
   $("#addToCartBtnFromOptions").on("click", addToCartFromOptionsHandler);
+
+  $("#overlay")
+
+
 });

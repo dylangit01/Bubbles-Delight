@@ -28,8 +28,8 @@
     <% if (user) { %>
       <!-- Display different links depending on whether user is logged in -->
       <form class="form-inline" method="POST" action="/logout">
-        <span class="navbar-text text-dark mr-sm-3">HELLO,<strong
-            class="ml-2"><%= user.name.toUpperCase() %>!</strong></span>
+        <span class="loggedUser navbar-text text-dark mr-sm-3">HELLO,<strong class="ml-2">
+          <%= user.name.toUpperCase() %>!</strong></span>
         <button class="btn btn-outline-secondary my-2 mr-sm-3" type="submit">LOGOUT <i class="fas fa-sign-out-alt"></i></button>
       </form>
       <% if (!user.is_admin) { %>
@@ -39,7 +39,7 @@
         </button>
       <% } %>
     <% } else { %>
-      <a class="nav-item nav-link text-dark" href="/login">LOGIN <i class="fas fa-sign-in-alt"></i></a>
+      <a class="nav-item nav-link text-dark loginBtn" href="/login">LOGIN <i class="fas fa-sign-in-alt"></i></a>
       <a class="nav-item nav-link text-dark" href="/bubbleteas">REGISTER <i class="fas fa-user-plus"></i></a>
     <% } %>
 
