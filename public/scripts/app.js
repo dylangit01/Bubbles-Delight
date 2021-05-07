@@ -164,12 +164,8 @@ $(document).ready(function () {
     const bubbleteaPrice = $card.find(".card-price").text();
     const imageUrl = $card.find("img").attr("src");
 
-    bubbletea = {
-      bubbleteaId,
-      bubbleteaName,
-      bubbleteaPrice,
-      imageUrl,
-    };
+    bubbletea = { bubbleteaId, bubbleteaName, bubbleteaPrice, imageUrl, };
+    
     const $newBubbleteaElement = createBubbleteaOptions(bubbletea);
     $("#bubbletea-options-container").empty(); // Clear container before appending
     $("#bubbletea-options-container").append($newBubbleteaElement); // Append/show specific bubbletea with options
