@@ -78,7 +78,7 @@ $(document).ready(function () {
 
     static addToCart(bubbletea) {
       $("<tr/>")
-        .addClass("bubble-Id")
+        .addClass("itemRow")
         .html(
           `
         <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto; border-radius: 3px;" alt=""/></td>
@@ -114,7 +114,7 @@ $(document).ready(function () {
       // using ".bubble-Id" to target each row of the cart items
       //////////////////////////////////////////////////////////////////
 
-      $(".bubble-Id").click(function (e) {
+      $(".itemRow").click(function (e) {
         const $id = $(this).find(".d-none").text();
         StoreBubbletea.removeBubbletea($id);
         cartUI.removeUIBubbletea(e.target);
@@ -128,6 +128,10 @@ $(document).ready(function () {
         el.parentElement.parentElement.remove();
         StoreBubbletea.removeBubbletea();
       }
+
+      if()
+
+
     }
   }
 
