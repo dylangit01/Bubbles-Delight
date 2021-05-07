@@ -6,6 +6,14 @@ $(document).ready(function () {
   // Update the cart number if user selects bubbletea
   const updateCartNumber = function () {
     const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
+    const bubbleteas = JSON.parse(localStorage.getItem("bubbletea"));
+
+    let totalPrice = 0;
+    bubbleteas.forEach((bubbletea) => {
+      const price = Number((bubbletea.bubbleteaPrice).substring(1));
+      totalPrice += price;
+    });
+
     if (itemNum > 0) {
       $("#cartNum").show();
       $(".cartIcon").removeClass('text-muted');
@@ -16,6 +24,10 @@ $(document).ready(function () {
       $(".cartIcon").addClass('text-muted');
     }
     $("#cartNum").text(itemNum);
+
+    console.log(totalPrice);
+    // $("#total_bubbletea_price").text(totalPrice);
+
   };
 
   // Get cart number from localStorage:
