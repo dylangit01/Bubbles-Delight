@@ -39,10 +39,71 @@ body {
         }
       }
 
+      // Center S/M/L options
+      .form-row>.col, .form-row>[class*=col-] {
+        justify-content: center;
+      }
+
       // Toppings heading
       p {
         margin-bottom: 0.5rem;
       }
     }
   }
+
+  // Hot/Cold Toggle
+  .toggle-container {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+
+    input[type="checkbox"] {
+      height: 30px;
+      width: 100%;
+    }
+
+    .toggle {
+      color: white;
+      line-height: 40px;
+      pointer-events: none;
+      text-align: center;
+      transition: left 0.3s;
+      width: inherit;
+
+      position: absolute;
+      left: 0%;
+      top: 0;
+      bottom: 0;
+    }
+
+    .toggle-cold {
+      background: #0d6efd;
+      border-radius: 18px;
+      z-index: 1;
+    }
+
+    .toggle-hot {
+      background: #dc3545;
+      left: 89%;
+      border-radius: 18px;
+      z-index: 2;
+    }
+
+    input[type="checkbox"]:checked ~ .toggle-cold {
+      left: -88.5%;
+      border-radius: 18px;
+      z-index: 3;
+    }
+
+    input[type="checkbox"]:checked ~ .toggle-hot {
+      left: 0%;
+      border-radius: 0;
+
+    }
+  }
+
+
+
 }
