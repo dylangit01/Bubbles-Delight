@@ -10,25 +10,22 @@ $(document).ready(function () {
 
     let totalPrice = 0;
     bubbleteas.forEach((bubbletea) => {
-      const price = Number((bubbletea.bubbleteaPrice).substring(1));
-      console.log(bubbletea.bubbleteaPrice);
+      const price = Number(bubbletea.bubbleteaPrice.substring(1));
       totalPrice += price;
     });
 
     if (itemNum > 0) {
       $("#cartNum").show();
-      $(".cartIcon").removeClass('text-muted');
-      $(".cartIcon").addClass('text-success');
+      $(".cartIcon").removeClass("text-muted");
+      $(".cartIcon").addClass("text-success");
     } else {
       $("#cartNum").hide();
-      $(".cartIcon").removeClass('text-success');
-      $(".cartIcon").addClass('text-muted');
+      $(".cartIcon").removeClass("text-success");
+      $(".cartIcon").addClass("text-muted");
     }
     $("#cartNum").text(itemNum);
 
-    console.log(totalPrice);
     // $("#total_bubbletea_price").text(totalPrice);
-
   };
 
   // Get cart number from localStorage:
@@ -62,6 +59,7 @@ $(document).ready(function () {
       bubbleteas.forEach((bubbletea, index) => {
         if (bubbletea.bubbleteaId == id) {
           bubbleteas.splice(index, 1);
+          console.log(bubbleteas);
         }
       });
       localStorage.setItem("bubbletea", JSON.stringify(bubbleteas));
@@ -82,6 +80,7 @@ $(document).ready(function () {
 
     static addToCart(bubbletea) {
       $("<tr/>")
+        .addClass("bubble-Id")
         .html(
           `
         <td class="align-middle p-1"><img src="${bubbletea.imageUrl}" style="width:120px; height:auto; border-radius: 3px;" alt=""/></td>
@@ -109,12 +108,27 @@ $(document).ready(function () {
         `
         )
         .appendTo("#cart-items");
+
+      //////////////////////////////////////////////////////////////////
+      // Handle remove btn in Cart modal:
+      // Using jQuery to remove cart item, since below fns are element event driven,
+      // they have to be inside whenever the tr has been created
+      // using ".bubble-Id" to target each row of the cart items
+      //////////////////////////////////////////////////////////////////
+
+      $(".bubble-Id").click(function (e) {
+        const $id = $(this).find(".d-none").text();
+        StoreBubbletea.removeBubbletea($id);
+        cartUI.removeUIBubbletea(e.target);
+        updateCartNumber();
+      });
     }
 
     // Remove UI list item:
     static removeUIBubbletea(el) {
       if (el.classList.contains("removeBubbletea")) {
         el.parentElement.parentElement.remove();
+        StoreBubbletea.removeBubbletea();
       }
     }
   }
@@ -125,19 +139,16 @@ $(document).ready(function () {
     cartUI.displayCartItems();
   });
 
-  // Handle remove btn of Cart item:
-  $("#cart-items").click((e) => {
-    cartUI.removeUIBubbletea(e.target); // Remove item from UI
+  // Older way to remove cart item:
+  // $("#cart-items").load(function(e) {
+  // cartUI.removeUIBubbletea(e.target);           // Remove item from UI
 
-    // If statement to filter out null/undefined textContent of next element
-    if (e.target.parentElement.nextElementSibling) {
-      StoreBubbletea.removeBubbletea(
-        e.target.parentElement.nextElementSibling.textContent
-      );
-    }
-
-    updateCartNumber();
-  });
+  // if (e.target.parentElement.nextElementSibling) {
+  //   StoreBubbletea.removeBubbletea(
+  //     e.target.parentElement.nextElementSibling.textContent
+  //   );
+  // }
+  // });
 
   //////////////////////////////////////////////////////////////////
   // BUBBLETEA MODAL CUSTOMIZATIONS FUNCTIONS ----------------------
@@ -148,21 +159,21 @@ $(document).ready(function () {
   // Display bubbletea customization options for a specific bubbletea through a modal
   const bubbleteaOptionsHandler = function () {
     const $card = $(this).closest(".card"); // Find closest card
-    const bubbleteaId = $card.find('.d-none').text();
-    const bubbleteaName = $card.find('.card-title').text();
-    const bubbleteaPrice = $card.find('.card-price').text();
-    const imageUrl = $card.find('img').attr('src');
+    const bubbleteaId = $card.find(".d-none").text();
+    const bubbleteaName = $card.find(".card-title").text();
+    const bubbleteaPrice = $card.find(".card-price").text();
+    const imageUrl = $card.find("img").attr("src");
 
     bubbletea = {
       bubbleteaId,
       bubbleteaName,
       bubbleteaPrice,
-      imageUrl
+      imageUrl,
     };
     const $newBubbleteaElement = createBubbleteaOptions(bubbletea);
-    $('#bubbletea-options-container').empty(); // Clear container before appending
-    $('#bubbletea-options-container').append($newBubbleteaElement); // Append/show specific bubbletea with options
-    $('#bubbleteaOptionsModal').modal('show'); // Display modal
+    $("#bubbletea-options-container").empty(); // Clear container before appending
+    $("#bubbletea-options-container").append($newBubbleteaElement); // Append/show specific bubbletea with options
+    $("#bubbleteaOptionsModal").modal("show"); // Display modal
   };
 
   // Create the bubbletea options modal body specific to the bubbletea clicked
@@ -262,7 +273,6 @@ $(document).ready(function () {
     StoreBubbletea.addBubbletea(bubbletea); // Current bubbletea will be stored in variable from bubbleteaOptionsHandler that's within scope
     updateCartNumber(); // Update cart number dynamically
   };
-
 
   const temperatureHandler = function () {
     console.log("made it here");
