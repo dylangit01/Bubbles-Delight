@@ -11,6 +11,7 @@ $(document).ready(function () {
     let totalPrice = 0;
     bubbleteas.forEach((bubbletea) => {
       const price = Number((bubbletea.bubbleteaPrice).substring(1));
+      console.log(bubbletea.bubbleteaPrice);
       totalPrice += price;
     });
 
