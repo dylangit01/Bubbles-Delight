@@ -1,10 +1,10 @@
-$(document).ready(function() {
+$(document).ready(function () {
   //////////////////////////////////////////////////////////////////
   // LOCAL STORAGE FUNCTIONS ---------------------------------------
   //////////////////////////////////////////////////////////////////
 
   // Update the cart number if user selects bubbletea
-  const updateCartNumber = function() {
+  const updateCartNumber = function () {
     const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
     // console.log(itemNum);
     if (itemNum > 0) {
@@ -201,25 +201,38 @@ $(document).ready(function() {
           <p class="card-text mt-1"><strong>Price:</strong> ${bubbletea.bubbleteaPrice}</span></p>
           <form>
 
+            <!-- Size -->
+            <div class="form-row align-items-center">
 
+              <div class="form-check form-check-inline form-control-lg col">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="smallSize" value="small">
+              <label class="form-check-label" for="smallSize">S</label>
+              </div>
+              <div class="form-check form-check-inline form-control-lg col">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="mediumSize" value="medium" checked>
+                <label class="form-check-label" for="mediumSize">M</label>
+              </div>
+              <div class="form-check form-check-inline form-control-lg col">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="largeSize" value="large">
+                <label class="form-check-label" for="largeSize">L</label>
+              </div>
+            </div>
 
             <!-- Hot/Cold Switch -->
-
-            <input id="hot-cold-toggle" type="checkbox" checked data-on="<i class='far fa-snowflake mr-2'></i>Cold"
-              data-off="Hot<i class='fab fa-hotjar ml-2'></i>" data-onstyle="primary" data-offstyle="danger"
-              data-width="100%">
-
-
-
-
+            <div class="toggle-container">
+              <input type="checkbox">
+              <div class="toggle toggle-cold"><i class='far fa-snowflake mr-2'></i> Cold</div>
+              <div class="toggle toggle-hot">Hot <i class='fab fa-hotjar ml-2'></i></div>
+            </div>
 
             <!-- Sugar Level -->
-            <div class="form-group mt-4">
+            <div class="form-group mt-2">
               <label for="sugarLevel"><strong>Sugar Level: </strong></label>
               <span id="sugarRangeVal">50%</span>
               <input type="range" class="form-control-range" step="25" id="sugarLevel"
                 onInput="$('#sugarRangeVal').html($(this).val()+'%')">
             </div>
+
             <!-- Ice Level -->
             <div class="form-group mt-1">
               <label for="iceLevel"><strong>Ice Level: </strong></label>
@@ -227,6 +240,7 @@ $(document).ready(function() {
               <input type="range" class="form-control-range" step="25" id="iceLevel"
                 onInput="$('#iceRangeVal').html($(this).val()+'%')">
             </div>
+
             <!-- Toppings -->
             <p class="mt-1"><strong>Toppings:</strong></p>
             <div class="form-check">
@@ -241,6 +255,7 @@ $(document).ready(function() {
               <input class="form-check-input" type="checkbox" id="grass-jelly" value="grass-jelly">
               <label class="form-check-label" for="grass-jelly">Grass Jelly</label>
             </div>
+
             <!-- Quantity -->
             <label class="my-1 mr-2 mt-3" for="quantity"><strong>Quantity: </strong></label>
             <select class="custom-select my-1 mr-sm-2" id="quantity">
@@ -265,7 +280,7 @@ $(document).ready(function() {
   };
 
   // Store current bubbletea information in local storage if user adds it to cart through button on options modal
-  const addToCartFromOptionsHandler = function() {
+  const addToCartFromOptionsHandler = function () {
     $("#bubbleteaOptionsModal").modal("hide");
     StoreBubbletea.addBubbletea(bubbletea); // Current bubbletea will be stored in variable from bubbleteaOptionsHandler that's within scope
     updateCartNumber(); // Update cart number dynamically
