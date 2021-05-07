@@ -88,16 +88,20 @@
   <!-- Preload js -->
   <script>
 	$(document).ready(function(){
-		$(".btn-danger").click(function(event) {
-			$("#overlay").fadeIn("fast", function() {
-				$("#overlay").delay(1000).fadeOut("slow");
-			});
-		});
+		// $(".btn-danger").click(function(event) {
+		// 	$("#overlay").fadeIn("fast", function() {
+		// 		$("#overlay").delay(1000).fadeOut("slow");
+		// 	});
+		// });
 
-		$("#overlay").delay(1000).fadeOut("slow");
-
+    // Show loading screen if this is the first time a user visits website
+    if(localStorage.getItem('siteVisted') != 'preloader-shown'){
+      $("#overlay").show(); // #overlay is set to invisible initially so have to show it
+      $("#overlay").delay(6000).fadeOut("slow"); // Show pre-loader for a specific amount of time
+      localStorage.setItem('siteVisted','preloader-shown') // Set local storage variable to track that preloader was already shown
+    }
 	})
-</script>
+  </script>
 </body>
 
 </html>
