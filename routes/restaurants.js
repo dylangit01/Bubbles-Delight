@@ -36,17 +36,17 @@ module.exports = (db) => {
     db.query(queryString)
       .then((data) => {
         const orders = data.rows;
-        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", ];
         const templateVars = {
           orders,
           user,
-          months
+          months,
         };
         return res.render("restaurant", templateVars);
       })
       .catch((err) => {
         res.status(500).json({
-          error: err.message
+          error: err.message,
         });
       });
   });
