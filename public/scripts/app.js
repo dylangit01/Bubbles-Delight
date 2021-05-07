@@ -55,11 +55,9 @@ $(document).ready(function () {
     // Remove matched bubbletea from localStorage
     static removeBubbletea(id) {
       const bubbleteas = StoreBubbletea.getBubbleteas();
-      // console.log(bubbleteas);
       bubbleteas.forEach((bubbletea, index) => {
         if (bubbletea.bubbleteaId == id) {
           bubbleteas.splice(index, 1);
-          console.log(bubbleteas);
         }
       });
       localStorage.setItem("bubbletea", JSON.stringify(bubbleteas));
