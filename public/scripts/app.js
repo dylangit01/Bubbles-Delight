@@ -158,7 +158,7 @@ $(document).ready(function () {
     const $bubbleteaOptions = `
       <div class="card">
         <div class="menu-item">
-          <img src='${bubbletea.imageUrl}' class="card-img" alt='${bubbletea.bubbleteaName}' />
+          <img src='${bubbletea.imageUrl}' class="card-img h-100" alt='${bubbletea.bubbleteaName}' />
         </div>
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${bubbletea.bubbleteaName}</h5>
