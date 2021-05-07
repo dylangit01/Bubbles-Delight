@@ -27,11 +27,11 @@ module.exports = (db) => {
     const queryString = `SELECT * FROM users WHERE email = $1;`;
     const values = [email];
     db.query(queryString, values)
-      .then(data => {
+      .then((data) => {
         const user = data.rows[0];
         return res.redirect(`/login/${user.id}`);
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({ error: err.message });
       });
   });
