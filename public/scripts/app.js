@@ -1,12 +1,12 @@
-$(document).ready(function () {
+$(document).ready(function() {
   //////////////////////////////////////////////////////////////////
   // LOCAL STORAGE FUNCTIONS ---------------------------------------
   //////////////////////////////////////////////////////////////////
 
   // Update the cart number if user selects bubbletea
-  const updateCartNumber = function () {
-    const itemNum = JSON.parse(localStorage.getItem("bubbletea")).length;
+  const updateCartNumber = function() {
     const bubbleteas = JSON.parse(localStorage.getItem("bubbletea"));
+    const itemNum = bubbleteas.length;
 
     let totalPrice = 0;
     bubbleteas.forEach((bubbletea) => {
@@ -14,6 +14,7 @@ $(document).ready(function () {
       totalPrice += price;
     });
 
+    // Update cart number and colour depending on if there's items in the cart
     if (itemNum > 0) {
       $("#cartNum").show();
       $(".cartIcon").removeClass("text-muted");
@@ -56,7 +57,7 @@ $(document).ready(function () {
     static removeBubbletea(id) {
       const bubbleteas = StoreBubbletea.getBubbleteas();
       bubbleteas.forEach((bubbletea, index) => {
-        if (bubbletea.bubbleteaId == id) {
+        if (bubbletea.bubbleteaId === id) {
           bubbleteas.splice(index, 1);
         }
       });
@@ -115,12 +116,12 @@ $(document).ready(function () {
       // since the id is in the same scope, we can use this id directly to
       //////////////////////////////////////////////////////////////////
 
-      $(".itemRow").click(function (e) {
-        // const $id = $(this).find(".d-none").text();    // no need to get id here
+      $(".itemRow").click(function() {
         const id = bubbletea.bubbleteaId;
         StoreBubbletea.removeBubbletea(id);
 
-        $(this).find(".d-none").text() == id && $(this).remove();
+        // If first expression is true, will evaluate to second expression (remove bubbletea/row)
+        $(this).find(".d-none").text() === id && $(this).remove();
         updateCartNumber();
       });
     }
@@ -157,7 +158,7 @@ $(document).ready(function () {
   let bubbletea;
 
   // Display bubbletea customization options for a specific bubbletea through a modal
-  const bubbleteaOptionsHandler = function () {
+  const bubbleteaOptionsHandler = function() {
     const $card = $(this).closest(".card"); // Find closest card
     const bubbleteaId = $card.find(".d-none").text();
     const bubbleteaName = $card.find(".card-title").text();
@@ -173,7 +174,7 @@ $(document).ready(function () {
   };
 
   // Create the bubbletea options modal body specific to the bubbletea clicked
-  const createBubbleteaOptions = function (bubbletea) {
+  const createBubbleteaOptions = function(bubbletea) {
     // Create bubbletea options markup for modal
     const $bubbleteaOptions = `
       <div class="card">
@@ -264,20 +265,20 @@ $(document).ready(function () {
   };
 
   // Store current bubbletea information in local storage if user adds it to cart through button on options modal
-  const addToCartFromOptionsHandler = function () {
+  const addToCartFromOptionsHandler = function() {
     $("#bubbleteaOptionsModal").modal("hide");
     StoreBubbletea.addBubbletea(bubbletea); // Current bubbletea will be stored in variable from bubbleteaOptionsHandler that's within scope
     updateCartNumber(); // Update cart number dynamically
   };
 
-  const temperatureHandler = function () {
-    console.log("made it here");
-    if ($(this).checked()) {
-      console.log("Checkbox is checked.");
-    } else {
-      console.log("Checkbox is unchecked.");
-    }
-  };
+  // const temperatureHandler = function() {
+  //   console.log("made it here");
+  //   if ($(this).checked()) {
+  //     console.log("Checkbox is checked.");
+  //   } else {
+  //     console.log("Checkbox is unchecked.");
+  //   }
+  // };
 
   //////////////////////////////////////////////////////////////////
   // EVENT LISTENERS FOR BUBBLETEA MODAL CUSTOMIZATIONS  -----------
