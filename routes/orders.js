@@ -31,12 +31,8 @@ module.exports = (db) => {
     db.query(queryString, values)
       .then((data) => {
         const orders = data.rows;
-        const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", ];
-        const templateVars = {
-          orders,
-          user,
-          months,
-        };
+        const months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+        const templateVars = { orders, user, months };
         return res.render("orders", templateVars);
       })
       .catch((err) => {
