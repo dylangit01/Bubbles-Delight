@@ -111,8 +111,8 @@ $(document).ready(function() {
       //////////////////////////////////////////////////////////////////
       // Handle remove btn in Cart modal:
       // Using jQuery to remove cart item, since below fns are element event driven,
-      // these fns have to be inside whenever the tr element has been created
-      // using ".itemRow" to target each row of the cart items
+      // click event fun has to put inside of the tr element whenever it has been created
+      // using e.target.classList to target the remove btn
       //////////////////////////////////////////////////////////////////
 
       $(".itemRow").click(function (e) {
@@ -141,8 +141,8 @@ $(document).ready(function() {
     cartUI.displayCartItems();
   });
 
-  // Older way to remove cart item:
-  // $("#cart-items").load(function(e) {
+  // Old way to remove cart item:
+  // $("#cart-items").click(function(e) {
   // cartUI.removeUIBubbletea(e.target);           // Remove item from UI
 
   // if (e.target.parentElement.nextElementSibling) {
