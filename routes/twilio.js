@@ -44,7 +44,6 @@ module.exports = (db) => {
   // Send customer message with status and eta:
   router.post("/inprogress", (req, res) => {
     const { orderID, eta, status } = req.body;
-    console.log(status);
     const msg = `Dear customer, your order# ${orderID} is ${status} , will be ready in ${eta} minutes, thank you for your order!`;
     const twilioSMS = sendTwilioMsg(msg);
     twilioSMS
@@ -58,7 +57,6 @@ module.exports = (db) => {
 
   router.post("/completed", (req, res) => {
     const { orderID, status } = req.body;
-    console.log(status);
     const msg = `Dear customer, your order# ${orderID} is ${status} and ready for pick up, thank you for your business!`;
     const twilioSMS = sendTwilioMsg(msg);
     twilioSMS

@@ -88,13 +88,7 @@
   <!-- Preload js -->
   <script>
 	$(document).ready(function(){
-		// $(".btn-danger").click(function(event) {
-		// 	$("#overlay").fadeIn("fast", function() {
-		// 		$("#overlay").delay(1000).fadeOut("slow");
-		// 	});
-		// });
-
-    // Show loading screen if this is the first time a user visits website
+    // Show loading screen if this is the first time a user visits website (using session storage)
     if(sessionStorage.getItem('siteVisted') != 'preloader-shown'){
       $("#overlay").show(); // #overlay is set to invisible initially so have to show it
       $("#overlay").delay(7000).fadeOut("slow"); // Show pre-loader for a specific amount of time
