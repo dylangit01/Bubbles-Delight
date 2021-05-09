@@ -119,7 +119,6 @@ $(document).ready(function() {
         if(e.target.classList.contains("removeBubbletea")){
           const $id = $(this).find(".d-none").text();
           StoreBubbletea.removeBubbletea($id);
-
           $(this).remove();
           updateCartNumber();
         }
