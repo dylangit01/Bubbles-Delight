@@ -111,19 +111,20 @@ $(document).ready(function () {
       // Handle remove btn in Cart modal:
       // Using jQuery to remove cart item, since below fns are element event driven,
       // these fns have to be inside whenever the tr element has been created
-      // using ".bubble-Id" to target each row of the cart items
-      // since the id is in the same scope, we can use this id directly to
+      // using ".itemRow" to target each row of the cart items
       //////////////////////////////////////////////////////////////////
 
       $(".itemRow").click(function (e) {
-        // const $id = $(this).find(".d-none").text();    // no need to get id here
-        const id = bubbletea.bubbleteaId;
-        StoreBubbletea.removeBubbletea(id);
+        if(e.target.classList.contains("removeBubbletea")){
+          const $id = $(this).find(".d-none").text();
+          StoreBubbletea.removeBubbletea($id);
 
-        $(this).find(".d-none").text() == id && $(this).remove();
-        updateCartNumber();
+          $(this).find(".d-none").text() == $id && $(this).remove();
+          updateCartNumber();
+        }
       });
     }
+
     // Remove UI list item using traditional way:
     // static removeUIBubbletea(el) {
     //   if (el.classList.contains("removeBubbletea")) {
