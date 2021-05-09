@@ -116,12 +116,12 @@ $(document).ready(function() {
       // since the id is in the same scope, we can use this id directly to
       //////////////////////////////////////////////////////////////////
 
-      $(".itemRow").click(function() {
+      $(".itemRow").click(function() {  // ERROR WITH THIS FUNCTION WHICH REMOVES ALL THE ITEMS IF ANY ROW IS CLICKED
         const id = bubbletea.bubbleteaId;
         StoreBubbletea.removeBubbletea(id);
-
+        console.log(id);
         // If first expression is true, will evaluate to second expression (remove bubbletea/row)
-        $(this).find(".d-none").text() === id && $(this).remove();
+        $(this).find(".d-none").text() === id && $(this).remove(); // Updates UI
         updateCartNumber();
       });
     }
