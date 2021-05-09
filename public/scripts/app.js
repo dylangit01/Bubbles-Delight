@@ -120,7 +120,7 @@ $(document).ready(function() {
           const $id = $(this).find(".d-none").text();
           StoreBubbletea.removeBubbletea($id);
 
-          $(this).find(".d-none").text() == $id && $(this).remove();
+          $(this).remove();
           updateCartNumber();
         }
       });
