@@ -126,7 +126,7 @@ $(document).ready(function() {
       });
     }
 
-    // Remove UI list item using traditional way:
+    // Remove UI list item using old way:
     // static removeUIBubbletea(el) {
     //   if (el.classList.contains("removeBubbletea")) {
     //     el.parentElement.parentElement.remove();
