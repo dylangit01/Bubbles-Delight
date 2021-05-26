@@ -39,6 +39,10 @@ body .table {
   color: #393e46;
 }
 
+.orderTable {
+  overflow-x: scroll;
+}
+
 th, td {
   min-width: 130px;
 }

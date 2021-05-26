@@ -8,26 +8,26 @@ body {
   // Header cover section
   header {
     position: relative;
-    padding: 5%;
-    padding-top: 10%;
-    height: 75vh;
-    background-image: url('../images/header-background.jpg');
-    background-size: cover;
-    background-position: fixed;
+    // padding: 5%;
+    // padding-top: 10%;
+    // height: 75vh;
+    // background-image: url('../images/header-background.jpg');
+    // background-size: cover;
+    // background-position: fixed;
 
     h1 {
       color: $primary-color;
       position: absolute;
-      top: 150px;
-      left: 70px;
+      top: 100px;
+      left:60px;
       z-index: 50;
     }
 
     h3 {
       color: $secondary-color;
       position: absolute;
-      top: 220px;
-      left: 70px;
+      top:170px;
+      left:60px;
       z-index: 50;
     }
   }

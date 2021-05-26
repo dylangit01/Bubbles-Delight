@@ -1,26 +1,20 @@
 body header {
   position: relative;
-  padding: 5%;
-  padding-top: 10%;
-  height: 75vh;
-  background-image: url("../images/header-background.jpg");
-  background-size: cover;
-  background-position: fixed;
 }
 
 body header h1 {
   color: #6f451a;
   position: absolute;
-  top: 150px;
-  left: 70px;
+  top: 100px;
+  left: 60px;
   z-index: 50;
 }
 
 body header h3 {
   color: #a58b70;
   position: absolute;
-  top: 220px;
-  left: 70px;
+  top: 170px;
+  left: 60px;
   z-index: 50;
 }
 
