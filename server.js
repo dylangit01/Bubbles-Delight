@@ -28,7 +28,7 @@ app.use(
     keys: ["key1", "key2"],
   })
 );
-app.set("view engine", "ejs");
+app.set("view engine", "ejs"); // setup ejs engine
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(
@@ -59,7 +59,7 @@ const userParser = (req, res, next) => {
       res.status(500).json({ error: err.message });
     });
 };
-app.use(userParser);
+app.use(userParser); // use middleware
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
