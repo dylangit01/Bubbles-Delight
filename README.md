@@ -4,20 +4,20 @@ Bubbles-Delight is a server-side rendering application allows customers to make 
 
 # Features
 
-**Customized Loading Screen**
+Customized Loading Screen
 !["GIF Loading"]()
 
 ### Customer Features
 
-**Browsing Menu and Adding Bubbleteas to Cart**
+Browsing Menu and Adding Bubbleteas to Cart
 !["GIF Menu Browsing"]()
 
-**Making an Order**
+Making an Order
 !["GIF Ordering"]()
 
 ### Restaurant Features
 
-**Order Status Updates**
+Order Status Updates
 !["GIF Status Updates"]()
 
 # Functional Behavioural
